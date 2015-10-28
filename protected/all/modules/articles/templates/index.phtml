@@ -1,0 +1,20 @@
+<?php
+
+namespace ICanBoogie;
+
+use App\Modules\Articles\Article;
+
+/**
+ * @var $this \ICanBoogie\Facets\RecordCollection
+ * @var $record Article
+ */
+
+foreach ($this as $record)
+{
+	?>
+
+	<h2><a href="<?= escape($record->url) ?>"><?= escape($record->title) ?></a></h2>
+	<div class="article-excerpt"><?= $record->body ?></div>
+
+	<?php
+}

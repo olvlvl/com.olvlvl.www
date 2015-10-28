@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500);
+
+body {
+	font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 30px;
+}
+
+.navbar {
+	border-radius: 0;
+	margin-bottom: 2rem;
+	opacity: .6;
+	transition: opacity 240ms linear;
+}
+
+.navbar:hover {
+	opacity: 1;
+}
+
+.navbar a:not(:hover) {
+	color: inherit;
+}
+
+code, kbd, pre, samp {
+	font-family: Monaco, Consolas, "Courier New", monospace;
+}
+
+pre {
+	font-size: 85%;
+}

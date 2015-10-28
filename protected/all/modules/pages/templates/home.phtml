@@ -1,0 +1,19 @@
+<?php
+
+namespace ICanBoogie;
+
+/**
+ * @var $view \ICanBoogie\View\View
+ * @var $module \App\Modules\Pages\Module
+ * @var $articles \App\Modules\Articles\Article[]
+ */
+
+?>
+
+<h2>Recent articles</h2>
+
+<ul class="list-unstyled">
+<?php foreach ($articles as $article): ?>
+	<li><a href="<?= $article->url ?>"><?= escape($article->title) ?></a></li>
+<?php endforeach; ?>
+</ul>
