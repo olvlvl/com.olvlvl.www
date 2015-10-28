@@ -17,6 +17,7 @@ return [
 				'title' => 'varchar',
 				'slug' => [ 'varchar', 80 ],
 				'body' => 'text',
+				'excerpt' => 'text',
 				'date' => 'date',
 				'hash' => 'varchar'
 

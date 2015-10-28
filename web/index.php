@@ -10,8 +10,4 @@ if (php_sapi_name() === 'cli-server' && is_file(__DIR__ . $_SERVER["REQUEST_URI"
 }
 
 $app = require __DIR__ . '/../bootstrap.php';
-
-//$app->modules->install();
-//$app->modules['articles']->update();
-
 $app();

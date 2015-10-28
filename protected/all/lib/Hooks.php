@@ -5,6 +5,7 @@ namespace App;
 use ICanBoogie\HTTP\Response;
 use ICanBoogie\HTTP\Status;
 use ICanBoogie\Routing\RouteDispatcher;
+use ICanBoogie\View\View;
 
 class Hooks
 {
@@ -41,6 +42,21 @@ class Hooks
 		}
 	}
 
+	static public function on_view_alter(View\AlterEvent $event, View $target)
+	{
+		$target['helpers'] = [
+
+			'render' => function() {
+
+				return call_user_func_array([ self::app(), 'render' ], func_get_args());
+
+			}
+
+		];
+
+		$target['body_css'] = 'page-' . \ICanBoogie\normalize($target->controller->route->id);
+	}
+
 	/*
 	 * Support
 	 */
@@ -55,7 +71,10 @@ class Hooks
 		return self::app()->render($exception, [
 
 			'template' => 'exception',
-			'layout' => 'default'
+			'layout' => 'default',
+			'locals' => [
+				'body_css' => 'page-exception'
+			]
 
 		]);
 	}

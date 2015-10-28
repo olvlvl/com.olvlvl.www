@@ -6,6 +6,7 @@ $hooks = Hooks::class . '::';
 
 return [
 
-	Article::class . '::get_url' => $hooks . 'url'
+	Article::class . '::get_url' => $hooks . 'url',
+	Article::class . '::url' => $hooks . 'url'
 
 ];

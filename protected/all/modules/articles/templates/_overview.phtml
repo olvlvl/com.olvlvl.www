@@ -1,0 +1,25 @@
+<?php
+
+namespace ICanBoogie;
+
+/**
+ * @var $articles \App\Modules\Articles\Article[]
+ */
+
+foreach ($articles as $article): ?>
+
+	<div class="article-overview">
+		<h3><a href="<?= $article->url ?>"><?= escape($article->title) ?></a></h3>
+
+		<p class="article-meta text-muted">
+			<a href="<?= $article->url('index') ?>">
+				<time datetime="<?= $article->date->as_date ?>" class="article-time">
+					<?= $article->date->format('F d, Y') ?>
+				</time>
+			</a>
+		</p>
+
+		<div class="article-excerpt"><?= $article->excerpt ?></div>
+	</div>
+
+<?php endforeach;

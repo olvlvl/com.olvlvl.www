@@ -1,6 +1,9 @@
 <?php
 
+namespace ICanBoogie;
+
 /**
+ * @var $view \ICanBoogie\View\View
  * @var $content string
  * @var $page_title string
  */
@@ -17,7 +20,7 @@ $page_title = &$page_title;
 	<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github-gist.min.css" />
 	<link type="text/css" rel="stylesheet" href="/assets/page.css" />
 </head>
-<body>
+<body class="<?= $body_css ?>">
 	<?php require '_navigation.phtml' ?>
 
 	<div class="container">
@@ -27,7 +30,10 @@ $page_title = &$page_title;
 		<?= $content ?>
 	</div>
 
+	<?php require '_footer.phtml' ?>
+
 	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
 	<script>hljs.initHighlightingOnLoad()</script>
+	<script src="/assets/page.js"></script>
 </body>
 </html>

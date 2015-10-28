@@ -4,6 +4,23 @@ namespace App\Modules\Articles;
 
 /**
  * @var $this Article
+ * @var $continue_reading Article[]
  */
 
-echo $this->body;
+?>
+
+<section class="article-show">
+	<div class="article-meta">
+		<a href="/" class="article-author">Olivier Laviale</a>
+		—
+		<a href="<?= $this->url('index') ?>"><time class="article-time"><?= $this->date->format('F d, Y') ?></time></a>
+	</div>
+
+	<div class="article-body"><?= $this->body ?></div>
+</section>
+
+<section class="article-continue">
+	<h5><span>Continue reading</span></h5>
+
+	<?= $helpers['render']([ 'partial' => 'articles/overview', 'locals' => [ 'articles' => $continue_reading ] ]) ?>
+</section>

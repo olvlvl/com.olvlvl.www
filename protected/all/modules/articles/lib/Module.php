@@ -2,9 +2,15 @@
 
 namespace App\Modules\Articles;
 
+/**
+ * @property-read ArticleModel $model
+ */
 class Module extends \ICanBoogie\Module
 {
-	public function update()
+	/**
+	 * Synchronises articles.
+	 */
+	public function sync()
 	{
 		$di = new \DirectoryIterator(\App\ROOT . '_articles');
 		$importer = new ArticleImporter($this->model);

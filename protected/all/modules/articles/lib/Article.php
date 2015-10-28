@@ -19,15 +19,26 @@ class Article extends ActiveRecord
 	public $title;
 	public $slug;
 	public $body;
+	public $excerpt;
 	public $hash;
 
 	use ActiveRecord\DateProperty;
 
+	/**
+	 * Returns a four digits year.
+	 *
+	 * @return int
+	 */
 	protected function get_year()
 	{
 		return $this->get_date()->year;
 	}
 
+	/**
+	 * Returns a two digits month.
+	 *
+	 * @return string
+	 */
 	protected function get_month()
 	{
 		return $this->get_date()->format('m');

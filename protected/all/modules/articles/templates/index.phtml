@@ -4,17 +4,12 @@ namespace ICanBoogie;
 
 use App\Modules\Articles\Article;
 
-/**
- * @var $this \ICanBoogie\Facets\RecordCollection
- * @var $record Article
- */
+/* @var $records Article[] */
 
-foreach ($this as $record)
-{
-	?>
+foreach ($this as $date => $articles): ?>
 
-	<h2><a href="<?= escape($record->url) ?>"><?= escape($record->title) ?></a></h2>
-	<div class="article-excerpt"><?= $record->body ?></div>
+	<h2 id="on-<?= $date ?>" class="text-muted"><?= DateTime::from($date)->format("Y, F") ?></h2>
 
-	<?php
-}
+	<?= $helpers['render']([ 'partial' => 'articles/overview', 'locals' => [ 'articles' => $articles ] ]) ?>
+
+<?php endforeach;

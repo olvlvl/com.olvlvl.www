@@ -53,6 +53,7 @@ class ArticleImporter
 
 		$article->title = $title;
 		$article->body = $body;
+		$article->excerpt = \ICanBoogie\excerpt($body);
 		$article->hash = $hash;
 		$article->save();
 	}

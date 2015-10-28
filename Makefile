@@ -16,4 +16,5 @@ optimize: vendor
 
 server:
 	@cd web && \
-	ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) php -S localhost:$(SERVER_PORT) index.php
+	ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) \
+	php -S localhost:$(SERVER_PORT) index.php
