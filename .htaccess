@@ -1,0 +1,28 @@
+<IfModule mod_mime.c>
+	AddType application/javascript .js
+	AddType application/font-woff .woff
+	AddType text/css .css
+	AddType text/xml .xml
+	AddType video/mp4 .mp4
+	AddType video/webm .webm
+</IfModule>
+
+#
+# Options
+#
+
+Options +FollowSymLinks
+Options -Indexes
+
+#
+# Rewriting
+#
+
+RewriteEngine On
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# otherwise forward it to index.php
+RewriteRule . web/index.php [L]

@@ -15,7 +15,6 @@ use ICanBoogie\Core;
 use ICanBoogie\Binding\Routing\CoreBindings as RoutingBindings;
 use ICanBoogie\Binding\ActiveRecord\CoreBindings as ActiveRecordBindings;
 use ICanBoogie\Module\CoreBindings as ModuleBindings;
-use ICanBoogie\Binding\CLDR\CoreBindings as CLDRBindings;
 use ICanBoogie\Binding\Render\CoreBindings as RenderBindings;
 
 /**
@@ -23,8 +22,5 @@ use ICanBoogie\Binding\Render\CoreBindings as RenderBindings;
  */
 class Application extends Core
 {
-	use ActiveRecordBindings, CLDRBindings, ModuleBindings, RoutingBindings, RenderBindings
-	{
-		ModuleBindings::lazy_get_models insteadof ActiveRecordBindings;
-	}
+	use ActiveRecordBindings, ModuleBindings, RoutingBindings, RenderBindings;
 }

@@ -22,6 +22,11 @@ class ArticleImporter
 		$this->markdown = new \Parsedown();
 	}
 
+	/**
+	 * @param \SplFileInfo $file
+	 *
+	 * @return Article
+	 */
 	public function __invoke(\SplFileInfo $file)
 	{
 		$filename = $file->getFilename();
@@ -36,7 +41,7 @@ class ArticleImporter
 		{
 			if ($article->hash === $hash)
 			{
-				return;
+				return $article;
 			}
 		}
 		else
@@ -56,6 +61,8 @@ class ArticleImporter
 		$article->excerpt = \ICanBoogie\excerpt($body);
 		$article->hash = $hash;
 		$article->save();
+
+		return $article;
 	}
 
 	private function markdown(\SplFileInfo $file)

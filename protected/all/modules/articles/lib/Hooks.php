@@ -3,6 +3,7 @@
 namespace App\Modules\Articles;
 
 use ICanBoogie\Core;
+use ICanBoogie\Routing\Controller;
 
 class Hooks
 {
@@ -11,10 +12,10 @@ class Hooks
 	 */
 
 	/**
-	 * @param Core\RunEvent $event
-	 * @param Core|\App\Application $app
+	 * @param Controller\BeforeActionEvent $event
+	 * @param ArticlesController $controller
 	 */
-	static public function on_core_run(Core\RunEvent $event, Core $app)
+	static public function before_controller_action(Controller\BeforeActionEvent $event, ArticlesController $controller)
 	{
 		$exists = file_exists(\App\DATABASE);
 
@@ -25,12 +26,10 @@ class Hooks
 
 		if (!$exists)
 		{
-			$app->modules->install();
+			$controller->app->modules->install();
 		}
 
-		/* @var $module Module */
-
-		$module = $app->modules['articles'];
+		$module = $controller->module;
 		$module->sync();
 	}
 

@@ -28,7 +28,8 @@
 			"App\\": "protected/all/lib",
 			"App\\Modules\\Articles\\": "protected/all/modules/articles/lib",
 			"App\\Modules\\Pages\\": "protected/all/modules/pages/lib"
-		}
+		},
+		"files": [ "config.php" ]
 	},
 	"scripts": {
 		"post-autoload-dump": "ICanBoogie\\Autoconfig\\Hooks::on_autoload_dump"
