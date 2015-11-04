@@ -37,7 +37,7 @@ h3 a:not(:hover) {
 	color: inherit;
 }
 
-.article-body a[href^="http"]::after {
+a[href^="http"]::after {
 	content: "\21AA";
 	transform: rotate(-45deg);
 	display: inline-block;
