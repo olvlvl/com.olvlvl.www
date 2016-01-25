@@ -17,10 +17,8 @@
 		"php": ">=5.5",
 		"icanboogie/icanboogie": "^3.0",
 		"icanboogie/module": "^3.0",
-		"icanboogie/bind-activerecord": "^1.0",
-		"icanboogie/bind-facets": "^1.0",
-		"icanboogie/bind-render": "^1.0",
-		"icanboogie/bind-view": "^1.0",
+		"icanboogie/bind-activerecord": "^3.0",
+		"icanboogie/bind-view": "^0.8",
 		"erusev/parsedown": "^1.6"
 	},
 	"autoload": {

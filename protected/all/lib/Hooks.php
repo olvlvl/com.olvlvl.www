@@ -18,7 +18,7 @@ class Hooks
 			return;
 		}
 
-		$response->body .= self::render_stats();
+		$response->body = self::render_stats() . $response->body;
 	}
 
 	static public function on_exception_rescue(\ICanBoogie\Exception\RescueEvent $event, \Exception $target)

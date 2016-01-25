@@ -62,6 +62,16 @@ a[href^="http"]::after {
 	padding: 0 1ex;
 }
 
+.article-continue .article-overview,
+.article-continue h5{
+	transition: opacity 480ms linear;
+}
+
+.article-continue .article-overview:not(:hover),
+.article-continue:not(:hover) h5 {
+	opacity: .5;
+}
+
 .navbar {
 	border-radius: 0;
 	opacity: .6;

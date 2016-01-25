@@ -14,6 +14,9 @@ optimize: vendor
 	@composer dump-autoload -o
 	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie
 
+clean:
+	@rm -Rf vendor
+
 server:
 	@cd web && \
 	ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) \

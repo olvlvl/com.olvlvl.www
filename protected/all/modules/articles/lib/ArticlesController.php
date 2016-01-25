@@ -4,8 +4,6 @@ namespace App\Modules\Articles;
 
 use App\Controller;
 use ICanBoogie\HTTP\NotFound;
-use ICanBoogie\HTTP\Response;
-use ICanBoogie\HTTP\Status;
 use ICanBoogie\Routing\Controller\ActionTrait;
 
 /**
@@ -37,18 +35,6 @@ class ArticlesController extends Controller
 		$this->view->content = $record;
 		$this->view['page_title'] = $record->title;
 		$this->view['continue_reading'] = $this->resolve_continue_reading($record);
-	}
-
-	/**
-	 * Synchronize articles.
-	 *
-	 * @return Response
-	 */
-	protected function action_sync()
-	{
-		$this->module->sync();
-
-		return new Response(null, Status::NO_CONTENT);
 	}
 
 	/**

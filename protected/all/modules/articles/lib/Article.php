@@ -43,4 +43,20 @@ class Article extends ActiveRecord
 	{
 		return $this->get_date()->format('m');
 	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function create_validation_rules()
+	{
+		return [
+
+			'title' => 'required',
+			'slug' => 'required',
+			'body' => 'required',
+			'excerpt' => 'required',
+			'hash' => 'required',
+
+		];
+	}
 }

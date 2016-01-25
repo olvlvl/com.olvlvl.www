@@ -1,9 +1,12 @@
 # Use constants as array keys
 
-The problem in using strings as array keys is there is no difference between the key used to define
-the identifier of a route and that of a record. It can become quite troublesome when you need to
-search for common keys such as `id`, `name`, or `title`, for instance when you need to rename `'id'`
-to `'article_id'`, only for article records of course.
+When strings are used as array keys there is no difference between the key used to define the
+identifier of a route and that of a record. It may become quite troublesome when you need to search
+for common keys such as `id`, `name`, or `title`; for instance when you need to rename records
+`'id'` as `'article_id'`. Also, using strings as array keys may introduce errors such as
+misspelling and use of deprecated/extraneous keys.
+
+The following code is an example of strings used as array keys:
 
 ```php
 <?php
@@ -11,9 +14,6 @@ to `'article_id'`, only for article records of course.
 $route = [ 'id' => 'articles:edit', … ];
 $record = Record::from([ 'id' => 123 ]);
 ```
-
-Another issue in using strings as array keys is that nothing prevents you from using misspelled,
-deprecated, or extraneous keys.
 
 For all these reasons I recommend to use constants such as `ROUTE_ID` and `ARTICLE_ID`. Your lovely
 IDE will help you avoid misspells, and will even warn you when a constant is marked as deprecated.
@@ -58,3 +58,13 @@ $definition = [
 
 That's a little more work, but I'm confident that these keys exists and now it would be child's play
 to search for route definition identifiers.
+
+
+
+
+
+
+## tl;dr
+
+Define constants to use as array keys, and group them in classes/interfaces relevant to their
+purpose.

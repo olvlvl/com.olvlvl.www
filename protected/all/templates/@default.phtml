@@ -6,12 +6,13 @@ namespace ICanBoogie;
  * @var $view \ICanBoogie\View\View
  * @var $content string
  * @var $page_title string
+ * @var $body_css string
  */
 
 $page_title = &$page_title;
 
 ?><!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<title><?= $page_title ? $page_title . ' – ' : '' ?>olvlvl</title>
@@ -35,5 +36,7 @@ $page_title = &$page_title;
 	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
 	<script>hljs.initHighlightingOnLoad()</script>
 	<script src="/assets/page.js"></script>
+
+	<?php require '_analytics.phtml' ?>
 </body>
 </html>
