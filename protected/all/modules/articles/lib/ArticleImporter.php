@@ -6,6 +6,10 @@ use ICanBoogie\DateTime;
 
 class ArticleImporter
 {
+	const BODY_SEPARATOR = "<!-- body -->";
+
+	static private $allowed_tags = [ 'a', 'p', 'code', 'del', 'em', 'ins', 'strong' ];
+
 	/**
 	 * Returns the hash of an article file.
 	 *
@@ -73,7 +77,8 @@ class ArticleImporter
 
 		list($title, $body) = $this->markdown($file);
 
-		$excerpt = \ICanBoogie\excerpt($body);
+		$excerpt = $this->excerpt($body);
+		$body = str_replace(self::BODY_SEPARATOR, '', $body);
 
 		$article->assign(compact('title', 'body', 'excerpt', 'hash'))->save();
 
@@ -102,5 +107,28 @@ class ArticleImporter
 		}
 
 		return [ $title, trim($body) ];
+	}
+
+	/**
+	 * Creates an excerpt of a body of text.
+	 *
+	 * @param string $body
+	 *
+	 * @return string
+	 */
+	private function excerpt($body)
+	{
+		$separator_position = strpos($body, self::BODY_SEPARATOR);
+
+		if ($separator_position === false)
+		{
+			return \ICanBoogie\excerpt($body);
+		}
+
+		$excerpt = substr($body, 0, $separator_position);
+		$excerpt = strip_tags(trim($excerpt), '<' . implode('><', self::$allowed_tags) . '>');
+		$excerpt = preg_replace('/\.?\<\/p\>$/m', ' <span class="excerpt-warp">[…]</span></p>', $excerpt);
+
+		return $excerpt;
 	}
 }
