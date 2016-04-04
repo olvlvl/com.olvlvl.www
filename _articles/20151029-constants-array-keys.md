@@ -15,11 +15,11 @@ $route = [ 'id' => 'articles:edit', … ];
 $record = Record::from([ 'id' => 123 ]);
 ```
 
-For all these reasons I recommend to use constants such as `ROUTE_ID` and `ARTICLE_ID`. Your lovely
-IDE will help you avoid misspells, and will even warn you when a constant is marked as deprecated.
-But instead of defining constants in some namespace, I prefer to define them in classes or
-interfaces with a clear purpose. For instance, I'd use constants such as `RouteDefinition::ID` and
-`Article::ID`.
+For all these reasons I recommend the use of constants such as `ROUTE_ID` and `ARTICLE_ID`. Your
+lovely IDE will help you avoid misspells, and will even warn you when a constant is marked as
+deprecated. But instead of defining constants in some namespace, I prefer to define them in classes
+or interfaces with a clear purpose. For instance, I'd use constants such as `RouteDefinition::ID`
+and `Article::ID`.
 
 Consider the following route definition, using strings to define keys and some special values.
 
