@@ -106,6 +106,8 @@ class ArticleImporter
 			throw new \LogicException("Unable to locate article title.");
 		}
 
+		$body = str_replace('<table>', '<table class="table table-bordered">', $body);
+
 		return [ $title, trim($body) ];
 	}
 
