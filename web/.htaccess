@@ -25,4 +25,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 # otherwise forward it to index.php
-RewriteRule . web/index.php [L]
+RewriteRule . index.php [L]
