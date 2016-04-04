@@ -31,7 +31,7 @@ class ArticlesController extends Controller
 		}
 
 		$this->response->cache_control = 'public';
-		$this->response->expires = '+3 month';
+		$this->response->expires = '+3 hour';
 		$this->view->content = $record;
 		$this->view['page_title'] = $record->title;
 		$this->view['continue_reading'] = $this->resolve_continue_reading($record);
