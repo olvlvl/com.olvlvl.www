@@ -1,4 +1,4 @@
 app.engine=php
-app.engine.version=5.6
+app.engine.version=7.0
 http.firewall=none
 environment=production
