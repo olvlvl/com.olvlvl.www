@@ -19,8 +19,12 @@ namespace App\Modules\Articles;
 	<div class="article-body"><?= $this->body ?></div>
 </section>
 
+<section class="article-comments">
+	<?= $helpers['render']([ 'partial' => 'disqus', 'locals' => [ 'article' => $this ] ]) ?>
+</section>
+
 <section class="article-continue">
-	<h5><span>Continue reading</span></h5>
+	<h5 class="separator"><span>Continue reading</span></h5>
 
 	<?= $helpers['render']([ 'partial' => 'articles/overview', 'locals' => [ 'articles' => $continue_reading ] ]) ?>
 </section>

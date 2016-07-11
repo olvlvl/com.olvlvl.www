@@ -44,11 +44,12 @@ a[href^="http"]::after {
 	opacity: .5;
 }
 
+.article-comments,
 .article-continue {
 	margin-top: 3rem;
 }
 
-.article-continue h5 {
+h5.separator {
 	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAKCAYAAAB8OZQwAAAAF0lEQVQImWNgQANnzpz5T3UBbIBWFgEA4qYh36ioLI4AAAAASUVORK5CYII=) center repeat-x;
 	text-align: center;
 	font-size: 1rem;
@@ -57,13 +58,13 @@ a[href^="http"]::after {
 	margin: 0;
 }
 
-.article-continue h5 span {
+h5.separator span {
 	background-color: white;
 	padding: 0 1ex;
 }
 
 .article-continue .article-overview,
-.article-continue h5{
+.article-continue h5 {
 	transition: opacity 480ms linear;
 }
 
