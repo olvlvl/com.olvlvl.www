@@ -12,7 +12,12 @@ autoload: vendor
 
 optimize: vendor
 	@composer dump-autoload -o
-	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie
+	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie optimize
+
+unoptimize:
+	@composer dump-autoload
+	@rm -f vendor/icanboogie-combined.php
+	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie clear cache
 
 clean:
 	@rm -Rf vendor
