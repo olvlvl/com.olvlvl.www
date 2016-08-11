@@ -14,7 +14,7 @@
 	],
 	"minimum-stability": "dev",
 	"require": {
-		"php": ">=5.5",
+		"php": ">=5.6",
 		"icanboogie/icanboogie": "^3.0",
 		"icanboogie/module": "^3.0",
 		"icanboogie/bind-activerecord": "^3.0",

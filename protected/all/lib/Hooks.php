@@ -46,9 +46,16 @@ class Hooks
 	{
 		$target['helpers'] = [
 
-			'render' => function() {
+			'render' => function(...$args) {
 
-				return call_user_func_array([ self::app(), 'render' ], func_get_args());
+				static $app;
+
+				if (!$app)
+				{
+					$app = self::app();
+				}
+
+				return $app->render(...$args);
 
 			}
 
