@@ -19,6 +19,13 @@ class ArticlesController extends Controller
 		$this->view['page_title'] = "Olivier Laviale, software architect";
 	}
 
+	/**
+	 * @param int $year
+	 * @param int $month
+	 * @param string $slug
+	 *
+	 * @throws NotFound
+	 */
 	protected function action_show($year, $month, $slug)
 	{
 		$record = $this->model
@@ -56,6 +63,11 @@ class ArticlesController extends Controller
 		return $groups;
 	}
 
+	/**
+	 * @param Article $record
+	 *
+	 * @return \ICanBoogie\ActiveRecord\Query
+	 */
 	private function resolve_continue_reading(Article $record)
 	{
 		return $this->model->where('{primary} != ?', $record->article_id)->order('RANDOM()')->limit(5);
