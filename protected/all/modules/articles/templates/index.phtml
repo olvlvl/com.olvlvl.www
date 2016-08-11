@@ -4,12 +4,13 @@ namespace ICanBoogie;
 
 use App\Modules\Articles\Article;
 
-/* @var $records Article[] */
+/**
+ * @var $helpers callable[]
+ * @var $records Article[]
+ */
 
-foreach ($this as $date => $articles): ?>
+foreach ($this as $article): ?>
 
-	<h2 id="on-<?= $date ?>" class="text-muted"><?= DateTime::from($date)->format("Y, F") ?></h2>
-
-	<?= $helpers['render']([ 'partial' => 'articles/overview', 'locals' => [ 'articles' => $articles ] ]) ?>
+	<?= $helpers['render']([ 'partial' => 'articles/overview', 'locals' => [ 'article' => $article ] ]) ?>
 
 <?php endforeach;

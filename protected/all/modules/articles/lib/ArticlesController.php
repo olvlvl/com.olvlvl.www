@@ -15,7 +15,7 @@ class ArticlesController extends Controller
 
 	protected function action_index()
 	{
-		$this->view->content = $this->group_by_month($this->model->order('date DESC')->all);
+		$this->view->content = $this->model->order('date DESC')->all;
 		$this->view['page_title'] = "Olivier Laviale, software architect";
 	}
 
@@ -42,25 +42,6 @@ class ArticlesController extends Controller
 		$this->view->content = $record;
 		$this->view['page_title'] = $record->title;
 		$this->view['continue_reading'] = $this->resolve_continue_reading($record);
-	}
-
-	/**
-	 * @param Article[] $records
-	 *
-	 * @return array
-	 */
-	private function group_by_month(array $records)
-	{
-		$groups = [];
-
-		foreach ($records as $record)
-		{
-			$key = "{$record->year}-{$record->month}";
-
-			$groups[$key][] = $record;
-		}
-
-		return $groups;
 	}
 
 	/**
