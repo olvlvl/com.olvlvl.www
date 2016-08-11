@@ -12,21 +12,7 @@ class Module extends \ICanBoogie\Module
 	 */
 	public function sync()
 	{
-		$di = new \DirectoryIterator(\App\ROOT . '_articles');
-		$importer = new ArticleImporter($this->model);
-		$ids = [];
-
-		foreach ($di as $file)
-		{
-			if (!$file->isFile())
-			{
-				continue;
-			}
-
-			$article = $importer($file);
-			$ids[] = $article->article_id;
-		}
-
-		$this->model->where([ '!article_id' => $ids ])->delete();
+		$synchronizer = new ArticlesSynchronizer($this->model);
+		$synchronizer(\App\ROOT . '_articles');
 	}
 }
