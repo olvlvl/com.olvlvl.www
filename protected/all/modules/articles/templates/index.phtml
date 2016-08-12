@@ -1,16 +1,12 @@
 <?php
 
-namespace ICanBoogie;
-
-use App\Modules\Articles\Article;
-
 /**
- * @var $helpers callable[]
- * @var $records Article[]
+ * @var $records \App\Modules\Articles\Article[]
+ * @var $view \ICanBoogie\View\View
  */
 
 foreach ($this as $article): ?>
 
-	<?= $helpers['render']([ 'partial' => 'articles/overview', 'locals' => [ 'article' => $article ] ]) ?>
+	<?= $view->partial('articles/overview', [ 'article' => $article ]) ?>
 
 <?php endforeach;

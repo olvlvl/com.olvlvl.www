@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9872bbc700382ed820bca2266daad84f",
-    "content-hash": "6b0425c9975650bcf543f98c573fe3d7",
+    "hash": "acb2c5bc62a01bb8f7580f45c11d35e6",
+    "content-hash": "86c1f80a2d5b19be397c1c9c47e2d7ba",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -1338,12 +1338,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/View.git",
-                "reference": "0f046030ac8c62ddc31965956c28c27a47e2f38b"
+                "reference": "4e17de4e59c3417bb4eedb0ba913b6bc19488079"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/View/zipball/0f046030ac8c62ddc31965956c28c27a47e2f38b",
-                "reference": "0f046030ac8c62ddc31965956c28c27a47e2f38b",
+                "url": "https://api.github.com/repos/ICanBoogie/View/zipball/4e17de4e59c3417bb4eedb0ba913b6bc19488079",
+                "reference": "4e17de4e59c3417bb4eedb0ba913b6bc19488079",
                 "shasum": ""
             },
             "require": {
@@ -1379,7 +1379,7 @@
                 "template",
                 "view"
             ],
-            "time": "2016-01-15 16:14:25"
+            "time": "2016-08-12 00:26:49"
         },
         {
             "name": "psr/log",
@@ -1436,7 +1436,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5"
+        "php": ">=5.6"
     },
     "platform-dev": []
 }

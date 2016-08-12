@@ -44,23 +44,6 @@ class Hooks
 
 	static public function on_view_alter(View\AlterEvent $event, View $target)
 	{
-		$target['helpers'] = [
-
-			'render' => function(...$args) {
-
-				static $app;
-
-				if (!$app)
-				{
-					$app = self::app();
-				}
-
-				return $app->render(...$args);
-
-			}
-
-		];
-
 		$target['body_css'] = 'page-' . \ICanBoogie\normalize($target->controller->route->id);
 	}
 

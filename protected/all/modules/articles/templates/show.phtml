@@ -5,6 +5,7 @@ namespace App\Modules\Articles;
 /**
  * @var $this Article
  * @var $continue_reading Article[]
+ * @var $view \ICanBoogie\View\View
  */
 
 ?>
@@ -20,11 +21,18 @@ namespace App\Modules\Articles;
 </section>
 
 <section class="article-comments">
-	<?= $helpers['render']([ 'partial' => 'disqus', 'locals' => [ 'article' => $this ] ]) ?>
+	<?= $view->partial('disqus', [ 'article' => $this ]) ?>
 </section>
 
 <section class="article-continue">
 	<h5 class="separator"><span>Continue reading</span></h5>
 
-	<?= $helpers['render']([ 'partial' => 'articles/overview', 'locals' => [ 'articles' => $continue_reading ] ]) ?>
+	<?php
+
+	foreach ($continue_reading as $article)
+	{
+		echo $view->partial('articles/overview', [ 'article' => $article ]);
+	}
+
+	?>
 </section>
