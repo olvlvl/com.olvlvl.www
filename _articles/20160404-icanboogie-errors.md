@@ -98,8 +98,8 @@ displays the error, in which context.
 ## Conclusion
 
 Error instances should be the simplest possible, using very generic and unspecific messages, so that
-they could be easily consumed and manipulated, because when you create one you have no idea how it
-will be displayed to the user, in which language, in which context.
+they could be easily consumed and manipulated, because when you create one, you have no idea how it
+will be displayed to the user, in what language, in what context.
 
 **tl;dr**: simple error messages + formatting arguments = ♥.
 
