@@ -1338,12 +1338,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/View.git",
-                "reference": "4e17de4e59c3417bb4eedb0ba913b6bc19488079"
+                "reference": "99180ec53c48e9963c0bbc9a73e0914eba9a4467"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/View/zipball/4e17de4e59c3417bb4eedb0ba913b6bc19488079",
-                "reference": "4e17de4e59c3417bb4eedb0ba913b6bc19488079",
+                "url": "https://api.github.com/repos/ICanBoogie/View/zipball/99180ec53c48e9963c0bbc9a73e0914eba9a4467",
+                "reference": "99180ec53c48e9963c0bbc9a73e0914eba9a4467",
                 "shasum": ""
             },
             "require": {
@@ -1379,7 +1379,7 @@
                 "template",
                 "view"
             ],
-            "time": "2016-08-12 00:26:49"
+            "time": "2016-08-12 01:04:04"
         },
         {
             "name": "psr/log",
