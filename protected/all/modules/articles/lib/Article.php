@@ -22,7 +22,7 @@ class Article extends ActiveRecord
 	public $excerpt;
 	public $hash;
 
-	use ActiveRecord\DateProperty;
+	use ActiveRecord\Property\DateProperty;
 
 	/**
 	 * Returns a four digits year.
