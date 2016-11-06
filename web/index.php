@@ -1,16 +1,23 @@
 <?php
 
-namespace App;
+namespace ICanBoogie;
 
-/* @var $app Application */
-
-if (php_sapi_name() === 'cli-server' && is_file(__DIR__ . $_SERVER["REQUEST_URI"]))
+if (php_sapi_name() === 'cli-server')
 {
-	return false;
+	$uri = urldecode(
+		parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
+	);
+
+	if ($uri !== '/' && file_exists(__DIR__ . $uri))
+	{
+		return false;
+	}
+
+	unset($uri);
 }
 
-//$log = json_encode([ $_SERVER['REQUEST_TIME_FLOAT'], $_SERVER['REMOTE_ADDR'], $_SERVER['REQUEST_URI']]);
-//file_put_contents(__DIR__ . '/../access.log', $log . PHP_EOL, FILE_APPEND);
+(function(Core $app) {
 
-$app = require __DIR__ . '/../bootstrap.php';
-$app();
+	$app();
+
+}) (require __DIR__ . '/../bootstrap.php');
