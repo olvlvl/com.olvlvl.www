@@ -31,7 +31,7 @@ use ICanBoogie\I18n\FormattedMessage;
 
 $errors = new Errors;
 $errors[] = new FormattedMessage("Generic error");
-$errors['name'] = new FormattedMessage("Parameter `:param` is required, [ 'param' => 'name' ]);
+$errors['name'] = new FormattedMessage("Parameter `:param` is required", [ 'param' => 'name' ]);
 ```
 
 Then I tried to make it easier by introducing the `add()` method, creating instances under the hood:
@@ -43,7 +43,7 @@ use ICanBoogie\Errors;
 
 $errors = new Errors;
 $errors->add(null, "Generic error");
-$errors->add('name', "Parameter `:param` is required, [ 'param' => 'name' ]);
+$errors->add('name', "Parameter `:param` is required", [ 'param' => 'name' ]);
 ```
 
 Developing [ICanBoogie/Validate][] made me realize this was all a big mistake. I was storing data
@@ -53,7 +53,7 @@ far too complex, which made manipulating and displaying it not that easy in the 
 
 
 
-## Make it simpler and give me a kiss
+## Making things simpler
 
 [ICanBoogie/Validate][]'s error messages are super simple, and if you echo a collection of errors
 about required attributes you might be surprised to read something like this:
@@ -64,7 +64,7 @@ is required
 is required
 ```
 
-That's because these errors are ment to be formatted, and, most important, they are ment to be
+That's because these errors are ment to be formatted, and, most important, they are meant to be
 translated.
 
 You see, an error is not a string, it's actually an instance with `format` and `args` properties. It
