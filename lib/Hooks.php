@@ -7,6 +7,8 @@ use ICanBoogie\HTTP\Status;
 use ICanBoogie\Routing\RouteDispatcher;
 use ICanBoogie\View\View;
 
+use function ICanBoogie\app;
+
 class Hooks
 {
 	static public function on_routing_dispatcher_dispatch(RouteDispatcher\DispatchEvent $event, RouteDispatcher $target)
@@ -58,7 +60,7 @@ class Hooks
 	 */
 	static public function render_exception(\Exception $exception)
 	{
-		return self::app()->render($exception, [
+		return app()->render($exception, [
 
 			'template' => 'exception',
 			'layout' => 'default',
@@ -75,13 +77,5 @@ class Hooks
 		$total_time = round((microtime(true) - $_SERVER['REQUEST_TIME_FLOAT']) * 1000, 3);
 
 		return "<!-- booted in: $boot_time ms, completed in $total_time ms -->";
-	}
-
-	/**
-	 * @return Application
-	 */
-	static private function app()
-	{
-		return \ICanBoogie\app();
 	}
 }

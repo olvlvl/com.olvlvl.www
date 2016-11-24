@@ -18,15 +18,19 @@
 		"icanboogie/icanboogie": "^4.0",
 		"icanboogie/module": "^4.0",
 		"icanboogie/bind-activerecord": "^4.0",
+		"icanboogie/bind-facets": "^0.7",
 		"icanboogie/bind-view": "^0.9",
 		"erusev/parsedown": "^1.6"
 	},
 	"autoload": {
 		"psr-4": {
-			"App\\": "protected/all/lib",
+			"App\\": "lib",
 			"App\\Modules\\Articles\\": "protected/all/modules/articles/lib",
 			"App\\Modules\\Pages\\": "protected/all/modules/pages/lib"
 		},
+		"classmap": [
+			"protected/Application.php"
+		],
 		"files": [ "config.php" ]
 	},
 	"scripts": {
