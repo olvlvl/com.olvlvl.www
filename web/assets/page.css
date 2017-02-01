@@ -38,11 +38,25 @@ h3 a:not(:hover) {
 	text-decoration: none;
 }
 
+a[href^="http"] {
+	white-space: nowrap;
+}
+
 a[href^="http"]::after {
 	content: "\21AA";
 	transform: rotate(-45deg);
 	display: inline-block;
 	opacity: .5;
+}
+
+.article-body {
+	max-width: 100ex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.article-body p {
+	text-align: justify;
 }
 
 .article-comments,
