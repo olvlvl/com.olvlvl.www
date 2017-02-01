@@ -1,28 +1,18 @@
-<IfModule mod_mime.c>
-	AddType application/javascript .js
-	AddType application/font-woff .woff
-	AddType text/css .css
-	AddType text/xml .xml
-	AddType video/mp4 .mp4
-	AddType video/webm .webm
+<IfModule mod_rewrite.c>
+	<IfModule mod_negotiation.c>
+		Options -MultiViews
+	</IfModule>
+
+	RewriteEngine On
+
+	RewriteCond %{SERVER_PORT} 80
+	RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R,L]
+
+	# Redirect Trailing Slashes...
+	RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+	# Handle Front Controller...
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^ index.php [L]
 </IfModule>
-
-#
-# Options
-#
-
-Options +FollowSymLinks
-Options -Indexes
-
-#
-# Rewriting
-#
-
-RewriteEngine On
-
-# if a directory or a file exists, use it directly
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-
-# otherwise forward it to index.php
-RewriteRule . index.php [L]

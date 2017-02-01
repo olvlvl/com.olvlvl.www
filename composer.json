@@ -25,13 +25,12 @@
 	"autoload": {
 		"psr-4": {
 			"App\\": "lib",
-			"App\\Modules\\Articles\\": "protected/all/modules/articles/lib",
-			"App\\Modules\\Pages\\": "protected/all/modules/pages/lib"
+			"App\\Modules\\Articles\\": "app/all/modules/articles/lib",
+			"App\\Modules\\Pages\\": "app/all/modules/pages/lib"
 		},
 		"classmap": [
-			"protected/Application.php"
-		],
-		"files": [ "config.php" ]
+			"app/Application.php"
+		]
 	},
 	"scripts": {
 		"post-autoload-dump": "ICanBoogie\\Autoconfig\\Hooks::on_autoload_dump"
