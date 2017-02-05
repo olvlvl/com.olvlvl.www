@@ -26,6 +26,8 @@ class ArticleController extends ControllerAbstract
 
 	protected function action_index()
 	{
+		$this->response->cache_control = 'public';
+		$this->response->expires = '+3 hour';
 		$this->view->content = $this->model->order('date DESC')->all;
 		$this->view['page_title'] = "Olivier Laviale, software architect";
 	}
@@ -61,10 +63,10 @@ class ArticleController extends ControllerAbstract
 		/* @var Article $first_article */
 		$first_article = reset($articles);
 
+		$this->response->content_type = 'application/atom+xml';
 		$this->view->content = $articles;
 		$this->view->layout = 'feed';
 		$this->view['updated'] = $first_article->date;
-		$this->response->content_type = 'application/atom+xml';
 	}
 
 	/**
