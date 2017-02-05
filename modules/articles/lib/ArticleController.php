@@ -8,10 +8,13 @@ use ICanBoogie\Routing\Controller\ActionTrait;
 
 /**
  * @property Module $module
+ * @property ArticleModel $model
  */
 class ArticleController extends ControllerAbstract
 {
 	use ActionTrait;
+
+	const ACTION_FEED = 'feed';
 
 	/**
 	 * @inheritdoc
@@ -50,6 +53,18 @@ class ArticleController extends ControllerAbstract
 		$this->view->content = $record;
 		$this->view['page_title'] = $record->title;
 		$this->view['continue_reading'] = $this->resolve_continue_reading($record);
+	}
+
+	protected function action_feed()
+	{
+		$articles = $this->model->limit(20)->order('date DESC')->all;
+		/* @var Article $first_article */
+		$first_article = reset($articles);
+
+		$this->view->content = $articles;
+		$this->view->layout = 'feed';
+		$this->view['updated'] = $first_article->date;
+		$this->response->content_type = 'application/atom+xml';
 	}
 
 	/**

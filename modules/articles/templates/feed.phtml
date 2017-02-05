@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Modules\Articles;
+
+use function ICanBoogie\escape;
+
+/**
+ * @var \ICanBoogie\Facets\RecordCollection $this
+ * @var Article $record
+ */
+
+?>
+<?php foreach ($this as $record): ?>
+<entry>
+	<title><?= escape($record->title) ?></title>
+	<link href="<?= $_SERVER['HTTP_HOST'] . escape($record->url) ?>" />
+	<id>urn:<?= sha1("article:{$record->article_id}") ?></id>
+	<updated><?= $record->date ?></updated>
+	<summary><?= strip_tags($record->excerpt) ?></summary>
+	<content type="xhtml">
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<?= $record->body ?>
+		</div>
+	</content>
+	<author>
+		<name>Olivier Laviale</name>
+		<email>olivier.laviale@gmail.com</email>
+	</author>
+</entry>
+<?php endforeach; ?>

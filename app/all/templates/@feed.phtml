@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @var string $content
+ * @var DateTime $updated
+ */
+
+echo '<?xml version="1.0" encoding="utf-8"?>';
+
+?>
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>olvlvl.com</title>
+	<subtitle> Olivier Laviale, on building software for internet</subtitle>
+	<link href="https://olvlvl.com/feed/" rel="self" />
+	<link href="https://olvlvl.com/" />
+	<id>urn:<?= sha1('olvlvl.com') ?></id>
+	<updated><?= $updated ?></updated>
+
+	<?= $content ?>
+
+</feed>

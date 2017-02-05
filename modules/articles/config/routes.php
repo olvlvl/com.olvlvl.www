@@ -11,7 +11,8 @@ return Make::resource('articles', ArticleController::class, [
 	Make::OPTION_ACTIONS => [
 
 		Make::ACTION_INDEX => [ '/', Request::METHOD_GET ],
-		Make::ACTION_SHOW => [ '/<year:\d{4}>-<month:\d{2}>-:slug', Request::METHOD_GET ]
+		Make::ACTION_SHOW => [ '/<year:\d{4}>-<month:\d{2}>-:slug', Request::METHOD_GET ],
+		ArticleController::ACTION_FEED => [ '/feed', Request::METHOD_GET ]
 
 	]
 
