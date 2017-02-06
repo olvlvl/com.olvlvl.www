@@ -4,7 +4,7 @@ refactoring bits here and there, making sure it sparkles.
 
 Olivier is a veteran software craftman, with more than 25 years of experience in software design,
 development, and architecture. Self thought, he started programming at 14, copying lines after lines
-of BASIC on his cousin's 6128. At age 16 he bought an Amiga 1200, that changed his life forever. He
+of BASIC on his cousin's 6128. At age 18 he bought an Amiga 1200, that changed his life forever. He
 created [LotanLibs][] to extend BasicBlitz2; and [Feelin][] to create and maintain applications and
 their UI with XML and CSS. Building Feelin's website he discovered PHP and a brand new world to
 explore.
