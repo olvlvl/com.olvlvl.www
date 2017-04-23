@@ -1,4 +1,4 @@
-# Binding Symfony's Dependency Injection to ICanBoogie
+# Binding Symfony's DIC to ICanBoogie
 
 Although I really enjoy [the concept of bindings implemented in ICanBoogie][], I recognize it can be
 challenging when your application has thousands of dependencies. Also, as I'm implementing a 
