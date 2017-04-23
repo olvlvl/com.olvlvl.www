@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "adbd0d258c81246b08e1741474c2647e",
+    "content-hash": "5bdbb25d4edcbe6544b8fba7dc82e5b2",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -1246,6 +1246,59 @@
                 "render"
             ],
             "time": "2017-02-13 18:20:48"
+        },
+        {
+            "name": "icanboogie/render-engine-markdown",
+            "version": "0.2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ICanBoogie/render-engine-markdown.git",
+                "reference": "f8e49da8cb929c656d994883264312db3ff952cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ICanBoogie/render-engine-markdown/zipball/f8e49da8cb929c656d994883264312db3ff952cd",
+                "reference": "f8e49da8cb929c656d994883264312db3ff952cd",
+                "shasum": ""
+            },
+            "require": {
+                "erusev/parsedown": "^1.6",
+                "icanboogie/render": "^0.6",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "icanboogie/bind-render": "^0.6"
+            },
+            "type": "library",
+            "extra": {
+                "icanboogie": {
+                    "config-path": "config"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ICanBoogie\\Render\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Olivier Laviale",
+                    "email": "olivier.laviale@gmail.com",
+                    "homepage": "https://olvlvl.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Markdown render engine for icanboogie/render.",
+            "homepage": "https://icanboogie.org/",
+            "keywords": [
+                "markdown",
+                "render"
+            ],
+            "time": "2017-02-13 19:52:37"
         },
         {
             "name": "icanboogie/routing",

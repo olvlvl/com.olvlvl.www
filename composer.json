@@ -22,7 +22,8 @@
 		"icanboogie/bind-activerecord": "^4.0",
 		"icanboogie/bind-facets": "^0.7",
 		"icanboogie/bind-view": "^0.9",
-		"erusev/parsedown": "^1.6"
+		"erusev/parsedown": "^1.6",
+		"icanboogie/render-engine-markdown": "^0.2"
 	},
 	"autoload": {
 		"psr-4": {
