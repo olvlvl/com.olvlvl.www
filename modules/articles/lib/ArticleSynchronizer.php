@@ -2,7 +2,7 @@
 
 namespace App\Modules\Articles;
 
-class ArticlesSynchronizer
+class ArticleSynchronizer
 {
 	/**
 	 * @var ArticleModel

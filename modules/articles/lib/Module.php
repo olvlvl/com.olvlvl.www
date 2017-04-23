@@ -12,7 +12,7 @@ class Module extends \ICanBoogie\Module
 	 */
 	public function sync()
 	{
-		$synchronizer = new ArticlesSynchronizer($this->model);
+		$synchronizer = new ArticleSynchronizer($this->model);
 		$synchronizer(\App\ROOT . '_articles');
 	}
 }
