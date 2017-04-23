@@ -65,7 +65,7 @@ the container is explicitly required through `$app->container` or
 ### Obtaining services bound to the application
 
 Usually, ICanBoogie's components add getters to the `ICanBoogie\Application` instance through the
-[prototype system][], which means the initial request is accessed with`$app->initial_request`, and
+[prototype system][], which means the initial request is accessed with `$app->initial_request`, and
 the session with `$app->session`. In order to have these available to the container, an extension
 automatically add definitions for them. Now the session can also be obtained with
 `ref('session')->resolve()`.
@@ -88,14 +88,14 @@ services:
   # Event
 
   event_hook.on_rescue_exception:
-    class: App\Application\EventHook\RescueExceptionHandler
+    class: App\Application\Handler\RescueExceptionHandler
     arguments:
       - "@renderer"
 
   # Controller
 
   controller.page:
-    class: App\Infrastructure\Controller\PageController
+    class: App\Presentation\Controller\PageController
 ```
 
 
