@@ -12,7 +12,8 @@
 namespace ICanBoogie;
 
 define('App\DATABASE', __DIR__ . '/repository/db.sqlite');
-define('App\ARTICLES', __DIR__ . '/_articles');
+define('App\ARTICLES', __DIR__ . '/content/articles');
+define('App\PAGES', __DIR__ . '/content/pages');
 
 require __DIR__ . '/vendor/autoload.php';
 
