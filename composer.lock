@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c312f9f6b78036543962dd54253cb934",
+    "content-hash": "adbd0d258c81246b08e1741474c2647e",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -698,7 +698,7 @@
         },
         {
             "name": "icanboogie/errors",
-            "version": "2.0.1.x-dev",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Errors.git",
@@ -737,7 +737,7 @@
             "keywords": [
                 "errors"
             ],
-            "time": "2017-04-15 20:12:31"
+            "time": "2017-04-15T20:12:31+00:00"
         },
         {
             "name": "icanboogie/event",
@@ -1486,7 +1486,7 @@
         },
         {
             "name": "psr/log",
-            "version": "dev-master",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
@@ -1529,17 +1529,17 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10 12:19:37"
+            "time": "2016-10-10T12:19:37+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": [],
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6"
+        "php": "^5.6 || ^7.0"
     },
     "platform-dev": []
 }
