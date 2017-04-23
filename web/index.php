@@ -31,5 +31,5 @@ if (PHP_SAPI === 'cli-server')
 /*
  * Obtain the booted application and execute it.
  */
-$app = require __DIR__ . '/../app/bootstrap.php';
+$app = require __DIR__ . '/../bootstrap.php';
 $app();

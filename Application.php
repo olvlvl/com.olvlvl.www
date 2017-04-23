@@ -14,7 +14,7 @@ namespace ICanBoogie;
 /**
  * Application class.
  */
-class Application extends Core
+class Application extends ApplicationAbstract
 {
 	use Binding\ActiveRecord\ApplicationBindings;
 	use Binding\Render\ApplicationBindings;
