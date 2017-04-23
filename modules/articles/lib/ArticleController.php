@@ -29,7 +29,6 @@ class ArticleController extends ControllerAbstract
 		$this->response->cache_control = 'public';
 		$this->response->expires = '+3 hour';
 		$this->view->content = $this->model->order('date DESC')->all;
-		$this->view['page_title'] = "Olivier Laviale, software architect";
 	}
 
 	/**

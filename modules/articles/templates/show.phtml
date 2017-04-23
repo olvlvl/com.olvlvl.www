@@ -12,9 +12,9 @@ namespace App\Modules\Articles;
 
 <section class="article-show">
 	<div class="article-meta">
-		<a href="/" class="article-author">Olivier Laviale</a>
+		<a href="/" class="article-author" rel="index">Olivier Laviale</a>
 		—
-		<a href="<?= $this->url('index') ?>"><time class="article-time"><?= $this->date->format('F d, Y') ?></time></a>
+		<a href="<?= $this->url('index') ?>" rel="index"><time class="article-time"><?= $this->date->format('F d, Y') ?></time></a>
 	</div>
 
 	<div class="article-body"><?= $this->body ?></div>
