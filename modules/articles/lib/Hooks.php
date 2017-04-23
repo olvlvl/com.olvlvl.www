@@ -13,9 +13,9 @@ class Hooks
 
 	/**
 	 * @param Controller\BeforeActionEvent $event
-	 * @param ArticlesController $controller
+	 * @param ArticleController $controller
 	 */
-	static public function before_controller_action(Controller\BeforeActionEvent $event, ArticlesController $controller)
+	static public function before_controller_action(Controller\BeforeActionEvent $event, ArticleController $controller)
 	{
 		$exists = file_exists(\App\DATABASE);
 

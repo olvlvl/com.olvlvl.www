@@ -9,9 +9,17 @@ use ICanBoogie\Routing\Controller\ActionTrait;
 /**
  * @property Module $module
  */
-class ArticlesController extends Controller
+class ArticleController extends Controller
 {
 	use ActionTrait;
+
+	/**
+	 * @inheritdoc
+	 */
+	protected function get_name()
+	{
+		return 'articles';
+	}
 
 	protected function action_index()
 	{

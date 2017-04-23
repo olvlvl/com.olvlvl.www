@@ -6,6 +6,6 @@ $hooks = Hooks::class . '::';
 
 return [
 
-	ArticlesController::class . '::action:before' => $hooks . 'before_controller_action'
+	ArticleController::class . '::action:before' => $hooks . 'before_controller_action'
 
 ];
