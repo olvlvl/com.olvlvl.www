@@ -1,4 +1,4 @@
-!function() {
+document.addEventListener("DOMContentLoaded", function() {
 
 	var links = document.body.querySelectorAll('[href^="http"]')
 
@@ -7,4 +7,7 @@
 		links[i].target = '_blank'
 	}
 
-} ()
+	hljs.initHighlightingOnLoad()
+	balanceText(document.body.querySelector('h1'), { watch: true })
+
+})

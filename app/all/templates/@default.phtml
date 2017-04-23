@@ -9,13 +9,11 @@ namespace ICanBoogie;
  * @var $body_css string
  */
 
-$page_title = &$page_title;
-
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title><?= $page_title ? $page_title . ' – ' : '' ?>Olivier Laviale</title>
+	<title><?= empty($page_title) ? '' : $page_title . ' – ' ?>Olivier Laviale</title>
 
 	<link type="application/atom+xml" href="/index.atom" rel="alternate" title="Olivier Laviale" />
 	<link type="text/css" rel="stylesheet" href="/assets/bootstrap.min.css" />
@@ -24,7 +22,7 @@ $page_title = &$page_title;
 </head>
 <body class="<?= $body_css ?>">
 	<div class="container page-body">
-		<?php if ($page_title): ?>
+		<?php if (isset($page_title)): ?>
 			<h1><?= $page_title ?></h1>
 		<?php endif ?>
 		<?= $content ?>
@@ -32,9 +30,9 @@ $page_title = &$page_title;
 
 	<?php require '_footer.phtml' ?>
 
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
-	<script>hljs.initHighlightingOnLoad()</script>
-	<script src="/assets/page.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" defer></script>
+	<script src="//cdn.rawgit.com/adobe-webplatform/balance-text/37a36887/balancetext.min.js" defer></script>
+	<script src="/assets/page.js" defer></script>
 
 	<?php require '_analytics.phtml' ?>
 </body>

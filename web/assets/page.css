@@ -5,34 +5,38 @@ body {
 	font-weight: 300;
 	font-size: 1.125rem;
 	line-height: 1.875rem;
+	margin-left: 2rem;
+	margin-right: 2rem;
 }
 
 h1 {
 	text-align: center;
-	font-size: 4rem;
+	font-size: 3rem;
 	font-weight: inherit;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 }
 
 h2 {
-	font-size: 3rem;
-	font-weight: inherit;
-	margin-top: 2rem;
-	margin-bottom: 1rem;
+	font-size: 2rem;
 }
 
 h3 {
-	font-size: 2rem;
-	font-weight: inherit;
-	margin-top: 2rem;
-	margin-bottom: 1rem;
+	font-size: 1.75rem;
 }
 
+h2, h3, h4 {
+	margin-top: 1.6666rem;
+	margin-bottom: .8333rem;
+	font-weight: inherit;
+}
+
+h2 a,
 h3 a {
 	text-decoration: underline;
 }
 
+h2 a:not(:hover),
 h3 a:not(:hover) {
 	color: inherit;
 	text-decoration: none;
@@ -140,7 +144,7 @@ footer.page-footer:not(:hover) a {
 
 /* article */
 
-.article-overview + .article-overview {
+.article-overview {
 	margin-top: 3rem;
 }
 
@@ -163,6 +167,7 @@ footer.page-footer:not(:hover) a {
 
 /* pages */
 
+.page-exception h1 small,
 .page-articles-index h1 small {
 	font-size: 1rem;
 	font-weight: 300;
@@ -171,11 +176,6 @@ footer.page-footer:not(:hover) a {
 	text-transform: uppercase;
 	margin-top: 1rem;
 	letter-spacing: .3ex;
-}
-
-.page-exception h1 small {
-	display: block;
-	font-size: 1rem;
 }
 
 .page-exception .page-body {
