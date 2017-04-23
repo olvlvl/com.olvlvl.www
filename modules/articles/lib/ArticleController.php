@@ -2,14 +2,14 @@
 
 namespace App\Modules\Articles;
 
-use App\Controller;
+use App\Presentation\Controller\ControllerAbstract;
 use ICanBoogie\HTTP\NotFound;
 use ICanBoogie\Routing\Controller\ActionTrait;
 
 /**
  * @property Module $module
  */
-class ArticleController extends Controller
+class ArticleController extends ControllerAbstract
 {
 	use ActionTrait;
 
