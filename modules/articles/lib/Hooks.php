@@ -19,7 +19,7 @@ class Hooks
 	{
 		$exists = file_exists(\App\DATABASE);
 
-		if ($exists && filemtime(\App\DATABASE) >= filemtime(\App\ROOT . '_articles'))
+		if ($exists && filemtime(\App\DATABASE) >= filemtime(\App\ARTICLES))
 		{
 			return;
 		}

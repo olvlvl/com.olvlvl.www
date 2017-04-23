@@ -13,6 +13,6 @@ class Module extends \ICanBoogie\Module
 	public function sync()
 	{
 		$synchronizer = new ArticleSynchronizer($this->model);
-		$synchronizer(\App\ROOT . '_articles');
+		$synchronizer(\App\ARTICLES);
 	}
 }

@@ -12,7 +12,7 @@
 namespace ICanBoogie;
 
 define('App\DATABASE', __DIR__ . '/repository/db.sqlite');
-define('App\ROOT', __DIR__ . DIRECTORY_SEPARATOR);
+define('App\ARTICLES', __DIR__ . '/_articles');
 
 require __DIR__ . '/vendor/autoload.php';
 
