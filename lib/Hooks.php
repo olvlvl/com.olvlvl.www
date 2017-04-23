@@ -2,8 +2,10 @@
 
 namespace App;
 
+use ICanBoogie\HTTP\NotFound;
 use ICanBoogie\HTTP\Response;
 use ICanBoogie\HTTP\Status;
+use ICanBoogie\Render\Renderer;
 use ICanBoogie\Routing\RouteDispatcher;
 use ICanBoogie\View\View;
 
@@ -42,6 +44,20 @@ class Hooks
 			# we can't provide better… too bad
 			#
 		}
+	}
+
+	static public function on_not_found_rescue(\ICanBoogie\Exception\RescueEvent $event, NotFound $target)
+	{
+		$html = app()->render($target, [
+			Renderer::OPTION_TEMPLATE => '404',
+			Renderer::OPTION_LAYOUT => 'default',
+			Renderer::OPTION_LOCALS => [
+				'body_css' => 'page-exception'
+			]
+		]);
+
+		$event->response = new Response($html, $target->getCode());
+		$event->stop(); // disable default exception handler
 	}
 
 	static public function on_view_alter(View\AlterEvent $event, View $target)

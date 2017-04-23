@@ -49,12 +49,14 @@ a[href^="http"]::after {
 	opacity: .5;
 }
 
+.page-about .page-body,
 .article-body {
 	max-width: 100ex;
 	margin-left: auto;
 	margin-right: auto;
 }
 
+.page-about .page-body,
 .article-body p {
 	text-align: justify;
 }
@@ -201,4 +203,13 @@ footer.page-footer:not(:hover) a {
 .page-articles-index h1,
 .page-articles-index .article-meta {
 	display: none;
+}
+
+.page-exception h1 small {
+	display: block;
+	font-size: 1rem;
+}
+
+.page-exception .page-body {
+	text-align: center;
 }
