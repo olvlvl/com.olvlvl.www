@@ -1,4 +1,4 @@
-# A story of proper naming
+# A tale of proper naming
 
 This afternoon, I was reviewing a colleague's PR and commented that his `RecipesCollection` should be
 a `RecipeCollection` because "a collection of records" is "a record collection". Surprisingly, I
