@@ -1,5 +1,15 @@
-ICANBOOGIE_INSTANCE = dev
-SERVER_PORT = 8010
+# server
+ICANBOOGIE_INSTANCE=dev
+SERVER_PORT=8010
+
+# deployment
+TARGET=com.olvlvl.www
+TARGET_TMP=$(TARGET)_tmp
+ARCHIVE=$(TARGET).tar.gz
+ARCHIVE_PATH=/tmp/$(ARCHIVE)
+USER=$(COM_OLVLVL_WWW_USER)
+SERVER=$(COM_OLVLVL_WWW_SERVER)
+HOST=$(USER)@$(SERVER)
 
 vendor:
 	@composer install
@@ -14,15 +24,32 @@ optimize: vendor
 	@composer dump-autoload -o
 	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie optimize
 
-unoptimize:
+unoptimize: vendor
 	@composer dump-autoload
 	@rm -f vendor/icanboogie-combined.php
 	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie clear cache
 
-clean:
+reset:
 	@rm -Rf vendor
+
+clear-cache:
+	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie clear cache
+	rm -f repository/db.sqlite
 
 server:
 	@cd web && \
 	ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) \
 	php -S localhost:$(SERVER_PORT) index.php
+
+deploy: vendor clear-cache
+	rm -f $(ARCHIVE_PATH)
+	tar -czf $(ARCHIVE_PATH) --exclude .git --exclude .idea --exclude tests --exclude .DS_Store --exclude ._.DS_Store .
+	scp $(ARCHIVE_PATH) $(HOST):$(ARCHIVE)
+	ssh $(HOST) rm -Rf $(TARGET_TMP)
+	ssh $(HOST) mkdir -p $(TARGET_TMP)
+	ssh $(HOST) tar -xzf $(ARCHIVE) -C $(TARGET_TMP)
+	ssh $(HOST) rm -Rf $(TARGET)
+	ssh $(HOST) mv $(TARGET_TMP) $(TARGET)
+	ssh $(HOST) rm $(ARCHIVE)
+
+.PHONY: update autoload optimize unoptimize reset clear-cache server ssh deploy
