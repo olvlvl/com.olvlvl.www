@@ -41,7 +41,7 @@ server:
 	ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) \
 	php -S localhost:$(SERVER_PORT) index.php
 
-deploy: vendor clear-cache
+deploy: vendor optimize clear-cache
 	rm -f $(ARCHIVE_PATH)
 	tar -cjSf $(ARCHIVE_PATH) --exclude .git --exclude .idea --exclude tests --exclude .DS_Store --exclude ._.DS_Store .
 	scp $(ARCHIVE_PATH) $(HOST):$(ARCHIVE)
