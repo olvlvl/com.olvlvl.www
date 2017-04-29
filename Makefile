@@ -43,11 +43,11 @@ server:
 
 deploy: vendor clear-cache
 	rm -f $(ARCHIVE_PATH)
-	tar -czf $(ARCHIVE_PATH) --exclude .git --exclude .idea --exclude tests --exclude .DS_Store --exclude ._.DS_Store .
+	tar -cjSf $(ARCHIVE_PATH) --exclude .git --exclude .idea --exclude tests --exclude .DS_Store --exclude ._.DS_Store .
 	scp $(ARCHIVE_PATH) $(HOST):$(ARCHIVE)
 	ssh $(HOST) rm -Rf $(TARGET_TMP)
 	ssh $(HOST) mkdir -p $(TARGET_TMP)
-	ssh $(HOST) tar -xzf $(ARCHIVE) -C $(TARGET_TMP)
+	ssh $(HOST) tar -xf $(ARCHIVE) -C $(TARGET_TMP)
 	ssh $(HOST) rm -Rf $(TARGET)
 	ssh $(HOST) mv $(TARGET_TMP) $(TARGET)
 	ssh $(HOST) rm $(ARCHIVE)
