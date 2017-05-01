@@ -13,7 +13,7 @@ use function ICanBoogie\escape;
 <?php foreach ($this as $record): ?>
 <entry>
 	<title><?= escape($record->title) ?></title>
-	<link href="<?= $_SERVER['HTTP_HOST'] . escape($record->url) ?>" />
+	<link href="https://olvlvl.com<?= escape($record->url) ?>" />
 	<id>urn:<?= sha1("article:{$record->article_id}") ?></id>
 	<updated><?= $record->date ?></updated>
 	<summary><?= strip_tags($record->excerpt) ?></summary>
