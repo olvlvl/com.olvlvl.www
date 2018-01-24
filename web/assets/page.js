@@ -10,4 +10,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	hljs.initHighlightingOnLoad()
 	balanceText(document.body.querySelector('h1'), { watch: true })
 
+	document.body.querySelectorAll('h2').forEach(function (el) {
+		balanceText(el, { watch: true })
+	})
+
 })
