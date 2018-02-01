@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		links[i].target = '_blank'
 	}
 
-	hljs.initHighlightingOnLoad()
 	balanceText(document.body.querySelector('h1'), { watch: true })
 
 	document.body.querySelectorAll('h2').forEach(function (el) {

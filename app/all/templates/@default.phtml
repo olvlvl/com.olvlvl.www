@@ -16,8 +16,8 @@ namespace ICanBoogie;
 	<title><?= empty($page_title) ? '' : $page_title . ' – ' ?>Olivier Laviale</title>
 
 	<link type="application/atom+xml" href="/index.atom" rel="alternate" title="Olivier Laviale" />
-	<link type="text/css" rel="stylesheet" href="/assets/bootstrap.min.css" />
-	<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/github-gist.min.css" />
+	<link type="text/css" rel="stylesheet" href="/assets/bootstrap.css" />
+	<link type="text/css" rel="stylesheet" href="/assets/prism.css" />
 	<link type="text/css" rel="stylesheet" href="/assets/page.css" />
 </head>
 <body class="<?= $body_css ?>">
@@ -30,8 +30,8 @@ namespace ICanBoogie;
 
 	<?php require '_footer.phtml' ?>
 
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" defer></script>
-	<script src="//cdn.rawgit.com/adobe-webplatform/balance-text/37a36887/balancetext.min.js" defer></script>
+	<script src="/assets/prism.js" defer></script>
+	<script src="/assets/balance-text.js" defer></script>
 	<script src="/assets/page.js" defer></script>
 
 	<?php require '_analytics.phtml' ?>

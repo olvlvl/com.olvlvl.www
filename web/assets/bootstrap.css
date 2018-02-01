@@ -1,9 +1,5 @@
 @charset "UTF-8";
-/*!
- * Bootstrap v4.0.0-alpha (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- *//*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
 img, legend {
 	border: 0
 }
@@ -580,5 +576,3 @@ pre {
 .pager-prev > a, .pager-prev > span {
 	float: left
 }
-
-/*# sourceMappingURL=bootstrap.min.css.map */
