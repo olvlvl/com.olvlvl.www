@@ -9,14 +9,17 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 
 ?>
 
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
 
+	<id>https://olvlvl.com/</id>
 	<title>Olivier Laviale</title>
 	<subtitle>On building software for internet</subtitle>
-	<link href="https://olvlvl.com/index.atom" rel="self" />
-	<link href="https://olvlvl.com/" />
-	<id>urn:<?= sha1('olvlvl.com') ?></id>
+	<link href="https://olvlvl.com/index.atom" rel="self" type="application/atom+xml" />
+	<link href="https://olvlvl.com/" rel="alternate" type="text/html" />
 	<updated><?= $updated ?></updated>
+	<author>
+		<name>Olivier Laviale</name>
+	</author>
 
 	<?= $content ?>
 

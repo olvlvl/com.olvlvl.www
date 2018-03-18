@@ -14,7 +14,11 @@ use function ICanBoogie\escape;
 <entry>
 	<title><?= escape($record->title) ?></title>
 	<link href="https://olvlvl.com<?= escape($record->url) ?>" />
-	<id>urn:<?= sha1("article:{$record->article_id}") ?></id>
+	<id>https://olvlvl.com<?= escape($record->url) ?></id>
+	<author>
+		<name>Olivier Laviale</name>
+		<email>olivier.laviale@gmail.com</email>
+	</author>
 	<updated><?= $record->date ?></updated>
 	<summary><?= strip_tags($record->excerpt) ?></summary>
 	<content type="xhtml">
@@ -22,9 +26,5 @@ use function ICanBoogie\escape;
 			<?= $record->body ?>
 		</div>
 	</content>
-	<author>
-		<name>Olivier Laviale</name>
-		<email>olivier.laviale@gmail.com</email>
-	</author>
 </entry>
 <?php endforeach; ?>
