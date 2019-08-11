@@ -223,13 +223,6 @@ img {
 	vertical-align: top;
 }
 
-@media (min-width: 600px) {
-	img.align-right {
-		float: right;
-		margin-left: 1rem;
-	}
-}
-
 small {
 	font-size: .8em;
 }
@@ -333,6 +326,13 @@ Article
 	max-height: 70vh;
 	height: auto;
 	margin: auto;
+}
+
+@media (min-width: 600px) {
+	.article-body img.align-right {
+		float: right;
+		margin-left: 1rem;
+	}
 }
 
 /* pages */
