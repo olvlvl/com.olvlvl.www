@@ -3,9 +3,11 @@
 namespace ICanBoogie;
 
 /**
- * @var $this \Exception
+ * @var $this \Throwable
  */
 
 ?>
 
-<?= Debug::format_alert($this) ?>
+<h1>An error has occurred</h1>
+
+<pre><code><?= $this ?></code></pre>

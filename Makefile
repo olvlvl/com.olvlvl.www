@@ -21,7 +21,7 @@ autoload: vendor
 	@composer dump-autoload
 
 optimize: vendor
-	@composer dump-autoload -o
+	@composer dump-autoload -oa
 	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie optimize
 
 unoptimize: vendor
@@ -51,5 +51,8 @@ deploy: vendor optimize clear-cache
 	ssh $(HOST) rm -Rf $(TARGET)
 	ssh $(HOST) mv $(TARGET_TMP) $(TARGET)
 	ssh $(HOST) rm $(ARCHIVE)
+
+ssh:
+	ssh $(HOST)
 
 .PHONY: update autoload optimize unoptimize reset clear-cache server ssh deploy

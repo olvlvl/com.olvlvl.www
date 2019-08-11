@@ -2,10 +2,14 @@
 
 namespace App\Modules\Articles;
 
-$hooks = Hooks::class . '::';
+use function ICanBoogie\Service\ref;
+
+/**
+ * @uses BeforeControllerActionHandler
+ */
 
 return [
 
-	ArticleController::class . '::action:before' => $hooks . 'before_controller_action'
+	ArticleController::class . '::action:before' => ref('event.handler.article_controller.before_action')
 
 ];

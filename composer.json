@@ -1,16 +1,15 @@
 {
 	"minimum-stability": "dev",
 	"prefer-stable": true,
-	"prefer-dist": true,
 	"require": {
-		"php": "^5.6 || ^7.0",
-		"icanboogie/icanboogie": "^4.0",
-		"icanboogie/module": "^4.0",
-		"icanboogie/bind-activerecord": "^4.0",
-		"icanboogie/bind-facets": "^0.7",
-		"icanboogie/bind-view": "^0.9",
-		"erusev/parsedown": "^1.6",
-		"icanboogie/render-engine-markdown": "^0.2"
+		"php": "^7.2",
+		"icanboogie/icanboogie": "^5.0",
+		"icanboogie/module": "^5.0",
+		"icanboogie/bind-activerecord": "^5.0",
+		"icanboogie/bind-facets": "^5.0",
+		"icanboogie/bind-view": "^5.0",
+		"icanboogie/bind-symfony-dependency-injection": "^5.0",
+		"icanboogie/render-engine-markdown": "^0.3"
 	},
 	"autoload": {
 		"psr-4": {

@@ -4,9 +4,10 @@ namespace ICanBoogie;
 
 /**
  * @var $article \App\Modules\Articles\Article
+ * @var [$muted] bool
  */
 
-?><div class="article-overview">
+?><div class="article-overview <?= empty($muted) ? "" : "block-muted" ?>">
 	<h2><a href="<?= $article->url ?>"><?= escape($article->title) ?></a></h2>
 
 	<p class="article-meta text-muted">

@@ -1,0 +1,4 @@
+parameters:
+  articles_location:
+  - content/articles
+  - content/articles-dev

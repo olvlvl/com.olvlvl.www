@@ -1,16 +1,19 @@
 <?php
 
-namespace App;
+namespace ICanBoogie\Service;
 
-use ICanBoogie;
-
-$hooks = Hooks::class . '::';
+/**
+ * @uses \App\Presentation\Handler\ExceptionRescueHandler
+ * @uses \App\Presentation\Handler\NotFoundRescueHandler
+ * @uses \App\Presentation\Handler\RoutingDispatcherDispatchHandler
+ * @uses \App\Presentation\Handler\ViewAlterHandler
+ */
 
 return [
 
-	\Exception::class . '::rescue' => $hooks . 'on_exception_rescue',
-	ICanBoogie\HTTP\NotFound::class . '::rescue' => $hooks . 'on_not_found_rescue',
-	ICanBoogie\Routing\RouteDispatcher::class . '::dispatch' => $hooks . 'on_routing_dispatcher_dispatch',
-	ICanBoogie\View\View::class . '::alter' => $hooks . 'on_view_alter'
+	'Exception::rescue'                            => ref('event.handler.exception.rescue'),
+	'ICanBoogie\HTTP\NotFound::rescue'             => ref('event.handler.not_found.rescue'),
+	'ICanBoogie\Routing\RouteDispatcher::dispatch' => ref('event.handler.route_dispatcher.dispatch'),
+	'ICanBoogie\View\View::alter'                  => ref('event.handler.view.alter'),
 
 ];

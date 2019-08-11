@@ -5,6 +5,7 @@ namespace App\Modules\Articles;
 use App\Presentation\Controller\ControllerAbstract;
 use ICanBoogie\HTTP\NotFound;
 use ICanBoogie\Routing\Controller\ActionTrait;
+use function strip_tags;
 
 /**
  * @property Module $module
@@ -19,7 +20,7 @@ class ArticleController extends ControllerAbstract
 	/**
 	 * @inheritdoc
 	 */
-	protected function get_name()
+	protected function get_name(): string
 	{
 		return 'articles';
 	}
@@ -40,6 +41,7 @@ class ArticleController extends ControllerAbstract
 	 */
 	protected function action_show($year, $month, $slug)
 	{
+		/* @var Article $record */
 		$record = $this->model
 			->where('strftime("%Y", `date`) = ? AND strftime("%m", `date`) = ? AND slug = ?', $year, $month, $slug)
 			->one;
@@ -54,6 +56,8 @@ class ArticleController extends ControllerAbstract
 		$this->view->content = $record;
 		$this->view['page_title'] = $record->title;
 		$this->view['continue_reading'] = $this->resolve_continue_reading($record);
+		$this->view['og_url'] = $record->url;
+		$this->view['og_description'] = strip_tags($record->excerpt);
 	}
 
 	protected function action_feed()
@@ -63,6 +67,7 @@ class ArticleController extends ControllerAbstract
 		$first_article = reset($articles);
 
 		$this->response->content_type = 'application/atom+xml';
+		$this->response->content_type->charset = 'UTF-8';
 		$this->view->content = $articles;
 		$this->view->layout = 'feed';
 		$this->view['updated'] = $first_article->date;
@@ -75,6 +80,6 @@ class ArticleController extends ControllerAbstract
 	 */
 	private function resolve_continue_reading(Article $record)
 	{
-		return $this->model->where('{primary} != ?', $record->article_id)->order('RANDOM()')->limit(5);
+		return $this->model->where('{primary} != ?', $record->article_id)->order('RANDOM()')->limit(3);
 	}
 }

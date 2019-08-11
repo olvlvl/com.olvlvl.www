@@ -2,37 +2,10 @@
 
 namespace App\Modules\Articles;
 
-use ICanBoogie\Core;
-use ICanBoogie\Routing\Controller;
+use function ICanBoogie\app;
 
 class Hooks
 {
-	/*
-	 * Events
-	 */
-
-	/**
-	 * @param Controller\BeforeActionEvent $event
-	 * @param ArticleController $controller
-	 */
-	static public function before_controller_action(Controller\BeforeActionEvent $event, ArticleController $controller)
-	{
-		$exists = file_exists(\App\DATABASE);
-
-		if ($exists && filemtime(\App\DATABASE) >= filemtime(\App\ARTICLES))
-		{
-			return;
-		}
-
-		if (!$exists)
-		{
-			$controller->app->modules->install();
-		}
-
-		$module = $controller->module;
-		$module->sync();
-	}
-
 	/*
 	 * Prototype
 	 */
@@ -41,21 +14,9 @@ class Hooks
 	{
 		if ($type === 'index')
 		{
-			return self::app()->url_for('articles:index') . "#on-{$record->year}-{$record->month}";
+			return app()->url_for('articles:index') . "#on-{$record->year}-{$record->month}";
 		}
 
-		return self::app()->url_for("articles:show", $record);
-	}
-
-	/*
-	 * Support
-	 */
-
-	/**
-	 * @return \App\Application
-	 */
-	static private function app()
-	{
-		return \ICanBoogie\app();
+		return app()->url_for("articles:show", $record);
 	}
 }

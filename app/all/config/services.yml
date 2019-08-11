@@ -1,0 +1,22 @@
+services:
+  _defaults:
+    public: true
+
+  event.handler.route_dispatcher.dispatch:
+    class: App\Presentation\Handler\RoutingDispatcherDispatchHandler
+
+  event.handler.view.alter:
+    class: App\Presentation\Handler\ViewAlterHandler
+
+  event.handler.not_found.rescue:
+    class: App\Presentation\Handler\NotFoundRescueHandler
+    arguments:
+    - "@renderer"
+
+  event.handler.exception.rescue:
+    class: App\Presentation\Handler\ExceptionRescueHandler
+    arguments:
+    - "@renderer"
+
+  controller.page:
+    class: App\Presentation\Controller\PageController

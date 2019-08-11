@@ -18,5 +18,5 @@ class Application extends ApplicationAbstract
 {
 	use Binding\ActiveRecord\ApplicationBindings;
 	use Binding\Render\ApplicationBindings;
-	use Module\ApplicationBindings;
+	use Binding\Module\ApplicationBindings;
 }

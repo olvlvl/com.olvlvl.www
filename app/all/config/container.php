@@ -9,15 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie;
+namespace ICanBoogie\Binding\SymfonyDependencyInjection;
 
-define('App\PAGES', __DIR__ . '/content/pages');
+return [
 
-require __DIR__ . '/vendor/autoload.php';
+	ContainerConfig::USE_CACHING => true,
 
-if (file_exists(__DIR__ . '/vendor/icanboogie-combined.php'))
-{
-	require __DIR__ . '/vendor/icanboogie-combined.php';
-}
-
-return boot();
+];

@@ -2,14 +2,14 @@
 
 namespace App\Presentation\Controller;
 
-use const App\PAGES;
 use ICanBoogie\Routing\Controller\ActionTrait;
+use const App\PAGES;
 
-class PageController extends ControllerAbstract
+final class PageController extends ControllerAbstract
 {
 	use ActionTrait;
 
-	protected function action_about()
+	protected function action_about(): void
 	{
 		$this->response->cache_control = 'public';
 		$this->response->expires = '+3 hour';

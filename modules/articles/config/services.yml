@@ -1,0 +1,16 @@
+parameters:
+  articles_location:
+  - content/articles
+
+  database_location: repository/db.sqlite
+
+services:
+
+  _defaults:
+    public: true
+
+  event.handler.article_controller.before_action:
+    class: App\Modules\Articles\Handler\BeforeControllerActionHandler
+    arguments:
+      $articles_location: '%articles_location%'
+      $database_location: '%database_location%'

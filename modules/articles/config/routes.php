@@ -5,6 +5,12 @@ namespace App\Modules\Articles;
 use ICanBoogie\HTTP\Request;
 use ICanBoogie\Routing\RouteMaker as Make;
 
+/**
+ * @uses ArticleController::action_index
+ * @uses ArticleController::action_show
+ * @uses ArticleController::action_feed
+ */
+
 return Make::resource('articles', ArticleController::class, [
 
 	Make::OPTION_ID_NAME => 'article_id',

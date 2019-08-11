@@ -24,22 +24,23 @@ class Article extends ActiveRecord
 
 	use ActiveRecord\Property\DateProperty;
 
+	static public function assignable(): array
+	{
+		return [ 'title', 'slug', 'body', 'excerpt', 'hash' ];
+	}
+
 	/**
 	 * Returns a four digits year.
-	 *
-	 * @return int
 	 */
-	protected function get_year()
+	protected function get_year(): int
 	{
 		return $this->get_date()->year;
 	}
 
 	/**
 	 * Returns a two digits month.
-	 *
-	 * @return string
 	 */
-	protected function get_month()
+	protected function get_month(): string
 	{
 		return $this->get_date()->format('m');
 	}
@@ -47,7 +48,7 @@ class Article extends ActiveRecord
 	/**
 	 * @inheritdoc
 	 */
-	public function create_validation_rules()
+	public function create_validation_rules(): array
 	{
 		return [
 

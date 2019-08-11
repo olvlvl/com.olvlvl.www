@@ -24,11 +24,30 @@ class ArticleSynchronizer
 	}
 
 	/**
-	 * @param string $directory Where the articles are.
+	 * @param array $directories
+	 *
+	 * @internal param string $directory Where the articles are.
 	 */
-	public function __invoke($directory)
+	public function __invoke(array $directories)
+	{
+		$ids = [];
+
+		foreach ($directories as $directory) {
+			$ids = array_merge($ids, $this->importArticles($directory));
+		}
+
+		$this->model->where([ '!article_id' => $ids ])->delete();
+	}
+
+	/**
+	 * @param string $directory
+	 *
+	 * @return array
+	 */
+	private function importArticles($directory)
 	{
 		$di = new \DirectoryIterator($directory);
+		$di = new \RegexIterator($di, '/\.md$/');
 		$importer = $this->importer;
 		$ids = [];
 
@@ -39,9 +58,16 @@ class ArticleSynchronizer
 				continue;
 			}
 
-			$ids[] = $importer($file)->article_id;
+			try
+			{
+				$ids[] = $importer($file)->article_id;
+			}
+			catch (\Throwable $e)
+			{
+				throw new \RuntimeException("Unable to import article `$file`.", 0, $e);
+			}
 		}
 
-		$this->model->where([ '!article_id' => $ids ])->delete();
+		return $ids;
 	}
 }

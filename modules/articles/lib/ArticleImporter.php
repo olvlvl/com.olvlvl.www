@@ -3,12 +3,13 @@
 namespace App\Modules\Articles;
 
 use ICanBoogie\DateTime;
+use function ICanBoogie\excerpt;
+use function preg_replace;
+use function strpos;
 
-class ArticleImporter
+final class ArticleImporter
 {
-	const BODY_SEPARATOR = "<!-- body -->";
-
-	static private $allowed_tags = [ 'a', 'p', 'code', 'del', 'em', 'ins', 'strong' ];
+	private const ALLOWED_TAGS = [ 'p', 'code', 'del', 'em', 'ins', 'strong' ];
 
 	/**
 	 * Returns the hash of an article file.
@@ -32,9 +33,6 @@ class ArticleImporter
 	 */
 	private $markdown;
 
-	/**
-	 * @param ArticleModel $model
-	 */
 	public function __construct(ArticleModel $model)
 	{
 		$this->model = $model;
@@ -45,8 +43,10 @@ class ArticleImporter
 	 * @param \SplFileInfo $file
 	 *
 	 * @return Article
+	 *
+	 * @throws \ReflectionException
 	 */
-	public function __invoke(\SplFileInfo $file)
+	public function __invoke(\SplFileInfo $file): Article
 	{
 		$filename = $file->getFilename();
 		$date_string = substr($filename, 0, 8);
@@ -75,10 +75,8 @@ class ArticleImporter
 			]);
 		}
 
-		list($title, $body) = $this->markdown($file);
-
+		[ $title, $body ] = $this->markdown($file);
 		$excerpt = $this->excerpt($body);
-		$body = str_replace(self::BODY_SEPARATOR, '', $body);
 
 		$article->assign(compact('title', 'body', 'excerpt', 'hash'))->save();
 
@@ -106,6 +104,7 @@ class ArticleImporter
 			throw new \LogicException("Unable to locate article title.");
 		}
 
+		$body = preg_replace("/\~\~(.+)\~\~/", "<del>$1</del>", $body);
 		$body = str_replace('<table>', '<table class="table table-bordered">', $body);
 
 		return [ $title, trim($body) ];
@@ -120,16 +119,20 @@ class ArticleImporter
 	 */
 	private function excerpt($body)
 	{
-		$separator_position = strpos($body, self::BODY_SEPARATOR);
+		$separator_position = strpos($body, '</p>');
 
-		if ($separator_position === false)
+		if ($separator_position !== false)
 		{
-			return \ICanBoogie\excerpt($body);
+			$body = trim(substr($body, 0, $separator_position));
 		}
 
-		$excerpt = substr($body, 0, $separator_position);
-		$excerpt = strip_tags(trim($excerpt), '<' . implode('><', self::$allowed_tags) . '>');
-		$excerpt = preg_replace('/\.?\<\/p\>$/m', ' <span class="excerpt-warp">[…]</span></p>', $excerpt);
+		$excerpt = excerpt($body);
+		$excerpt = strip_tags($excerpt, '<' . implode('><', self::ALLOWED_TAGS) . '>');
+
+		if (strpos($excerpt, '[…]') === false)
+		{
+			$excerpt = preg_replace('/\.?\<\/p\>$/m', ' <span class="excerpt-warp">[…]</span></p>', $excerpt);
+		}
 
 		return $excerpt;
 	}
