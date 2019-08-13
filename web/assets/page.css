@@ -177,11 +177,18 @@ a:active, a:hover {
 	outline: 0
 }
 
+/* avoid slipping with ::after */
+a[href^="http"] {
+	padding-right: 2ex;
+	margin-right: -2ex;
+}
+
 a[href^="http"]::after {
 	content: "\21AA";
 	transform: rotate(-45deg);
 	display: inline-block;
 	opacity: .6;
+	margin-left: .1em;
 	margin-right: -.2em;
 }
 
@@ -316,10 +323,6 @@ Article
 	text-align: center;
 }
 
-.article-meta a:not(:hover) {
-	color: inherit;
-}
-
 .article-body img {
 	display: block;
 	max-width: 100%;
@@ -335,7 +338,11 @@ Article
 	}
 }
 
-/* pages */
+/*
+
+Pages
+
+*/
 
 .page-exception .page-body {
 	max-width: none;
@@ -346,6 +353,10 @@ Article
 	margin-left: 0;
 	margin-right: 0;
 	border: 0;
+}
+
+.page-exception pre {
+	white-space: pre-wrap;
 }
 
 /*
@@ -483,6 +494,11 @@ Print
 	a, a:visited {
 		color: inherit;
 		text-decoration: none;
+	}
+
+	a[href^="http"] {
+		padding-right: 0;
+		margin-right: auto;
 	}
 
 	a[href^="http"]::after {
