@@ -5,6 +5,8 @@ namespace App\Modules\Articles;
 use App\Presentation\Controller\ControllerAbstract;
 use ICanBoogie\HTTP\NotFound;
 use ICanBoogie\Routing\Controller\ActionTrait;
+use function html_entity_decode;
+use function str_replace;
 use function strip_tags;
 
 /**
@@ -57,7 +59,7 @@ class ArticleController extends ControllerAbstract
 		$this->view['page_title'] = $record->title;
 		$this->view['continue_reading'] = $this->resolve_continue_reading($record);
 		$this->view['og_url'] = $record->url;
-		$this->view['og_description'] = strip_tags($record->excerpt);
+		$this->view['og_description'] = $this->format_description($record->excerpt);
 	}
 
 	protected function action_feed()
@@ -71,6 +73,11 @@ class ArticleController extends ControllerAbstract
 		$this->view->content = $articles;
 		$this->view->layout = 'feed';
 		$this->view['updated'] = $first_article->date;
+	}
+
+	private function format_description(string $excerpt): string
+	{
+		return str_replace("\n", " ", html_entity_decode(strip_tags($excerpt)));
 	}
 
 	/**
