@@ -13,11 +13,11 @@ namespace ICanBoogie;
 
 define('App\PAGES', __DIR__ . '/content/pages');
 
-require __DIR__ . '/vendor/autoload.php';
-
 if (file_exists(__DIR__ . '/vendor/icanboogie-combined.php'))
 {
 	require __DIR__ . '/vendor/icanboogie-combined.php';
 }
+
+require __DIR__ . '/vendor/autoload.php';
 
 return boot();

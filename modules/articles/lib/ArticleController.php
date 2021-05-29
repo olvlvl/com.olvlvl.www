@@ -3,6 +3,7 @@
 namespace App\Modules\Articles;
 
 use App\Presentation\Controller\ControllerAbstract;
+use ICanBoogie\ActiveRecord\Query;
 use ICanBoogie\HTTP\NotFound;
 use ICanBoogie\Routing\Controller\ActionTrait;
 use function html_entity_decode;
@@ -62,7 +63,7 @@ class ArticleController extends ControllerAbstract
 		$this->view['og_description'] = $this->format_description($record->excerpt);
 	}
 
-	protected function action_feed()
+	protected function action_feed(): void
 	{
 		$articles = $this->model->limit(20)->order('date DESC')->all;
 		/* @var Article $first_article */
@@ -80,12 +81,7 @@ class ArticleController extends ControllerAbstract
 		return str_replace("\n", " ", html_entity_decode(strip_tags($excerpt)));
 	}
 
-	/**
-	 * @param Article $record
-	 *
-	 * @return \ICanBoogie\ActiveRecord\Query
-	 */
-	private function resolve_continue_reading(Article $record)
+	private function resolve_continue_reading(Article $record): Query
 	{
 		return $this->model->where('{primary} != ?', $record->article_id)->order('RANDOM()')->limit(3);
 	}

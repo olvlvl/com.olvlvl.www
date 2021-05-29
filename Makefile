@@ -23,6 +23,7 @@ autoload: vendor
 optimize: vendor
 	@composer dump-autoload -oa
 	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie optimize
+	@php vendor/icanboogie-combined.php
 
 unoptimize: vendor
 	@composer dump-autoload

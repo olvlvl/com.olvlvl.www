@@ -400,8 +400,8 @@ Dark
 
 @media (prefers-color-scheme: dark) {
 	body {
-		background-color: #181818;
-		color: #fff;
+		background-color: #252525;
+		color: #f3f3f3;
 	}
 
 	a, a:focus, a:hover {
@@ -421,7 +421,7 @@ Dark
 	}
 
 	h5.separator span {
-		background: #181818;
+		background: #252525;
 	}
 
 	pre, pre[class*="language-"], blockquote {
