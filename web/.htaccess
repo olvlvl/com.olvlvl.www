@@ -5,6 +5,7 @@
 
 	RewriteEngine On
 
+	RewriteCond %{ENV:APACHE_DOCUMENT_ROOT} !^/app/web
 	RewriteCond %{SERVER_PORT} 80
 	RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
