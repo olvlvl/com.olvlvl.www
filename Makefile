@@ -38,6 +38,13 @@ clear-cache:
 	rm -f repository/db.sqlite
 
 server:
+	@rm -rf repository/cache/*
+	@rm -rf repository/var/*
+	@rm -f repository/db.sqlite
+	@echo "Open http://localhost:$(SERVER_PORT) when ready."
+	@docker-compose up
+
+php-server:
 	@cd web && \
 	ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) \
 	php -S localhost:$(SERVER_PORT) index.php
