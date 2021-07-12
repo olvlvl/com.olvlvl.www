@@ -34,10 +34,16 @@ if (empty($og_description))
 
 	<title><?= empty($page_title) ? '' : $page_title . ' – ' ?>Olivier Laviale</title>
 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="https://www.google-analytics.com" />
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Zilla+Slab:400,400i,700&amp;display=swap">
+
 	<link type="application/atom+xml" href="/index.atom" rel="alternate" title="Olivier Laviale" />
 	<link type="text/css" rel="stylesheet" href="/assets/prism.css" />
 	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zilla+Slab:400,400i,700&amp;display=swap">
 	<link type="text/css" rel="stylesheet" href="/assets/page.css" />
+
+	<script src="/assets/balance-text.js"></script>
 </head>
 <body class="<?= $body_css ?>">
 <div class="page-body">
@@ -49,10 +55,8 @@ if (empty($og_description))
 
 <?php require '_footer.phtml' ?>
 
-<script defer src="/assets/prism.js"></script>
-<script defer src="/assets/balance-text.js"></script>
 <script defer src="/assets/page.js"></script>
-<script defer src="https://www.googletagmanager.com/gtag/js?id=UA-8673332-6"></script>
-<script defer src="/assets/ga.js"></script>
+<script defer src="/assets/prism.js"></script>
+<?php require '_google_analytics.phtml' ?>
 </body>
 </html>
