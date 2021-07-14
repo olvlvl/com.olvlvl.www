@@ -331,6 +331,11 @@ li::marker {
 	}
 }
 
+.article-body hr {
+	opacity: .4;
+	border-style: dashed;
+}
+
 /*
 
 Pages
