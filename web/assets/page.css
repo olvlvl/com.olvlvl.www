@@ -405,18 +405,22 @@ Dark
 
 @media (prefers-color-scheme: dark) {
 	body {
-		background-color: #252525;
-		color: #f3f3f3;
+		background-color: #181a1b;
+		color: #c4bfb7;
 	}
 
-	a, a:focus, a:hover {
-		color: #8ab4f8;
+	a {
+		color: #4bb0fd;
+	}
+
+	a:focus, a:hover {
+		color: #78c4fe;;
 	}
 
 	code {
-		background-color: #222;
-		border-color: #ffffff1a;
-		color: #bebebe;
+		background-color: #1c1e1f;
+		border-color: #35393b;
+		color: #c4555a;
 	}
 
 	pre code {
@@ -431,13 +435,17 @@ Dark
 
 	pre, pre[class*="language-"], blockquote {
 		color: inherit;
-		background: #141414;
-		border-color: #ffffff1a;
+		background: #1c1e1f;
+		border-color: #35393b;
 	}
 
 	code[class*="language-"], pre[class*="language-"] {
-		color: inherit;
-		text-shadow: none;
+		color: #e8e6e3;
+		text-shadow: #181a1b 0 1px;
+	}
+
+	.article-body img[src*="-light."] {
+		filter: invert(90%) hue-rotate(180deg);
 	}
 
 	.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
