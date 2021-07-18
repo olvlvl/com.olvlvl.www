@@ -1,4 +1,4 @@
-FROM php:7.4-apache-buster
+FROM php:8.0-apache-buster
 
 RUN docker-php-ext-enable opcache
 RUN a2enmod rewrite

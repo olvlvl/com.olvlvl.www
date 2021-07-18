@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3ee331da6a9d794eb6cc4c125278e724",
+    "content-hash": "8580b01c0d24c67374df5ac9edd640f8",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -58,16 +58,16 @@
         },
         {
             "name": "icanboogie/accessor",
-            "version": "4.0.x-dev",
+            "version": "v4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Accessor.git",
-                "reference": "b5cf1cee6f338effc5f910d3371e42e05aad88ce"
+                "reference": "4679e4fcfc2cac3fbcf42d41e3d50121919167e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Accessor/zipball/b5cf1cee6f338effc5f910d3371e42e05aad88ce",
-                "reference": "b5cf1cee6f338effc5f910d3371e42e05aad88ce",
+                "url": "https://api.github.com/repos/ICanBoogie/Accessor/zipball/4679e4fcfc2cac3fbcf42d41e3d50121919167e5",
+                "reference": "4679e4fcfc2cac3fbcf42d41e3d50121919167e5",
                 "shasum": ""
             },
             "require": {
@@ -107,29 +107,34 @@
                 "issues": "https://github.com/ICanBoogie/Accessor/issues",
                 "source": "https://github.com/ICanBoogie/Accessor"
             },
-            "time": "2020-12-21T02:01:15+00:00"
+            "time": "2021-05-30T20:58:48+00:00"
         },
         {
             "name": "icanboogie/activerecord",
-            "version": "5.0.x-dev",
+            "version": "6.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/ActiveRecord.git",
-                "reference": "b3597d2079f0b2aa6d844dac689337f6db3c4197"
+                "reference": "5d935dae14b40aa50bfd3141cf0995ce9919f779"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/ActiveRecord/zipball/b3597d2079f0b2aa6d844dac689337f6db3c4197",
-                "reference": "b3597d2079f0b2aa6d844dac689337f6db3c4197",
+                "url": "https://api.github.com/repos/ICanBoogie/ActiveRecord/zipball/5d935dae14b40aa50bfd3141cf0995ce9919f779",
+                "reference": "5d935dae14b40aa50bfd3141cf0995ce9919f779",
                 "shasum": ""
             },
             "require": {
                 "ext-pdo": "*",
                 "icanboogie/datetime": "^1.2",
-                "icanboogie/inflector": "^1.4|^2.0",
+                "icanboogie/inflector": "^2.0",
                 "icanboogie/prototype": "^5.0",
                 "icanboogie/validate": "^0.2",
-                "php": ">=7.2"
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "ext-pdo_mysql": "*",
+                "phpstan/phpstan": "^0.12.92",
+                "phpunit/phpunit": "^9.5"
             },
             "suggest": {
                 "icanboogie/bind-activerecord": "Binds icanboogie/artiverecord to ICanBoogie"
@@ -167,26 +172,29 @@
                 "issues": "https://github.com/ICanBoogie/ActiveRecord/issues",
                 "source": "https://github.com/ICanBoogie/ActiveRecord"
             },
-            "time": "2020-12-04T17:41:36+00:00"
+            "time": "2021-07-18T14:03:20+00:00"
         },
         {
             "name": "icanboogie/bind-activerecord",
-            "version": "5.0.x-dev",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-activerecord.git",
-                "reference": "f70866a2b93661c89761d0b79556fe317b131aa0"
+                "reference": "25e999bbd650d0443f9d6f82ffdc0bc989c9253f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-activerecord/zipball/f70866a2b93661c89761d0b79556fe317b131aa0",
-                "reference": "f70866a2b93661c89761d0b79556fe317b131aa0",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-activerecord/zipball/25e999bbd650d0443f9d6f82ffdc0bc989c9253f",
+                "reference": "25e999bbd650d0443f9d6f82ffdc0bc989c9253f",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/activerecord": "^5.0",
                 "icanboogie/icanboogie": "^5.0",
-                "php": "^7.2"
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "extra": {
@@ -221,26 +229,29 @@
                 "issues": "https://github.com/ICanBoogie/bind-activerecord/issues",
                 "source": "https://github.com/ICanBoogie/bind-activerecord"
             },
-            "time": "2018-03-18T17:09:40+00:00"
+            "time": "2021-06-05T06:53:33+00:00"
         },
         {
             "name": "icanboogie/bind-event",
-            "version": "5.0.x-dev",
+            "version": "5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-event.git",
-                "reference": "12931e0d825b70a332b98267dd5daf08fa61f1a3"
+                "reference": "533485f616cb266f0398369a45bdc65cefe7d70e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-event/zipball/12931e0d825b70a332b98267dd5daf08fa61f1a3",
-                "reference": "12931e0d825b70a332b98267dd5daf08fa61f1a3",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-event/zipball/533485f616cb266f0398369a45bdc65cefe7d70e",
+                "reference": "533485f616cb266f0398369a45bdc65cefe7d70e",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/event": "^4.0",
                 "icanboogie/icanboogie": "^5.0",
-                "php": "^7.2"
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "extra": {
@@ -278,27 +289,30 @@
                 "issues": "https://github.com/ICanBoogie/bind-event/issues",
                 "source": "https://github.com/ICanBoogie/bind-event"
             },
-            "time": "2018-03-18T06:03:23+00:00"
+            "time": "2021-05-31T18:13:42+00:00"
         },
         {
             "name": "icanboogie/bind-facets",
-            "version": "5.0.x-dev",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-facets.git",
-                "reference": "52a0fe56426dc86c6f2c02c634f8646458bbf284"
+                "reference": "61263f437fded781c63668eb7665f7830d8f813f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-facets/zipball/52a0fe56426dc86c6f2c02c634f8646458bbf284",
-                "reference": "52a0fe56426dc86c6f2c02c634f8646458bbf284",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-facets/zipball/61263f437fded781c63668eb7665f7830d8f813f",
+                "reference": "61263f437fded781c63668eb7665f7830d8f813f",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/bind-activerecord": "^5.0",
                 "icanboogie/facets": "^0.8",
                 "icanboogie/icanboogie": "^5.0",
-                "php": "^7.2"
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "extra": {
@@ -332,26 +346,29 @@
                 "issues": "https://github.com/ICanBoogie/bind-facets/issues",
                 "source": "https://github.com/ICanBoogie/bind-facets"
             },
-            "time": "2018-03-18T18:03:25+00:00"
+            "time": "2021-06-01T19:50:04+00:00"
         },
         {
             "name": "icanboogie/bind-http",
-            "version": "5.0.x-dev",
+            "version": "5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-http.git",
-                "reference": "8f06f8773abdbb374dc9ccc3021c01e7464f453f"
+                "reference": "5e7e3f58e9ed3c63eca980050d485b7597f44c40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-http/zipball/8f06f8773abdbb374dc9ccc3021c01e7464f453f",
-                "reference": "8f06f8773abdbb374dc9ccc3021c01e7464f453f",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-http/zipball/5e7e3f58e9ed3c63eca980050d485b7597f44c40",
+                "reference": "5e7e3f58e9ed3c63eca980050d485b7597f44c40",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/http": "^4.0",
                 "icanboogie/icanboogie": "^5.0",
-                "php": "^7.2"
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "extra": {
@@ -385,26 +402,29 @@
                 "issues": "https://github.com/ICanBoogie/bind-http/issues",
                 "source": "https://github.com/ICanBoogie/bind-http"
             },
-            "time": "2018-03-18T20:12:44+00:00"
+            "time": "2021-05-31T22:28:23+00:00"
         },
         {
             "name": "icanboogie/bind-prototype",
-            "version": "5.0.x-dev",
+            "version": "5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-prototype.git",
-                "reference": "e41abb0f286289d724f836b3f6ea5d0d07c50aca"
+                "reference": "f27ac9ae3773e515ab9ae2701a17fed7efd2051b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-prototype/zipball/e41abb0f286289d724f836b3f6ea5d0d07c50aca",
-                "reference": "e41abb0f286289d724f836b3f6ea5d0d07c50aca",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-prototype/zipball/f27ac9ae3773e515ab9ae2701a17fed7efd2051b",
+                "reference": "f27ac9ae3773e515ab9ae2701a17fed7efd2051b",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/icanboogie": "^5.0",
                 "icanboogie/prototype": "^5.0",
-                "php": "^7.2"
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "extra": {
@@ -441,7 +461,7 @@
                 "issues": "https://github.com/ICanBoogie/bind-prototype/issues",
                 "source": "https://github.com/ICanBoogie/bind-prototype"
             },
-            "time": "2018-03-18T05:19:25+00:00"
+            "time": "2021-05-31T22:08:50+00:00"
         },
         {
             "name": "icanboogie/bind-render",
@@ -498,23 +518,26 @@
         },
         {
             "name": "icanboogie/bind-routing",
-            "version": "5.0.x-dev",
+            "version": "5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-routing.git",
-                "reference": "a22f6dd981c74ebb4d80755df06501cff89c12f9"
+                "reference": "437093b1f033c2355d71b846131f562c9733b821"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-routing/zipball/a22f6dd981c74ebb4d80755df06501cff89c12f9",
-                "reference": "a22f6dd981c74ebb4d80755df06501cff89c12f9",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-routing/zipball/437093b1f033c2355d71b846131f562c9733b821",
+                "reference": "437093b1f033c2355d71b846131f562c9733b821",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/bind-http": "^5.0",
                 "icanboogie/icanboogie": "^5.0",
                 "icanboogie/routing": "^5.0",
-                "php": "^7.2"
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "extra": {
@@ -552,7 +575,7 @@
                 "issues": "https://github.com/ICanBoogie/bind-routing/issues",
                 "source": "https://github.com/ICanBoogie/bind-routing"
             },
-            "time": "2018-03-18T05:26:47+00:00"
+            "time": "2021-05-31T22:42:36+00:00"
         },
         {
             "name": "icanboogie/bind-symfony-dependency-injection",
@@ -620,12 +643,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-view.git",
-                "reference": "bcd66f1a6411d392c884e263153912e230729b4b"
+                "reference": "cd3387cd7af56a9ca0353d3ae8df9c989751989f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-view/zipball/bcd66f1a6411d392c884e263153912e230729b4b",
-                "reference": "bcd66f1a6411d392c884e263153912e230729b4b",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-view/zipball/cd3387cd7af56a9ca0353d3ae8df9c989751989f",
+                "reference": "cd3387cd7af56a9ca0353d3ae8df9c989751989f",
                 "shasum": ""
             },
             "require": {
@@ -633,6 +656,9 @@
                 "icanboogie/icanboogie": "^5.0",
                 "icanboogie/view": "^0.10",
                 "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "extra": {
@@ -663,7 +689,7 @@
                 "issues": "https://github.com/ICanBoogie/bind-view/issues",
                 "source": "https://github.com/ICanBoogie/bind-view"
             },
-            "time": "2020-08-25T02:21:44+00:00"
+            "time": "2021-05-31T23:13:03+00:00"
         },
         {
             "name": "icanboogie/common",
@@ -866,16 +892,16 @@
         },
         {
             "name": "icanboogie/event",
-            "version": "4.0.x-dev",
+            "version": "v4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Event.git",
-                "reference": "d43c770aefacda6530415a4ac5b3bc5327979c30"
+                "reference": "5f1f747f67064cefbf4b0c4e98d33296cbc73442"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Event/zipball/d43c770aefacda6530415a4ac5b3bc5327979c30",
-                "reference": "d43c770aefacda6530415a4ac5b3bc5327979c30",
+                "url": "https://api.github.com/repos/ICanBoogie/Event/zipball/5f1f747f67064cefbf4b0c4e98d33296cbc73442",
+                "reference": "5f1f747f67064cefbf4b0c4e98d33296cbc73442",
                 "shasum": ""
             },
             "require": {
@@ -917,28 +943,29 @@
                 "issues": "https://github.com/ICanBoogie/Event/issues",
                 "source": "https://github.com/ICanBoogie/Event"
             },
-            "time": "2021-05-29T07:42:20+00:00"
+            "time": "2021-05-31T23:15:26+00:00"
         },
         {
             "name": "icanboogie/facets",
-            "version": "0.8.x-dev",
+            "version": "v0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Facets.git",
-                "reference": "4f0a9c75db25d5dc24534d63dda59abf00498f86"
+                "reference": "988178635586a0c6f9adc6f1142222843dfa8814"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Facets/zipball/4f0a9c75db25d5dc24534d63dda59abf00498f86",
-                "reference": "4f0a9c75db25d5dc24534d63dda59abf00498f86",
+                "url": "https://api.github.com/repos/ICanBoogie/Facets/zipball/988178635586a0c6f9adc6f1142222843dfa8814",
+                "reference": "988178635586a0c6f9adc6f1142222843dfa8814",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/activerecord": "^5.0",
-                "php": "^7.2"
+                "php": ">=7.2"
             },
             "require-dev": {
-                "icanboogie/event": "^4.0"
+                "icanboogie/event": "^4.0",
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "autoload": {
@@ -970,20 +997,20 @@
                 "issues": "https://github.com/ICanBoogie/Facets/issues",
                 "source": "https://github.com/ICanBoogie/Facets"
             },
-            "time": "2018-03-18T17:55:20+00:00"
+            "time": "2021-06-01T20:35:58+00:00"
         },
         {
             "name": "icanboogie/http",
-            "version": "4.0.x-dev",
+            "version": "v4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/HTTP.git",
-                "reference": "ff5ee0f1a0f6f4501c1d68a5c70aa6e54faac35d"
+                "reference": "745e99b3f5857d90b6e008bd94136d8517948c7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/HTTP/zipball/ff5ee0f1a0f6f4501c1d68a5c70aa6e54faac35d",
-                "reference": "ff5ee0f1a0f6f4501c1d68a5c70aa6e54faac35d",
+                "url": "https://api.github.com/repos/ICanBoogie/HTTP/zipball/745e99b3f5857d90b6e008bd94136d8517948c7b",
+                "reference": "745e99b3f5857d90b6e008bd94136d8517948c7b",
                 "shasum": ""
             },
             "require": {
@@ -991,7 +1018,7 @@
                 "icanboogie/datetime": "^1.2",
                 "icanboogie/event": "^4.0",
                 "icanboogie/prototype": "^5.0",
-                "php": "^7.2"
+                "php": ">=7.2"
             },
             "require-dev": {
                 "ext-gd": "*",
@@ -1033,20 +1060,20 @@
                 "issues": "https://github.com/ICanBoogie/HTTP/issues",
                 "source": "https://github.com/ICanBoogie/HTTP"
             },
-            "time": "2021-05-29T12:17:27+00:00"
+            "time": "2021-05-29T23:25:12+00:00"
         },
         {
             "name": "icanboogie/icanboogie",
-            "version": "5.0.x-dev",
+            "version": "5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/ICanBoogie.git",
-                "reference": "72aecdc6bf1122a7c24ba27c48eadfae76a7b399"
+                "reference": "0a3ce883da99a2e3f420fe48ff525987ef2b542a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/ICanBoogie/zipball/72aecdc6bf1122a7c24ba27c48eadfae76a7b399",
-                "reference": "72aecdc6bf1122a7c24ba27c48eadfae76a7b399",
+                "url": "https://api.github.com/repos/ICanBoogie/ICanBoogie/zipball/0a3ce883da99a2e3f420fe48ff525987ef2b542a",
+                "reference": "0a3ce883da99a2e3f420fe48ff525987ef2b542a",
                 "shasum": ""
             },
             "require": {
@@ -1119,7 +1146,7 @@
                 "issues": "https://github.com/ICanBoogie/ICanBoogie/issues",
                 "source": "https://github.com/ICanBoogie/ICanBoogie"
             },
-            "time": "2021-05-29T09:47:31+00:00"
+            "time": "2021-05-31T22:47:19+00:00"
         },
         {
             "name": "icanboogie/inflector",
@@ -1183,12 +1210,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Module.git",
-                "reference": "830c73e6f4c4703ca94c200f100d91507da7203d"
+                "reference": "05d48bafe11684b81a6c438ec155d7fd2742a1ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Module/zipball/830c73e6f4c4703ca94c200f100d91507da7203d",
-                "reference": "830c73e6f4c4703ca94c200f100d91507da7203d",
+                "url": "https://api.github.com/repos/ICanBoogie/Module/zipball/05d48bafe11684b81a6c438ec155d7fd2742a1ce",
+                "reference": "05d48bafe11684b81a6c438ec155d7fd2742a1ce",
                 "shasum": ""
             },
             "require": {
@@ -1252,30 +1279,31 @@
                 "issues": "https://github.com/ICanBoogie/Module/issues",
                 "source": "https://github.com/ICanBoogie/Module"
             },
-            "time": "2021-05-29T11:22:01+00:00"
+            "time": "2021-06-01T19:19:20+00:00"
         },
         {
             "name": "icanboogie/operation",
-            "version": "5.0.x-dev",
+            "version": "5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Operation.git",
-                "reference": "72f04b77e38538095e9790e2338eb5f4c6f179b5"
+                "reference": "67ca8d20e0bdacd6db15f90f3dc97a2dfd1f5b75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Operation/zipball/72f04b77e38538095e9790e2338eb5f4c6f179b5",
-                "reference": "72f04b77e38538095e9790e2338eb5f4c6f179b5",
+                "url": "https://api.github.com/repos/ICanBoogie/Operation/zipball/67ca8d20e0bdacd6db15f90f3dc97a2dfd1f5b75",
+                "reference": "67ca8d20e0bdacd6db15f90f3dc97a2dfd1f5b75",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/bind-routing": "^5.0",
                 "icanboogie/errors": "^2.0",
-                "php": "^7.2"
+                "php": ">=7.2"
             },
             "require-dev": {
                 "icanboogie/icanboogie": "^5.0",
-                "icanboogie/module": "^5.0"
+                "icanboogie/module": "^5.0",
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "extra": {
@@ -1313,20 +1341,20 @@
                 "issues": "https://github.com/ICanBoogie/Operation/issues",
                 "source": "https://github.com/ICanBoogie/Operation"
             },
-            "time": "2018-03-18T23:02:42+00:00"
+            "time": "2021-06-01T19:32:22+00:00"
         },
         {
             "name": "icanboogie/prototype",
-            "version": "5.0.x-dev",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Prototype.git",
-                "reference": "0adcb893d2035bb213c932e003a391bc7e41b240"
+                "reference": "40307ae822e216268ae8ae2e3c504581601bceea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Prototype/zipball/0adcb893d2035bb213c932e003a391bc7e41b240",
-                "reference": "0adcb893d2035bb213c932e003a391bc7e41b240",
+                "url": "https://api.github.com/repos/ICanBoogie/Prototype/zipball/40307ae822e216268ae8ae2e3c504581601bceea",
+                "reference": "40307ae822e216268ae8ae2e3c504581601bceea",
                 "shasum": ""
             },
             "require": {
@@ -1370,7 +1398,7 @@
                 "issues": "https://github.com/ICanBoogie/Prototype/issues",
                 "source": "https://github.com/ICanBoogie/Prototype"
             },
-            "time": "2020-12-21T02:10:00+00:00"
+            "time": "2021-05-30T21:16:17+00:00"
         },
         {
             "name": "icanboogie/render",
@@ -1378,17 +1406,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Render.git",
-                "reference": "a61195059eea90682ec5cc4747a475a72ac273bf"
+                "reference": "81b886182350573c7c1af85e55a8ab86802b2141"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Render/zipball/a61195059eea90682ec5cc4747a475a72ac273bf",
-                "reference": "a61195059eea90682ec5cc4747a475a72ac273bf",
+                "url": "https://api.github.com/repos/ICanBoogie/Render/zipball/81b886182350573c7c1af85e55a8ab86802b2141",
+                "reference": "81b886182350573c7c1af85e55a8ab86802b2141",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/event": "^4.0",
                 "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "autoload": {
@@ -1421,7 +1452,7 @@
                 "issues": "https://github.com/ICanBoogie/Render/issues",
                 "source": "https://github.com/ICanBoogie/Render"
             },
-            "time": "2020-08-25T02:01:17+00:00"
+            "time": "2021-07-02T00:30:24+00:00"
         },
         {
             "name": "icanboogie/render-engine-markdown",
@@ -1482,22 +1513,25 @@
         },
         {
             "name": "icanboogie/routing",
-            "version": "5.0.x-dev",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Routing.git",
-                "reference": "413033ce652c0d3f121e398a75180c1928fbfd6c"
+                "reference": "5531aa0c662a6641ba3304a84171fcf14dce7475"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Routing/zipball/413033ce652c0d3f121e398a75180c1928fbfd6c",
-                "reference": "413033ce652c0d3f121e398a75180c1928fbfd6c",
+                "url": "https://api.github.com/repos/ICanBoogie/Routing/zipball/5531aa0c662a6641ba3304a84171fcf14dce7475",
+                "reference": "5531aa0c662a6641ba3304a84171fcf14dce7475",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "icanboogie/http": "^4.0",
                 "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "autoload": {
@@ -1530,7 +1564,7 @@
                 "issues": "https://github.com/ICanBoogie/Routing/issues",
                 "source": "https://github.com/ICanBoogie/Routing"
             },
-            "time": "2020-08-25T01:55:45+00:00"
+            "time": "2021-05-29T23:16:55+00:00"
         },
         {
             "name": "icanboogie/service",
@@ -1586,16 +1620,16 @@
         },
         {
             "name": "icanboogie/session",
-            "version": "3.0.x-dev",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Session.git",
-                "reference": "9eb1c79d5c4903db1130f9b78bfe8317fd831470"
+                "reference": "2405baa3435b90f3772e1f845a0b9cb9e25176ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Session/zipball/9eb1c79d5c4903db1130f9b78bfe8317fd831470",
-                "reference": "9eb1c79d5c4903db1130f9b78bfe8317fd831470",
+                "url": "https://api.github.com/repos/ICanBoogie/Session/zipball/2405baa3435b90f3772e1f845a0b9cb9e25176ac",
+                "reference": "2405baa3435b90f3772e1f845a0b9cb9e25176ac",
                 "shasum": ""
             },
             "require": {
@@ -1633,7 +1667,7 @@
                 "issues": "https://github.com/ICanBoogie/Session/issues",
                 "source": "https://github.com/ICanBoogie/Session"
             },
-            "time": "2021-05-29T09:06:03+00:00"
+            "time": "2021-05-31T18:35:00+00:00"
         },
         {
             "name": "icanboogie/storage",
@@ -1743,12 +1777,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/View.git",
-                "reference": "7c3cfafec71ca198aba84339a744057d8ee4cc37"
+                "reference": "3d5de078104f62cfc7e40cc57496114787ecc7e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/View/zipball/7c3cfafec71ca198aba84339a744057d8ee4cc37",
-                "reference": "7c3cfafec71ca198aba84339a744057d8ee4cc37",
+                "url": "https://api.github.com/repos/ICanBoogie/View/zipball/3d5de078104f62cfc7e40cc57496114787ecc7e4",
+                "reference": "3d5de078104f62cfc7e40cc57496114787ecc7e4",
                 "shasum": ""
             },
             "require": {
@@ -1757,6 +1791,9 @@
                 "icanboogie/render": "^0.7|^0.8",
                 "icanboogie/routing": "^5.0",
                 "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
             },
             "suggest": {
                 "icanboogie/bind-view": "Binds the package to ICanBoogie"
@@ -1789,7 +1826,7 @@
                 "issues": "https://github.com/ICanBoogie/View/issues",
                 "source": "https://github.com/ICanBoogie/View"
             },
-            "time": "2020-08-25T02:36:49+00:00"
+            "time": "2021-07-01T23:39:50+00:00"
         },
         {
             "name": "psr/container",
@@ -1891,16 +1928,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v5.2.8",
+            "version": "v5.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "8dfa5f8adea9cd5155920069224beb04f11d6b7e"
+                "reference": "a69e0c55528b47df88d3c4067ddedf32d485d662"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/8dfa5f8adea9cd5155920069224beb04f11d6b7e",
-                "reference": "8dfa5f8adea9cd5155920069224beb04f11d6b7e",
+                "url": "https://api.github.com/repos/symfony/config/zipball/a69e0c55528b47df88d3c4067ddedf32d485d662",
+                "reference": "a69e0c55528b47df88d3c4067ddedf32d485d662",
                 "shasum": ""
             },
             "require": {
@@ -1908,7 +1945,8 @@
                 "symfony/deprecation-contracts": "^2.1",
                 "symfony/filesystem": "^4.4|^5.0",
                 "symfony/polyfill-ctype": "~1.8",
-                "symfony/polyfill-php80": "^1.15"
+                "symfony/polyfill-php80": "^1.15",
+                "symfony/polyfill-php81": "^1.22"
             },
             "conflict": {
                 "symfony/finder": "<4.4"
@@ -1949,7 +1987,7 @@
             "description": "Helps you find, load, combine, autofill and validate configuration values of any kind",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/config/tree/v5.2.8"
+                "source": "https://github.com/symfony/config/tree/v5.3.3"
             },
             "funding": [
                 {
@@ -1965,31 +2003,32 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-07T13:41:16+00:00"
+            "time": "2021-06-24T08:13:00+00:00"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v5.2.9",
+            "version": "v5.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "2761ca2f7e2f41af3a45951e1ce8c01f121245eb"
+                "reference": "e421c4f161848740ad1fcf09b12391ddca168d95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/2761ca2f7e2f41af3a45951e1ce8c01f121245eb",
-                "reference": "2761ca2f7e2f41af3a45951e1ce8c01f121245eb",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/e421c4f161848740ad1fcf09b12391ddca168d95",
+                "reference": "e421c4f161848740ad1fcf09b12391ddca168d95",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
-                "psr/container": "^1.0",
+                "psr/container": "^1.1.1",
                 "symfony/deprecation-contracts": "^2.1",
                 "symfony/polyfill-php80": "^1.15",
                 "symfony/service-contracts": "^1.1.6|^2"
             },
             "conflict": {
-                "symfony/config": "<5.1",
+                "ext-psr": "<1.1|>=2",
+                "symfony/config": "<5.3",
                 "symfony/finder": "<4.4",
                 "symfony/proxy-manager-bridge": "<4.4",
                 "symfony/yaml": "<4.4"
@@ -1999,7 +2038,7 @@
                 "symfony/service-implementation": "1.0|2.0"
             },
             "require-dev": {
-                "symfony/config": "^5.1",
+                "symfony/config": "^5.3",
                 "symfony/expression-language": "^4.4|^5.0",
                 "symfony/yaml": "^4.4|^5.0"
             },
@@ -2036,7 +2075,7 @@
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dependency-injection/tree/v5.2.9"
+                "source": "https://github.com/symfony/dependency-injection/tree/v5.3.3"
             },
             "funding": [
                 {
@@ -2052,7 +2091,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-16T13:07:46+00:00"
+            "time": "2021-06-24T08:13:00+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -2123,16 +2162,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v5.2.7",
+            "version": "v5.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "056e92acc21d977c37e6ea8e97374b2a6c8551b0"
+                "reference": "19b71c8f313b411172dd5f470fd61f24466d79a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/056e92acc21d977c37e6ea8e97374b2a6c8551b0",
-                "reference": "056e92acc21d977c37e6ea8e97374b2a6c8551b0",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/19b71c8f313b411172dd5f470fd61f24466d79a9",
+                "reference": "19b71c8f313b411172dd5f470fd61f24466d79a9",
                 "shasum": ""
             },
             "require": {
@@ -2165,7 +2204,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v5.2.7"
+                "source": "https://github.com/symfony/filesystem/tree/v5.3.3"
             },
             "funding": [
                 {
@@ -2181,7 +2220,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-01T10:42:13+00:00"
+            "time": "2021-06-30T07:27:52+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -2346,6 +2385,85 @@
             "time": "2021-02-19T12:13:01+00:00"
         },
         {
+            "name": "symfony/polyfill-php81",
+            "version": "v1.23.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php81.git",
+                "reference": "e66119f3de95efc359483f810c4c3e6436279436"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php81/zipball/e66119f3de95efc359483f810c4c3e6436279436",
+                "reference": "e66119f3de95efc359483f810c4c3e6436279436",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.23-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php81\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ],
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.1+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php81/tree/v1.23.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-05-21T13:25:03+00:00"
+        },
+        {
             "name": "symfony/service-contracts",
             "version": "v2.4.0",
             "source": {
@@ -2426,16 +2544,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.2.9",
+            "version": "v5.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "d23115e4a3d50520abddccdbec9514baab1084c8"
+                "reference": "485c83a2fb5893e2ff21bf4bfc7fdf48b4967229"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/d23115e4a3d50520abddccdbec9514baab1084c8",
-                "reference": "d23115e4a3d50520abddccdbec9514baab1084c8",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/485c83a2fb5893e2ff21bf4bfc7fdf48b4967229",
+                "reference": "485c83a2fb5893e2ff21bf4bfc7fdf48b4967229",
                 "shasum": ""
             },
             "require": {
@@ -2481,7 +2599,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.2.9"
+                "source": "https://github.com/symfony/yaml/tree/v5.3.3"
             },
             "funding": [
                 {
@@ -2497,18 +2615,27 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-16T13:07:46+00:00"
+            "time": "2021-06-24T08:13:00+00:00"
         }
     ],
     "packages-dev": [],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "icanboogie/activerecord",
+            "version": "6.0.9999999.9999999-dev",
+            "alias": "5.99",
+            "alias_normalized": "5.99.0.0"
+        }
+    ],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "icanboogie/activerecord": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.2"
+        "php": ">=8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
