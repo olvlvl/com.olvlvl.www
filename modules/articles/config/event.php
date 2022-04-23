@@ -2,14 +2,14 @@
 
 namespace App\Modules\Articles;
 
+use ICanBoogie\Binding\Event\ConfigBuilder;
+use ICanBoogie\Routing\Controller\BeforeActionEvent;
+
 use function ICanBoogie\Service\ref;
 
-/**
- * @uses BeforeControllerActionHandler
- */
-
-return [
-
-	ArticleController::class . '::action:before' => ref('event.handler.article_controller.before_action')
-
-];
+return fn(ConfigBuilder $config) => $config
+	->attach_to(
+		ArticleController::class,
+		BeforeActionEvent::class,
+		ref('event.handler.article_controller.before_action')
+	);

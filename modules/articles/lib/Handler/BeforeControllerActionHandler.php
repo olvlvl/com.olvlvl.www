@@ -5,6 +5,7 @@ namespace App\Modules\Articles\Handler;
 use App\Modules\Articles\ArticleController;
 use ICanBoogie\Module\ModuleCollectionInstallFailed;
 use ICanBoogie\Routing\Controller\BeforeActionEvent;
+
 use function file_exists;
 use function filemtime;
 
@@ -13,12 +14,8 @@ final class BeforeControllerActionHandler
 	/**
 	 * @var string[]
 	 */
-	private $articles_location;
-
-	/**
-	 * @var string
-	 */
-	private $database_location;
+	private array $articles_location;
+	private string $database_location;
 
 	/**
 	 * @param string[] $articles_location
@@ -36,8 +33,7 @@ final class BeforeControllerActionHandler
 	{
 		$directories = $this->articles_location;
 
-		if (!$this->shouldUpdate($directories, $database_exists))
-		{
+		if (!$this->shouldUpdate($directories, $database_exists)) {
 			return;
 		}
 
@@ -54,17 +50,14 @@ final class BeforeControllerActionHandler
 	{
 		$exists = file_exists($this->database_location);
 
-		if (!$exists)
-		{
+		if (!$exists) {
 			return true;
 		}
 
 		$database_mtime = filemtime($this->database_location);
 
-		foreach ($directories as $directory)
-		{
-			if ($database_mtime < filemtime($directory))
-			{
+		foreach ($directories as $directory) {
+			if ($database_mtime < filemtime($directory)) {
 				return true;
 			}
 		}

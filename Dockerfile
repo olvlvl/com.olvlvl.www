@@ -1,7 +1,18 @@
-FROM php:8.0-apache-buster
+FROM php:8.1-apache-buster
 
-RUN docker-php-ext-enable opcache
+RUN apt-get update && \
+	apt-get install -y autoconf pkg-config && \
+	pecl channel-update pecl.php.net && \
+	pecl install xdebug && \
+	docker-php-ext-enable opcache xdebug
+
 RUN a2enmod rewrite
+
+RUN echo '\
+xdebug.client_host=host.docker.internal\n\
+xdebug.mode=off\n\
+xdebug.start_with_request=yes\n\
+' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 RUN echo '\
 display_errors=On\n\

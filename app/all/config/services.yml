@@ -1,22 +1,22 @@
+imports:
+- { resource: services/*.yaml }
+
 services:
   _defaults:
-    public: true
+    autowire: true
 
-  event.handler.route_dispatcher.dispatch:
+  event.handler.before.article.action:
     class: App\Presentation\Handler\RoutingDispatcherDispatchHandler
+    public: true
 
   event.handler.view.alter:
     class: App\Presentation\Handler\ViewAlterHandler
+    public: true
 
   event.handler.not_found.rescue:
-    class: App\Presentation\Handler\NotFoundRescueHandler
-    arguments:
-    - "@renderer"
+    class: App\Presentation\Handler\NotFoundRecoverHandler
+    public: true
 
   event.handler.exception.rescue:
     class: App\Presentation\Handler\ExceptionRescueHandler
-    arguments:
-    - "@renderer"
-
-  controller.page:
-    class: App\Presentation\Controller\PageController
+    public: true

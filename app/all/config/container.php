@@ -9,10 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie\Binding\SymfonyDependencyInjection;
+use ICanBoogie\Binding\SymfonyDependencyInjection\ConfigBuilder;
 
-return [
-
-	ContainerConfig::USE_CACHING => true,
-
-];
+return fn(ConfigBuilder $config) => $config
+	->enable_caching();

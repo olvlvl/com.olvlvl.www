@@ -2,10 +2,13 @@
 
 namespace App\Modules\Articles;
 
+use ICanBoogie\Routing\RouteMaker;
+use ICanBoogie\View\View;
+
 /**
  * @var $this Article
  * @var $continue_reading Article[]
- * @var $view \ICanBoogie\View\View
+ * @var $view View
  */
 
 ?>
@@ -14,7 +17,7 @@ namespace App\Modules\Articles;
 	<div class="article-meta block-muted">
 		<a href="/" class="article-author" rel="index">Olivier Laviale</a>
 		—
-		<a href="<?= $this->url('index') ?>" rel="index"><time class="article-time" datetime="<?= $this->date ?>"><?= $this->date->format('F d, Y') ?></time></a>
+		<a href="<?= $this->url(RouteMaker::ACTION_LIST) ?>" rel="index"><time class="article-time" datetime="<?= $this->date ?>"><?= $this->date->format('F d, Y') ?></time></a>
 	</div>
 
 	<div class="article-body"><?= $this->body ?></div>
@@ -29,6 +32,6 @@ namespace App\Modules\Articles;
 <h5 class="separator"><span>Continue reading</span></h5>
 
 <?php foreach ($continue_reading as $article): ?>
-<?= $view->partial('articles/overview', [ 'article' => $article, 'muted' => true ]) ?>
+<?= $view->partial($article,'articles/overview', [ 'muted' => true ]) ?>
 <?php endforeach; ?>
 </footer>

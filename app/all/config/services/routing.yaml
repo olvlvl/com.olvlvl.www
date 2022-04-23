@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autowire: true
+
+  App\Modules\Articles\ArticleController:
+    tags:
+    - { name: action_responder }
+    - { name: action_alias, action: 'articles:list' }
+    - { name: action_alias, action: 'articles:show' }
+    - { name: action_alias, action: 'articles:feed' }
+
+  App\Presentation\Controller\PageController:
+    tags:
+    - { name: action_responder }
+    - { name: action_alias, action: 'page:about' }

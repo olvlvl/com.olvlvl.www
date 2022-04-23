@@ -2,11 +2,8 @@
 
 namespace App\Modules\Articles;
 
-$hooks = Hooks::class . '::';
+use ICanBoogie\Binding\Prototype\ConfigBuilder;
 
-return [
-
-	Article::class . '::get_url' => $hooks . 'url',
-	Article::class . '::url' => $hooks . 'url'
-
-];
+return fn(ConfigBuilder $config) => $config
+	->bind(Article::class, 'get_url', [ Hooks::class, 'url' ])
+	->bind(Article::class, 'url', [ Hooks::class, 'url_for' ]);

@@ -11,6 +11,8 @@ USER=$(COM_OLVLVL_WWW_USER)
 SERVER=$(COM_OLVLVL_WWW_SERVER)
 HOST=$(USER)@$(SERVER)
 
+all: vendor web/assets/page.js
+
 vendor:
 	@composer install
 
@@ -22,8 +24,8 @@ autoload: vendor
 
 optimize: vendor
 	@composer dump-autoload -oa
-	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie optimize
-	@php vendor/icanboogie-combined.php
+#	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie optimize
+#	@php vendor/icanboogie-combined.php
 
 unoptimize: vendor
 	@composer dump-autoload
@@ -34,7 +36,9 @@ reset:
 	@rm -Rf vendor
 
 clear-cache:
-	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie clear cache
+#	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie clear cache
+	rm -fR repository/cache/*
+	rm -fR repository/var/*
 	rm -f repository/db.sqlite
 
 server:
@@ -51,7 +55,7 @@ php-server:
 
 deploy: vendor optimize clear-cache
 	rm -f $(ARCHIVE_PATH)
-	tar -cjSf $(ARCHIVE_PATH) --exclude .git --exclude .idea --exclude tests --exclude .DS_Store --exclude ._.DS_Store .
+	COPYFILE_DISABLE=1 LC_ALL=en_US.UTF-8 tar -cjSf $(ARCHIVE_PATH) --exclude .git --exclude .idea --exclude tests --exclude .DS_Store  .
 	scp $(ARCHIVE_PATH) $(HOST):$(ARCHIVE)
 	ssh $(HOST) rm -Rf $(TARGET_TMP)
 	ssh $(HOST) mkdir -p $(TARGET_TMP)
@@ -62,5 +66,10 @@ deploy: vendor optimize clear-cache
 
 ssh:
 	ssh $(HOST)
+
+web/assets/page.js: assets/text-balancer.js assets/prism.js assets/page.js
+	cat $^ > $@.fat
+	uglifyjs --compress --mangle -- $@.fat > $@
+	rm $@.fat
 
 .PHONY: update autoload optimize unoptimize reset clear-cache server ssh deploy

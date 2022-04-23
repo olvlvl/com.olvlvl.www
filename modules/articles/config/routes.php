@@ -2,7 +2,8 @@
 
 namespace App\Modules\Articles;
 
-use ICanBoogie\HTTP\Request;
+use ICanBoogie\Binding\Routing\ConfigBuilder;
+use ICanBoogie\HTTP\RequestMethod;
 use ICanBoogie\Routing\RouteMaker as Make;
 
 /**
@@ -10,16 +11,18 @@ use ICanBoogie\Routing\RouteMaker as Make;
  * @uses ArticleController::action_show
  * @uses ArticleController::action_feed
  */
+return function (ConfigBuilder $config): void {
+	$config->resource(
+		'articles',
+		new Make\Options(
+			id_name: 'article_id',
+			basics: [
 
-return Make::resource('articles', ArticleController::class, [
+				Make::ACTION_LIST => new Make\Basics('/', RequestMethod::METHOD_GET),
+				Make::ACTION_SHOW => new Make\Basics('/<year:\d{4}>-<month:\d{2}>-:slug', RequestMethod::METHOD_GET),
+				ArticleController::ACTION_FEED => new Make\Basics('/index.atom', RequestMethod::METHOD_GET),
 
-	Make::OPTION_ID_NAME => 'article_id',
-	Make::OPTION_ACTIONS => [
-
-		Make::ACTION_INDEX => [ '/', Request::METHOD_GET ],
-		Make::ACTION_SHOW => [ '/<year:\d{4}>-<month:\d{2}>-:slug', Request::METHOD_GET ],
-		ArticleController::ACTION_FEED => [ '/index.atom', Request::METHOD_GET ]
-
-	]
-
-]);
+			]
+		)
+	);
+};

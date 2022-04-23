@@ -1,22 +1,9 @@
 <?php
 
-namespace App;
+use ICanBoogie\Binding\Routing\ConfigBuilder;
 
-use function ICanBoogie\Service\ref;
-use ICanBoogie\Routing\RouteDefinition;
-
-/**
- * @uses \App\Presentation\Controller\PageController::action_about
- */
-
-return [
-
-	'about' => [
-
-		RouteDefinition::PATTERN => '/about.html',
-		RouteDefinition::CONTROLLER => ref('controller.page'),
-		RouteDefinition::ACTION => 'about'
-
-	]
-
-];
+return fn(ConfigBuilder $config) => $config
+	/**
+	 * @uses \App\Presentation\Controller\PageController::page_about()
+	 */
+	->route('/about.html', 'page:about');

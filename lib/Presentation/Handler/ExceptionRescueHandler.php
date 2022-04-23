@@ -2,39 +2,31 @@
 
 namespace App\Presentation\Handler;
 
+use ICanBoogie\HTTP\RecoverEvent;
 use ICanBoogie\HTTP\Response;
-use ICanBoogie\HTTP\Status;
-use ICanBoogie\Exception\RescueEvent;
+use ICanBoogie\HTTP\ResponseStatus;
 use ICanBoogie\Render\Renderer;
+use ICanBoogie\Render\RenderOptions;
 use Throwable;
 
 final class ExceptionRescueHandler
 {
-	/**
-	 * @var Renderer
-	 */
-	private $renderer;
-
-	public function __construct(Renderer $renderer)
-	{
-		$this->renderer = $renderer;
+	public function __construct(
+		private readonly Renderer $renderer
+	) {
 	}
 
-	public function __invoke(RescueEvent $event, Throwable $target): void
+	public function __invoke(RecoverEvent $event, Throwable $target): void
 	{
-		try
-		{
+		try {
 			$code = $target->getCode();
 
-			if ($code < 100 || $code >= 600)
-			{
-				$code = Status::INTERNAL_SERVER_ERROR;
+			if ($code < 100 || $code >= 600) {
+				$code = ResponseStatus::STATUS_INTERNAL_SERVER_ERROR;
 			}
 
 			$event->response = new Response($this->render_exception($target), $code);
-		}
-		catch (Throwable $e)
-		{
+		} catch (Throwable) {
 			#
 			# we can't provide better… too bad
 			#
@@ -43,14 +35,15 @@ final class ExceptionRescueHandler
 
 	private function render_exception(Throwable $exception): string
 	{
-		return $this->renderer->render($exception, [
-
-			'template' => 'exception',
-			'layout' => 'default',
-			'locals' => [
-				'body_css' => 'page-exception'
-			]
-
-		]);
+		return $this->renderer->render(
+			$exception,
+			new RenderOptions(
+				template: 'exception',
+				layout: 'default',
+				locals: [
+					'body_css' => 'page-exception'
+				]
+			)
+		);
 	}
 }

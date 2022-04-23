@@ -2,21 +2,25 @@
 
 namespace ICanBoogie;
 
+use App\Modules\Articles\Article;
+
+$muted ??= false;
+
 /**
- * @var $article \App\Modules\Articles\Article
- * @var [$muted] bool
+ * @var Article $this
+ * @var bool $muted
  */
 
-?><div class="article-overview <?= empty($muted) ? "" : "block-muted" ?>">
-	<h2><a href="<?= $article->url ?>"><?= escape($article->title) ?></a></h2>
+?><div class="article-overview <?= $muted ? "block-muted" : "" ?>">
+	<h2><a href="<?= $this->url ?>"><?= escape($this->title) ?></a></h2>
 
 	<p class="article-meta text-muted">
-		<a href="<?= $article->url('index') ?>">
-			<time datetime="<?= $article->date->as_date ?>" class="article-time">
-				<?= $article->date->format('F d, Y') ?>
+		<a href="<?= $this->url('list') ?>">
+			<time datetime="<?= $this->date->as_date ?>" class="article-time">
+				<?= $this->date->format('F d, Y') ?>
 			</time>
 		</a>
 	</p>
 
-	<div class="article-excerpt"><?= $article->excerpt ?></div>
+	<div class="article-excerpt"><?= $this->excerpt ?></div>
 </div>

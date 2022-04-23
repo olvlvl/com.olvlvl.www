@@ -10,36 +10,37 @@ html {
 
 body {
 	background-color: #fff;
+	/*background-image: url("https://basehold.it/i/32/ff0000");*/
+	/*background-size: 4px 32px;*/
 	color: #373a3c;
-	font-family: Zilla Slab, apple-system, Helvetica, Arial, sans-serif;
+	font-family: 'Roboto Serif', -apple-system, Helvetica, Arial, sans-serif;
 	font-size: 1rem;
-	font-weight: 400;
-	line-height: 1.4444;
+	font-weight: 300;
+	line-height: 1.6rem;
 	margin: 0 2rem;
 }
 
 @media (max-width: 600px) {
 	html {
-		font-size: 18px;
+		font-size: 16.25px; // 26
 	}
+
 	body {
 		margin-left: 1rem;
 		margin-right: 1rem;
+		/*background-image: url("https://basehold.it/i/26/ff0000");*/
+		/*background-size: 4px 26px;*/
 	}
-}
-
-h1, h2, h3, h4 {
-	font-weight: inherit;
-	line-height: 1;
-	margin-top: 1.5rem;
-	margin-bottom: .5rem;
 }
 
 h1 {
 	text-align: center;
 	font-size: 3rem;
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+	font-weight: normal;
+	line-height: 3.2rem;
+	/* 'auto' is for text balancing */
+	margin: 0 auto 2.4rem;
+	padding-top: 2.4rem;
 }
 
 .page-articles-show h1 {
@@ -50,14 +51,39 @@ h1 small {
 	display: block;
 	font-size: .8889rem;
 	letter-spacing: .3ex;
-	margin-top: 1em;
+	margin-top: .8rem;
 	opacity: .6;
 	text-transform: uppercase;
 }
 
+h2, h3, h4 {
+	font-weight: bolder;
+	line-height: 1.6rem;
+	margin-top: 2.4rem;
+	margin-bottom: 0.8rem;
+}
+
+h2 {
+	font-size: 1.4rem;
+}
+
+h3 {
+	font-size: 1.2rem;
+}
+
+h4 {
+	font-size: 1rem;
+}
+
+h2 + h3, h3 + h4 {
+	margin-top: 0;
+	padding-top: 0.8rem;
+}
+
 @media (max-width: 800px) {
 	h1 {
-		font-size: 2.5rem;
+		font-size: 2.2rem;
+		line-height: 2.4rem;
 	}
 
 	h1 small {
@@ -68,23 +94,16 @@ h1 small {
 @media (max-width: 400px) {
 	h1 {
 		font-size: 2rem;
+		line-height: 2.4rem;
 	}
 
 	h1 small {
 		font-size: .6665rem;
 	}
-}
 
-h2 {
-	font-size: 1.75rem;
-}
-
-h3 {
-	font-size: 1.5rem;
-}
-
-h4 {
-	font-size: 1.25rem;
+	.page-body p {
+		hyphens: auto;
+	}
 }
 
 article, footer, header, hgroup, main, menu, nav, section, summary {
@@ -96,30 +115,60 @@ dl, ol, p, pre, ul {
 }
 
 address, dl, ol, p, ul {
-	margin-bottom: 1rem
+	margin-bottom: 1.6rem
 }
 
 ol ol, ol ul, ul ol, ul ul {
 	margin-bottom: 0
 }
 
+dl, ol, ul {
+	padding-left: 1.6rem;
+}
+
+/* because Firefox is bothering me, adding .5px to LI elements */
+li::before {
+	content: "•";
+	position: absolute;
+	left: -2ex;
+}
+
+li {
+	display: block;
+	position: relative;
+}
+
 pre,
 pre[class*="language-"],
 blockquote {
 	background-color: #F7F7F9;
-	padding: 1rem;
+	/* 1rem, half of body margins */
+	padding: 1.6rem 1rem;
 	border-left: 5px solid #EDEDF0;
-	margin-left: calc(-5px + -1rem);
-	margin-right: -1rem;
+	/* 1rem, half of body margins */
+	margin: 1.6rem calc(-5px + -1rem);
+	border-radius: 5px 0 0 5px;
 }
 
 pre, pre[class*="language-"] {
-	font-size: .8em;
-	line-height: 1.5;
+	line-height: 1.6rem;
 	overflow: auto;
 	/* prism overload */
 	margin-top: 0;
-	margin-bottom: 1rem;
+	margin-bottom: 1.6rem;
+}
+
+code, pre, code[class*="language-"], pre[class*="language-"] {
+	font-family: Roboto Mono, Monaco, Menlo, Consolas, "Courier New", monospace;
+	font-size: .90rem;
+	text-justify: none;
+}
+
+p > code {
+	font-size: .75em;
+	vertical-align: bottom;
+	color: inherit;
+	border-radius: 6px;
 }
 
 @media (max-width: 600px) {
@@ -127,6 +176,7 @@ pre, pre[class*="language-"] {
 	pre[class*="language-"],
 	blockquote {
 		border-left: 0;
+		/* like the body */
 		margin-left: -1rem;
 		margin-right: -1rem;
 	}
@@ -192,30 +242,19 @@ h3 a:not(:hover) {
 	text-decoration: none;
 }
 
-code, pre, code[class*="language-"], pre[class*="language-"] {
-	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-	font-size: .8em;
-	text-justify: none;
-}
-
 code {
 	background-color: #f7f7f9;
-	border: 1px solid #ededf0;
 	border-radius: 3px;
 	color: #bd4147;
 	padding: .2em .4em;
 	white-space: nowrap;
 }
 
-p code {
-	font-size: .75em;
-}
-
 pre code {
 	font-size: 1em !important;
 	border: none;
 	padding: 0;
-	white-space:  inherit;
+	white-space: inherit;
 }
 
 img {
@@ -258,14 +297,14 @@ Page
 */
 
 .page-body {
-	max-width: 80ex;
+	max-width: 75ex;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .article-comments,
 .article-continue {
-	margin-top: 3rem;
+	margin-top: 3.2rem;
 }
 
 .separator {
@@ -289,12 +328,9 @@ Article
 
 */
 
-.article-overview {
-	margin-top: 2rem;
-}
-
 .article-overview h2 {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
+	line-height: 1.333;
 }
 
 .article-overview .article-meta {
@@ -306,8 +342,8 @@ Article
 }
 
 .article-show .article-meta {
-	margin-top: .5rem;
-	margin-bottom: 2rem;
+	margin-top: .8rem;
+	margin-bottom: 1.6rem;
 	text-align: center;
 }
 
@@ -365,14 +401,14 @@ Page footer
 
 .page-footer {
 	font-size: .8rem;
-	line-height: 1rem;
-	margin: 1.5rem 0;
+	line-height: 1.6rem;
+	margin: 1.6rem 0;
 	text-align: center;
 }
 
 .page-footer > * {
 	display: inline-block;
-	margin: .5rem 1.5ex;
+	margin: 0 1.5ex;
 }
 
 /*
@@ -423,6 +459,10 @@ Dark
 		color: #c4555a;
 	}
 
+	p > code {
+		background-color: #343941;
+	}
+
 	pre code {
 		background-color: transparent;
 		border: none;
@@ -430,7 +470,7 @@ Dark
 	}
 
 	h5.separator span {
-		background: #252525;
+		background: #181a1b;
 	}
 
 	pre, pre[class*="language-"], blockquote {
@@ -540,4 +580,30 @@ Print
 	.page-footer {
 		display: none;
 	}
+}
+
+/* https://github.com/ozh/github-colors/blob/master/colors.json */
+
+pre.language-bash {
+	border-color: #89e051;
+}
+
+pre.language-dockerfile {
+	border-color: #0db7ed;
+}
+
+pre.language-js {
+	border-color: #f1e05a;
+}
+
+pre.language-json {
+	border-color: #267CB9;
+}
+
+pre.language-php {
+	border-color: #474A8A;
+}
+
+pre.language-yaml {
+	border-color: #cb171e;
 }

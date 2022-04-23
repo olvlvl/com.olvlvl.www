@@ -9,6 +9,6 @@
 
 foreach ($this as $article): ?>
 
-	<?= $view->partial('articles/overview', [ 'article' => $article ]) ?>
+	<?= $view->partial($article,'articles/overview') ?>
 
 <?php endforeach;

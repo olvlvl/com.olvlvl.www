@@ -11,6 +11,8 @@
 
 namespace ICanBoogie;
 
+use Throwable;
+
 chdir(dirname(__DIR__));
 
 /*
@@ -28,8 +30,28 @@ if (PHP_SAPI === 'cli-server')
 	unset($uri);
 }
 
-/*
+/**
  * Obtain the booted application and run it.
+ *
+ * @var $app Application
  */
 $app = require __DIR__ . '/../bootstrap.php';
-$app();
+
+try {
+	$app();
+} catch (Throwable $e) {
+
+	if (EventProfiler::$unused) {
+		echo '<pre>';
+		echo "# Unused events\n";
+
+		foreach (EventProfiler::$unused as [ $time, $event ]) {
+			echo "[$time] $event\n";
+		}
+		echo '</pre>';
+	}
+
+	var_dump(EventProfiler::$unused);
+
+	echo '<pre>' . $e . '</pre>';
+}
