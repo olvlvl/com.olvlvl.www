@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Presentation\Handler;
+namespace App\Presentation\Listener;
 
+use ICanBoogie\Binding\Event\Listener;
 use ICanBoogie\HTTP\RecoverEvent;
 use ICanBoogie\HTTP\Response;
 use ICanBoogie\HTTP\ResponseStatus;
@@ -9,13 +10,14 @@ use ICanBoogie\Render\Renderer;
 use ICanBoogie\Render\RenderOptions;
 use Throwable;
 
-final class ExceptionRescueHandler
+final class RecoverThrowableListener
 {
 	public function __construct(
 		private readonly Renderer $renderer
 	) {
 	}
 
+	#[Listener]
 	public function __invoke(RecoverEvent $event, Throwable $target): void
 	{
 		try {

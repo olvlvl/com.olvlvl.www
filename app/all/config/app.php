@@ -2,10 +2,8 @@
 
 namespace ICanBoogie;
 
-return [
-
-	AppConfig::CACHE_CATALOGS => true,
-	AppConfig::CACHE_CONFIGS => true,
-	AppConfig::CACHE_MODULES => true,
-
-];
+return fn(AppConfigBuilder $config) => $config
+	->enable_catalog_caching()
+	->enable_config_caching()
+	->enable_module_caching()
+;

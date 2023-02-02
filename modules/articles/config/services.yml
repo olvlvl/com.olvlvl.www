@@ -1,16 +1,28 @@
 parameters:
-  articles_location:
+  article_locations:
   - content/articles
 
   database_location: repository/db.sqlite
 
 services:
-
   _defaults:
-    public: true
+    autowire: true
 
-  event.handler.article_controller.before_action:
-    class: App\Modules\Articles\Handler\BeforeControllerActionHandler
+  App\Modules\Articles\ArticleSynchronizer:
+    class: App\Modules\Articles\ArticleSynchronizerWithImporter
     arguments:
-      $articles_location: '%articles_location%'
+      $article_locations: '%article_locations%'
+    lazy: true
+
+  App\Modules\Articles\Listener\BeforeControllerActionHandler:
+    arguments:
+      $article_locations: '%article_locations%'
       $database_location: '%database_location%'
+    public: true
+    tags:
+    - name: icanboogie.event
+      sender: App\Modules\Articles\ArticleController
+      event: ICanBoogie\Routing\Controller\BeforeActionEvent
+
+  App\Modules\Articles\Listener\OnStatementNotValidRecord:
+    public: true

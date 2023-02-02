@@ -5,18 +5,14 @@ services:
   _defaults:
     autowire: true
 
-  event.handler.before.article.action:
-    class: App\Presentation\Handler\RoutingDispatcherDispatchHandler
+  App\Presentation\Listener\RespondEventListener:
     public: true
 
-  event.handler.view.alter:
-    class: App\Presentation\Handler\ViewAlterHandler
+  App\Presentation\Listener\AlterViewListener:
     public: true
 
-  event.handler.not_found.rescue:
-    class: App\Presentation\Handler\NotFoundRecoverHandler
+  App\Presentation\Listener\RecoverNotFoundListener:
     public: true
 
-  event.handler.exception.rescue:
-    class: App\Presentation\Handler\ExceptionRescueHandler
+  App\Presentation\Listener\RecoverThrowableListener:
     public: true

@@ -3,17 +3,18 @@
 namespace App\Modules\Articles;
 
 use ICanBoogie\ActiveRecord;
+use ICanBoogie\Binding\Routing\Prototype\UrlTrait;
 
 /**
- * @method string url(string $type)
- *
- * @property-read string $url
  * @property-read string $year
  * @property-read string $month
  */
 class Article extends ActiveRecord
 {
-	const MODEL_ID = 'articles';
+	use UrlTrait;
+	use ActiveRecord\Property\DateProperty;
+
+	public const MODEL_ID = 'articles';
 
 	public $article_id;
 	public $title;
@@ -21,8 +22,6 @@ class Article extends ActiveRecord
 	public $body;
 	public $excerpt;
 	public $hash;
-
-	use ActiveRecord\Property\DateProperty;
 
 	static public function assignable(): array
 	{

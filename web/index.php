@@ -51,7 +51,5 @@ try {
 		echo '</pre>';
 	}
 
-	var_dump(EventProfiler::$unused);
-
 	echo '<pre>' . $e . '</pre>';
 }

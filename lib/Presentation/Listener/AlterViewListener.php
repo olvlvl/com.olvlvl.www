@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Presentation\Handler;
+namespace App\Presentation\Listener;
 
+use ICanBoogie\Binding\Event\Listener;
 use ICanBoogie\View\View;
 
 use function ICanBoogie\normalize;
 
-final class ViewAlterHandler
+final class AlterViewListener
 {
+	#[Listener]
 	public function __invoke(View\AlterEvent $event, View $target): void
 	{
 		$route = $target->controller->route;
