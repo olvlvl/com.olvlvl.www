@@ -5,19 +5,18 @@ namespace ICanBoogie;
 /**
  * @var View\View $view
  * @var string $content
- * @var string [$page_title]
+ * @var string|null $page_title
  * @var string $body_css
- * @var string [$og_description]
+ * @var string|null $og_description
  */
 
-if (empty($og_description))
-{
-	$og_description = "Olivier Laviale, on building software for internet";
-}
+$og_description ??= "Olivier Laviale, on building software for internet";
 
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+	<?php require '_google_analytics.phtml' ?>
+
 	<meta charset="utf-8">
 	<meta name="author" content="Olivier Laviale" />
 	<meta name="description" content="<?= escape($og_description) ?>" />
@@ -34,15 +33,15 @@ if (empty($og_description))
 
 	<title><?= empty($page_title) ? '' : $page_title . ' – ' ?>Olivier Laviale</title>
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Roboto+Serif:ital,wdth,wght@0,90,300;1,90,300&family=Roboto+Serif:ital,wdth,wght@0,90,400;1,90,400&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Roboto+Serif:ital,wdth,wght@0,90,300;1,90,300&family=Roboto+Serif:ital,wdth,wght@0,90,400;1,90,400&display=swap" rel="stylesheet" />
 
 	<link type="application/atom+xml" href="/index.atom" rel="alternate" title="Olivier Laviale" />
 	<link type="text/css" rel="stylesheet" href="/assets/prism.css" />
 	<link type="text/css" rel="stylesheet" href="/assets/page.css" />
 
-	<script src="/assets/page.js"></script>
+	<script src="/assets/page.js" defer></script>
 </head>
 <body class="<?= $body_css ?>">
 <div class="page-body">
@@ -53,6 +52,5 @@ if (empty($og_description))
 </div>
 
 <?php require '_footer.phtml' ?>
-<?php require '_google_analytics.phtml' ?>
 </body>
 </html>

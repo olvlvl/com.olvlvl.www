@@ -2,13 +2,14 @@
 <small>On building software for internet</small></h1>
 <?php
 
+use App\Modules\Articles\Article;
+use ICanBoogie\View\View;
+
 /**
- * @var $records \App\Modules\Articles\Article[]
- * @var $view \ICanBoogie\View\View
+ * @var $records Article[]
+ * @var $view View
  */
 
 foreach ($this as $article): ?>
-
-	<?= $view->partial($article,'articles/overview') ?>
-
+<?= $view->partial($article,'articles/overview') ?>
 <?php endforeach;

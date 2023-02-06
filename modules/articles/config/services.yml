@@ -14,7 +14,7 @@ services:
       $article_locations: '%article_locations%'
     lazy: true
 
-  App\Modules\Articles\Listener\BeforeControllerActionHandler:
+  App\Modules\Articles\Listener\BeforeControllerActionListener:
     arguments:
       $article_locations: '%article_locations%'
       $database_location: '%database_location%'
@@ -24,5 +24,5 @@ services:
       sender: App\Modules\Articles\ArticleController
       event: ICanBoogie\Routing\Controller\BeforeActionEvent
 
-  App\Modules\Articles\Listener\OnStatementNotValidRecord:
+  App\Modules\Articles\Listener\StatementNotValidListener:
     public: true

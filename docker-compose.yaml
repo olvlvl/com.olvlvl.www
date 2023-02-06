@@ -5,7 +5,8 @@ services:
     build: .
     environment:
       PHP_IDE_CONFIG: 'serverName=olvlvl-com'
-#      XDEBUG_MODE: develop,debug
+      XDEBUG_MODE: develop
+      ICANBOOGIE_INSTANCE: dev
     ports:
       - '8010:80'
     volumes:

@@ -16,12 +16,12 @@ class Article extends ActiveRecord
 
 	public const MODEL_ID = 'articles';
 
-	public $article_id;
-	public $title;
-	public $slug;
-	public $body;
-	public $excerpt;
-	public $hash;
+	public int $article_id;
+	public string $title;
+	public string $slug;
+	public string $body;
+	public string $excerpt;
+	public string $hash;
 
 	static public function assignable(): array
 	{

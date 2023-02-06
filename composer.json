@@ -1,6 +1,11 @@
 {
 	"minimum-stability": "dev",
 	"prefer-stable": true,
+	"replace": {
+		"symfony/polyfill-ctype": "*",
+		"symfony/polyfill-mbstring": "*",
+		"symfony/polyfill-php81": "*"
+	},
 	"require": {
 		"php": ">=8.1",
 		"icanboogie/icanboogie": "^6.0",
@@ -14,7 +19,7 @@
 		"psr-4": {
 			"App\\": "lib",
 			"App\\Modules\\Articles\\": "modules/articles/lib",
-			"App\\Modules\\Pages\\": "modules/pages/lib"
+			"ICanBoogie\\": "ICanBoogie"
 		},
 		"classmap": [
 			"Application.php"
@@ -27,5 +32,7 @@
 	},
 	"scripts": {
 		"post-autoload-dump": "ICanBoogie\\Autoconfig\\Hooks::on_autoload_dump"
+	},
+	"config": {
 	}
 }

@@ -3,7 +3,6 @@
 namespace App\Presentation\Listener;
 
 use Closure;
-use ICanBoogie\Binding\Event\Listener;
 use ICanBoogie\ConfigProfiler;
 use ICanBoogie\Debug;
 use ICanBoogie\EventProfiler;
@@ -26,7 +25,6 @@ use const PHP_EOL;
 
 final class RespondEventListener
 {
-	#[Listener]
 	public function __invoke(RespondEvent $event): void
 	{
 		$response = $event->response;

@@ -8,8 +8,8 @@ use ICanBoogie\Binding\ActiveRecord\ConfigBuilder;
 
 return fn(ConfigBuilder $config) => $config
 	->add_model(
-		'articles',
-		new Schema([
+		id: 'articles',
+		schema: new Schema([
 			'article_id' => SchemaColumn::serial(primary: true),
 			'title' => SchemaColumn::varchar(),
 			'slug' => SchemaColumn::varchar(80),

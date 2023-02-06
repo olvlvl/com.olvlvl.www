@@ -2,7 +2,6 @@
 
 namespace App\Presentation\Listener;
 
-use ICanBoogie\Binding\Event\Listener;
 use ICanBoogie\HTTP\RecoverEvent;
 use ICanBoogie\HTTP\Response;
 use ICanBoogie\HTTP\ResponseStatus;
@@ -17,17 +16,16 @@ final class RecoverThrowableListener
 	) {
 	}
 
-	#[Listener]
-	public function __invoke(RecoverEvent $event, Throwable $target): void
+	public function __invoke(RecoverEvent $event, Throwable $sender): void
 	{
 		try {
-			$code = $target->getCode();
+			$code = $sender->getCode();
 
 			if ($code < 100 || $code >= 600) {
 				$code = ResponseStatus::STATUS_INTERNAL_SERVER_ERROR;
 			}
 
-			$event->response = new Response($this->render_exception($target), $code);
+			$event->response = new Response($this->render_exception($sender), $code);
 		} catch (Throwable) {
 			#
 			# we can't provide better… too bad

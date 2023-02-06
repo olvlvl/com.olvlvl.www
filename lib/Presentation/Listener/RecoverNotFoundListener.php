@@ -2,7 +2,6 @@
 
 namespace App\Presentation\Listener;
 
-use ICanBoogie\Binding\Event\Listener;
 use ICanBoogie\HTTP\NotFound;
 use ICanBoogie\HTTP\RecoverEvent;
 use ICanBoogie\HTTP\Response;
@@ -16,11 +15,10 @@ final class RecoverNotFoundListener
 	) {
 	}
 
-	#[Listener]
-	public function __invoke(RecoverEvent $event, NotFound $target): void
+	public function __invoke(RecoverEvent $event, NotFound $sender): void
 	{
 		$html = $this->renderer->render(
-			$target,
+			$sender,
 			new RenderOptions(
 				template: '404',
 				layout: 'default',
@@ -28,7 +26,7 @@ final class RecoverNotFoundListener
 			)
 		);
 
-		$event->response = new Response($html, $target->getCode());
+		$event->response = new Response($html, $sender->getCode());
 		$event->stop(); // disable default exception handler
 	}
 }

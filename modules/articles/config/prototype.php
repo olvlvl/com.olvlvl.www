@@ -3,7 +3,9 @@
 namespace App\Modules\Articles;
 
 use ICanBoogie\Binding\Prototype\ConfigBuilder;
+use ICanBoogie\Binding\Routing\Prototype\UrlMethod;
+
+use function ICanBoogie\Service\ref;
 
 return fn(ConfigBuilder $config) => $config
-	->bind(Article::class, 'get_url', [ Hooks::class, 'url' ])
-	->bind(Article::class, 'url', [ Hooks::class, 'url_for' ]);
+	->bind(Article::class, UrlMethod::METHOD, ref(UrlMethod::class));

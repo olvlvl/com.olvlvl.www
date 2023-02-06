@@ -10,7 +10,7 @@ html {
 
 body {
 	background-color: #fff;
-	/*background-image: url("https://basehold.it/i/32/ff0000");*/
+	/*background-image: url("https://basehold.it/i/32/333333");*/
 	/*background-size: 4px 32px;*/
 	color: #373a3c;
 	font-family: 'Roboto Serif', -apple-system, Helvetica, Arial, sans-serif;
@@ -146,8 +146,7 @@ blockquote {
 	padding: 1.6rem 1rem;
 	border-left: 5px solid #EDEDF0;
 	/* 1rem, half of body margins */
-	margin: 1.6rem calc(-5px + -1rem);
-	border-radius: 5px 0 0 5px;
+	margin: 0 calc(-5px + -1rem) 1.6rem;
 }
 
 pre, pre[class*="language-"] {
@@ -372,6 +371,27 @@ li::marker {
 	border-style: dashed;
 }
 
+.article-author {
+	margin-top: 3.2rem;
+}
+
+.article-author img {
+	width: 6rem;
+	border-radius: 100%;
+	vertical-align: top;
+	padding-top: .3rem;
+}
+
+.article-author p {
+	margin-bottom: 0; /* fix bug with firefox */
+}
+
+.article-author-body {
+	margin-top: 1.6rem;
+	display: flex;
+	column-gap: 1.6rem;
+}
+
 /*
 
 Pages
@@ -443,6 +463,10 @@ Dark
 	body {
 		background-color: #181a1b;
 		color: #c4bfb7;
+	}
+
+	h1, h2, h3, h4, h5, .distinct {
+		color: #dad7d2;
 	}
 
 	a {
@@ -606,4 +630,8 @@ pre.language-php {
 
 pre.language-yaml {
 	border-color: #cb171e;
+}
+
+.table-bordered td {
+	border-top: 1px;
 }
