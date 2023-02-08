@@ -1,5 +1,5 @@
 app.engine=php
-app.engine.version=8.1
+app.engine.version=8.2
 http.firewall=none
 environment=production
 container.image=stable64
