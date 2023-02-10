@@ -9,16 +9,14 @@ use Throwable;
 
 final class ArticleSynchronizerWithImporter implements ArticleSynchronizer
 {
-	private ArticleImporter $importer;
-
 	/**
 	 * @param string[] $article_locations
 	 */
 	public function __construct(
 		private readonly ArticleModel $model,
+		private readonly ArticleImporter $importer,
 		private readonly array $article_locations,
 	) {
-		$this->importer = new ArticleImporter($model);
 	}
 
 	public function synchronize(): void
@@ -51,7 +49,7 @@ final class ArticleSynchronizerWithImporter implements ArticleSynchronizer
 			try {
 				$ids[] = $importer($file)->article_id;
 			} catch (Throwable $e) {
-				throw new RuntimeException("Unable to import article `$file`.", 0, $e);
+				throw new RuntimeException("Unable to import article `$file`.", previous: $e);
 			}
 		}
 

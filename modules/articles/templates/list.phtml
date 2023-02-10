@@ -6,10 +6,10 @@ use App\Modules\Articles\Article;
 use ICanBoogie\View\View;
 
 /**
- * @var $records Article[]
+ * @var $this Article[]
  * @var $view View
  */
 
 foreach ($this as $article): ?>
-<?= $view->partial($article,'articles/overview') ?>
+<?= $view->partial('articles/overview', $article) ?>
 <?php endforeach;

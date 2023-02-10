@@ -8,9 +8,8 @@ use ICanBoogie\HTTP\RedirectResponse;
 use ICanBoogie\HTTP\ResponseStatus;
 use ICanBoogie\Routing\Controller\ActionTrait;
 use ICanBoogie\Routing\ControllerAbstract;
-use ICanBoogie\View\View;
+use ICanBoogie\View\RenderTrait;
 use ICanBoogie\View\ViewProvider;
-use ICanBoogie\View\ViewTrait;
 
 use function html_entity_decode;
 use function str_replace;
@@ -24,7 +23,7 @@ final class ArticleController extends ControllerAbstract
 	 * @uses feed
 	 */
 	use ActionTrait;
-	use ViewTrait;
+	use RenderTrait;
 
 	public const ACTION_FEED = 'feed';
 
@@ -34,27 +33,27 @@ final class ArticleController extends ControllerAbstract
 	) {
 	}
 
-	private function list(): View
+	private function list(): void
 	{
 		$articles = $this->model->order('date DESC')->all;
 
 		$this->response->headers->cache_control = 'public';
 		$this->response->expires = '+3 hour';
 
-		return $this->view($articles);
+		$this->render($articles);
 	}
 
 	/**
 	 * @throws NotFound
 	 */
-	private function show(string $year, string $month, string $slug): View
+	private function show(string $year, string $month, string $slug): void
 	{
 		$article = $this->find_one($year, $month, $slug);
 
 		$this->response->headers->cache_control = 'public';
 		$this->response->expires = '+3 hour';
 
-		return $this->view($article, locals: [
+		$this->render($article, locals: [
 			'page_title' => $article->title,
 			'og_url' => $article->url,
 			'og_description' => $this->format_description($article->excerpt),
@@ -72,7 +71,7 @@ final class ArticleController extends ControllerAbstract
 		return new RedirectResponse($record->url, ResponseStatus::STATUS_MOVED_PERMANENTLY);
 	}
 
-	private function feed(): View
+	private function feed(): void
 	{
 		$articles = $this->model->limit(20)->order('date DESC')->all;
 		/* @var Article $first_article */
@@ -83,7 +82,7 @@ final class ArticleController extends ControllerAbstract
 		$this->response->headers->content_type->charset = 'UTF-8';
 		$this->response->expires = '+1 week';
 
-		return $this->view($articles, layout: 'feed', locals: [
+		$this->render($articles, layout: 'feed', locals: [
 			'updated' => $first_article->date
 		]);
 	}
@@ -93,16 +92,9 @@ final class ArticleController extends ControllerAbstract
 	 */
 	private function find_one(string $year, string $month, string $slug): Article
 	{
-		/* @var Article $record */
-		$record = $this->model
+		return $this->model
 			->where('strftime("%Y", `date`) = ? AND strftime("%m", `date`) = ? AND slug = ?', $year, $month, $slug)
-			->one;
-
-		if (!$record) {
-			throw new NotFound;
-		}
-
-		return $record;
+			->one ?: throw new NotFound;
 	}
 
 	private function format_description(string $excerpt): string

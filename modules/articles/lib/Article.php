@@ -5,9 +5,12 @@ namespace App\Modules\Articles;
 use ICanBoogie\ActiveRecord;
 use ICanBoogie\Binding\Routing\Prototype\UrlTrait;
 
+use function strip_tags;
+
 /**
  * @property-read string $year
  * @property-read string $month
+ * @property-read string $safe_title
  */
 class Article extends ActiveRecord
 {
@@ -42,6 +45,11 @@ class Article extends ActiveRecord
 	protected function get_month(): string
 	{
 		return $this->get_date()->format('m');
+	}
+
+	protected function get_safe_title(): string
+	{
+		return strip_tags($this->title);
 	}
 
 	/**

@@ -2,12 +2,15 @@
 
 namespace App\Modules\Articles;
 
+use App\Application\Markdown;
 use ICanBoogie\DateTime;
-use Parsedown;
+use LogicException;
 use SplFileInfo;
 
+use function file_get_contents;
 use function ICanBoogie\excerpt;
 use function preg_replace;
+use function preg_replace_callback;
 use function strpos;
 
 final class ArticleImporter
@@ -22,12 +25,10 @@ final class ArticleImporter
 		return base64_encode(hash_file('sha384', $file->getPathname(), 'true'));
 	}
 
-	private Parsedown $markdown;
-
 	public function __construct(
-		private readonly ArticleModel $model
+		private readonly ArticleModel $model,
+		private readonly Markdown $markdown,
 	) {
-		$this->markdown = new Parsedown();
 	}
 
 	public function __invoke(SplFileInfo $file): Article
@@ -37,8 +38,6 @@ final class ArticleImporter
 		$date = DateTime::from($date_string . '120000', 'Europe/Berlin');
 		$slug = basename(substr($filename, 9), '.md');
 		$hash = self::hash($file);
-
-		/* @var $article Article */
 
 		$article = $this->model->where('date = ? AND slug = ?', $date, $slug)->one;
 
@@ -58,7 +57,9 @@ final class ArticleImporter
 		[ $title, $body ] = $this->markdown($file);
 		$excerpt = $this->excerpt($body);
 
-		$article->assign(compact('title', 'body', 'excerpt', 'hash'))->save();
+		$article
+			->assign(compact('title', 'body', 'excerpt', 'hash'))
+			->save();
 
 		return $article;
 	}
@@ -70,21 +71,19 @@ final class ArticleImporter
 	 */
 	private function markdown(SplFileInfo $file): array
 	{
-		$body = $this->markdown->text(file_get_contents($file->getPathname()));
-		$body = preg_replace_callback('#<h1[^>]*>([^<]+)</h1>#', function ($matches) use (&$title) {
+		$markdown = file_get_contents($file->getPathname());
+		$html = $this->markdown->text($markdown);
+		$html = preg_replace_callback('/<h1[^>]*>(.+)<\/h1>/', function ($matches) use (&$title) {
 			$title = $matches[1];
 
 			return '';
-		}, $body);
+		}, $html);
 
 		if (!$title) {
-			throw new \LogicException("Unable to locate article title.");
+			throw new LogicException("Unable to locate article title in {$file->getFilename()}");
 		}
 
-		$body = preg_replace("/\~\~(.+)\~\~/", "<del>$1</del>", $body);
-		$body = str_replace('<table>', '<table class="table table-bordered">', $body);
-
-		return [ $title, trim($body) ];
+		return [ $title, trim($html) ];
 	}
 
 	/**

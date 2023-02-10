@@ -2,15 +2,16 @@
 
 namespace App\Modules\Articles\Listener;
 
-use App\Modules\Articles\ArticleController;
 use App\Modules\Articles\ArticleSynchronizer;
-use ICanBoogie\Module\ModuleCollectionInstallFailed;
-use ICanBoogie\Routing\Controller\BeforeActionEvent;
+use ICanBoogie\HTTP\Responder\WithEvent\BeforeRespondEvent;
+use ICanBoogie\Module\ModuleInstaller;
+
+use ICanBoogie\Module\ModuleInstaller\ModuleInstallFailed;
 
 use function file_exists;
 use function filemtime;
 
-final class BeforeControllerActionListener
+final class BeforeRespondEventListener
 {
 	/**
 	 * @param string[] $article_locations
@@ -18,21 +19,22 @@ final class BeforeControllerActionListener
 	public function __construct(
 		private readonly array $article_locations,
 		private readonly string $database_location,
-		private readonly ArticleSynchronizer $synchronizer
+		private readonly ArticleSynchronizer $synchronizer,
+		private readonly ModuleInstaller $module_installer,
 	) {
 	}
 
 	/**
-	 * @throws ModuleCollectionInstallFailed
+	 * @throws ModuleInstallFailed
 	 */
-	public function __invoke(BeforeActionEvent $event, ArticleController $controller): void
+	public function __invoke(BeforeRespondEvent $event): void
 	{
 		if (!$this->should_update( $database_exists)) {
 			return;
 		}
 
 		if (!$database_exists) {
-			$controller->app->modules->install();
+			$this->module_installer->install_all();
 		}
 
 		$this->synchronizer->synchronize();

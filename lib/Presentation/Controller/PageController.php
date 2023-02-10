@@ -5,9 +5,9 @@ namespace App\Presentation\Controller;
 use ICanBoogie\Render\MarkdownEngine;
 use ICanBoogie\Routing\Controller\ActionTrait;
 use ICanBoogie\Routing\ControllerAbstract;
+use ICanBoogie\View\RenderTrait;
 use ICanBoogie\View\View;
 use ICanBoogie\View\ViewProvider;
-use ICanBoogie\View\ViewTrait;
 
 use const App\PAGES;
 
@@ -17,7 +17,7 @@ final class PageController extends ControllerAbstract
 	 * @uses page_about
 	 */
 	use ActionTrait;
-	use ViewTrait;
+	use RenderTrait;
 
 	public function __construct(
 		private readonly ViewProvider $view_provider,

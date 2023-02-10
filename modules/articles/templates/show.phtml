@@ -25,15 +25,15 @@ use ICanBoogie\View\View;
 
 <?php /*
 <div class="article-comments">
-	<?= $view->partial('disqus', [ 'article' => $this ]) ?>
+	<?= $view->partial('disqus', locals: [ 'article' => $this ]) ?>
 </div> */ ?>
 
-<?= $view->partial($this,'articles/author') ?>
+<?= $view->partial('articles/author', $this) ?>
 
 <footer class="article-continue">
 <h5 class="separator"><span>Continue reading</span></h5>
 
 <?php foreach ($continue_reading as $article): ?>
-<?= $view->partial($article,'articles/overview', [ 'muted' => true ]) ?>
+<?= $view->partial('articles/overview', $article, [ 'muted' => true ]) ?>
 <?php endforeach; ?>
 </footer>

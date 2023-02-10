@@ -13,7 +13,7 @@ use function strip_tags;
 ?>
 <?php foreach ($this as $record): ?>
 <entry>
-	<title><?= escape($record->title) ?></title>
+	<title><?= $record->safe_title ?></title>
 	<link href="https://olvlvl.com<?= escape($record->url) ?>" />
 	<id>https://olvlvl.com<?= escape($record->url) ?></id>
 	<author>

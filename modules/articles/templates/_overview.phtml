@@ -12,7 +12,7 @@ $muted ??= false;
  */
 
 ?><div class="article-overview <?= $muted ? "block-muted" : "" ?>">
-	<h2><a href="<?= $this->url ?>"><?= escape($this->title) ?></a></h2>
+	<h2><a href="<?= $this->url ?>"><?= $this->title ?></a></h2>
 
 	<p class="article-meta text-muted">
 		<a href="<?= $this->url('list') ?>">

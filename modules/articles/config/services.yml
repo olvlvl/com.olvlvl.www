@@ -8,13 +8,15 @@ services:
   _defaults:
     autowire: true
 
+  App\Modules\Articles\ArticleImporter: ~
+
   App\Modules\Articles\ArticleSynchronizer:
     class: App\Modules\Articles\ArticleSynchronizerWithImporter
     arguments:
       $article_locations: '%article_locations%'
     lazy: true
 
-  App\Modules\Articles\Listener\BeforeControllerActionListener:
+  App\Modules\Articles\Listener\BeforeRespondEventListener:
     arguments:
       $article_locations: '%article_locations%'
       $database_location: '%database_location%'

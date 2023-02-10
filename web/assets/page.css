@@ -205,6 +205,10 @@ figure figcaption {
 	margin: .8rem 0;
 }
 
+figcaption code {
+	font-size: .9em;
+}
+
 /*
 
 Typography
