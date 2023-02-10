@@ -57,12 +57,14 @@ deploy: vendor optimize clear-cache
 	rm -f $(ARCHIVE_PATH)
 	COPYFILE_DISABLE=1 LC_ALL=en_US.UTF-8 tar -cjSf $(ARCHIVE_PATH) --exclude .git --exclude .idea --exclude tests --exclude .DS_Store  .
 	scp $(ARCHIVE_PATH) $(HOST):$(ARCHIVE)
-	ssh $(HOST) rm -Rf $(TARGET_TMP)
-	ssh $(HOST) mkdir -p $(TARGET_TMP)
-	ssh $(HOST) tar -xf $(ARCHIVE) -C $(TARGET_TMP)
-	ssh $(HOST) rm -Rf $(TARGET)
-	ssh $(HOST) mv $(TARGET_TMP) $(TARGET)
-	ssh $(HOST) rm $(ARCHIVE)
+	ssh $(HOST) "\
+		set -eux && \
+		rm -Rf $(TARGET_TMP) && \
+		mkdir -p $(TARGET_TMP) && \
+		tar -xf $(ARCHIVE) -C $(TARGET_TMP) && \
+		rm -Rf $(TARGET) && \
+		mv $(TARGET_TMP) $(TARGET) && \
+		rm $(ARCHIVE)"
 
 ssh:
 	ssh $(HOST)
