@@ -10,6 +10,16 @@ use ICanBoogie\View\View;
  * @var $view View
  */
 
-foreach ($this as $article): ?>
-<?= $view->partial('articles/overview', $article) ?>
-<?php endforeach;
+$anchor = null;
+
+foreach ($this as $article) {
+	$article_anchor = "$article->year-$article->month";
+
+	if ($anchor !== $article_anchor) {
+		$anchor = $article_anchor;
+
+		?><a id="in-<?= $anchor ?>"></a><?php
+	}
+
+	echo $view->partial('articles/overview', $article);
+}

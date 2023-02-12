@@ -15,9 +15,9 @@ use ICanBoogie\View\View;
 
 <section class="article-show">
 	<div class="article-meta block-muted">
-		<a href="/" class="article-author" rel="index">Olivier Laviale</a>
+		<a href="/resume.html" class="article-author" rel="author">Olivier Laviale</a>
 		—
-		<a href="<?= $this->url(RouteMaker::ACTION_LIST) ?>" rel="index"><time class="article-time" datetime="<?= $this->date ?>"><?= $this->date->format('F d, Y') ?></time></a>
+		<a href="<?= $this->url(RouteMaker::ACTION_LIST) ?>#in-<?= $this->year ?>-<?= $this->month ?>" rel="index"><time class="article-time" datetime="<?= $this->date ?>"><?= $this->date->format('F Y') ?></time></a>
 	</div>
 
 	<div class="article-body"><?= $this->body ?></div>

@@ -15,4 +15,4 @@ services:
     shared: false
     tags:
     - { name: action_responder }
-    - { name: action_alias, action: 'page:about' }
+    - { name: action_alias, action: 'pages:me' }

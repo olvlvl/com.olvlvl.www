@@ -2,43 +2,44 @@
 
 namespace App\Presentation\Controller;
 
-use ICanBoogie\Render\MarkdownEngine;
+use App\Application\Markdown;
 use ICanBoogie\Routing\Controller\ActionTrait;
 use ICanBoogie\Routing\ControllerAbstract;
 use ICanBoogie\View\RenderTrait;
-use ICanBoogie\View\View;
 use ICanBoogie\View\ViewProvider;
+
+use function file_get_contents;
 
 use const App\PAGES;
 
 final class PageController extends ControllerAbstract
 {
 	/**
-	 * @uses page_about
+	 * @uses pages_me
 	 */
 	use ActionTrait;
 	use RenderTrait;
 
 	public function __construct(
 		private readonly ViewProvider $view_provider,
-		private readonly MarkdownEngine $markdown
+		private readonly Markdown $markdown
 	) {
 	}
 
-	private function page_about(): View
+	private function pages_me(): void
 	{
-		$content = $this->render_markdown(PAGES . '/about.md');
+		$content = $this->render_markdown(PAGES . '/resume.md');
 
 		$this->response->headers->cache_control = 'public';
 		$this->response->expires = '+3 hour';
 
-		return $this->view($content, template: 'page/show', locals: [
-			'page_title' => "About Olivier Laviale"
+		$this->render($content, template: 'page/show', locals: [
+			'page_title' => "Olivier Laviale <small>About me / Résumé</small>"
 		]);
 	}
 
 	private function render_markdown(string $filename): string
 	{
-		return $this->markdown->render($filename, null, []);
+		return $this->markdown->text(file_get_contents($filename));
 	}
 }

@@ -334,7 +334,7 @@ Article
 
 .article-overview h2 {
 	font-size: 1.2rem;
-	line-height: 1.333;
+	line-height: 1.6rem;
 }
 
 .article-overview .article-meta {
@@ -456,6 +456,31 @@ Muted
 
 .block-muted:not(:hover) a {
 	color: inherit;
+}
+
+/*
+
+PAGE
+
+*/
+
+.page-pages-me h3 time {
+}
+
+.page-pages-me h3 .separator {
+	display: none;
+}
+
+.page-pages-me h3 b {
+	font-size: .8em;
+	font-weight: 300;
+}
+
+.page-pages-me .header-line {
+	display: block;
+	opacity: .6;
+	font-size: .6em;
+	font-weight: 300;
 }
 
 /*
