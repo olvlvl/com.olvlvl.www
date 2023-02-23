@@ -16,31 +16,27 @@ all: vendor web/assets/page.js
 vendor:
 	@composer install
 
-update: vendor
-	@composer update
-
-autoload: vendor
-	@composer dump-autoload
-
+.PHONY: optimize
 optimize: vendor
 	@composer dump-autoload -oa
 #	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie optimize
 #	@php vendor/icanboogie-combined.php
 
+.PHONY: unoptimize
 unoptimize: vendor
 	@composer dump-autoload
 	@rm -f vendor/icanboogie-combined.php
 	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie clear cache
 
-reset:
-	@rm -Rf vendor
-
+.PHONY: clear-cache
 clear-cache:
 #	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie clear cache
 	rm -fR repository/cache/*
 	rm -fR repository/var/*
 	rm -f repository/db.sqlite
+	rm -f web/*.html
 
+.PHONY: server
 server:
 	@rm -rf repository/cache/*
 	@rm -rf repository/var/*
@@ -48,11 +44,13 @@ server:
 	@echo "Open http://localhost:$(SERVER_PORT) when ready."
 	@docker-compose up
 
+.PHONY: php-server
 php-server:
 	@cd web && \
 	ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) \
 	php -S localhost:$(SERVER_PORT) index.php
 
+.PHONY: deploy
 deploy: vendor optimize clear-cache
 	rm -f $(ARCHIVE_PATH)
 	COPYFILE_DISABLE=1 LC_ALL=en_US.UTF-8 tar -cjSf $(ARCHIVE_PATH) --exclude .git --exclude .idea --exclude tests --exclude .DS_Store  .
@@ -62,10 +60,13 @@ deploy: vendor optimize clear-cache
 		rm -Rf $(TARGET_TMP) && \
 		mkdir -p $(TARGET_TMP) && \
 		tar -xf $(ARCHIVE) -C $(TARGET_TMP) && \
-		rm -Rf $(TARGET) && \
+		mv $(TARGET) $(TARGET)_rm && \
 		mv $(TARGET_TMP) $(TARGET) && \
+		rm -Rf $(TARGET)_rm && \
 		rm $(ARCHIVE)"
+	composer dump
 
+.PHONY: ssh
 ssh:
 	ssh $(HOST)
 
@@ -73,5 +74,3 @@ web/assets/page.js: assets/text-balancer.js assets/prism.js assets/page.js
 	cat $^ > $@.fat
 	uglifyjs --compress --mangle -- $@.fat > $@
 	rm $@.fat
-
-.PHONY: update autoload optimize unoptimize reset clear-cache server ssh deploy

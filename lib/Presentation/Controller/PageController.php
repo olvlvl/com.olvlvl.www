@@ -34,7 +34,7 @@ final class PageController extends ControllerAbstract
 		$this->response->expires = '+3 hour';
 
 		$this->render($content, template: 'page/show', locals: [
-			'page_title' => "Olivier Laviale <small>About me / Résumé</small>"
+			'page_title' => "Olivier Laviale <small>Staff Engineer</small>"
 		]);
 	}
 

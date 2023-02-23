@@ -13,7 +13,7 @@ body {
 	/*background-image: url("https://basehold.it/i/32/333333");*/
 	/*background-size: 4px 32px;*/
 	color: #373a3c;
-	font-family: 'Roboto Serif', -apple-system, Helvetica, Arial, sans-serif;
+	font-family: 'Roboto Serif', 'Hiragino Mincho Pro', Georgia, "Times New Roman", serif;
 	font-size: 1rem;
 	font-weight: 300;
 	line-height: 1.6rem;
@@ -301,7 +301,7 @@ Page
 */
 
 .page-body {
-	max-width: 75ex;
+	max-width: 38rem;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -476,11 +476,41 @@ PAGE
 	font-weight: 300;
 }
 
-.page-pages-me .header-line {
+.page-pages-me h3 .block-muted {
 	display: block;
 	opacity: .6;
 	font-size: .6em;
 	font-weight: 300;
+}
+
+/* https://github.com/ozh/github-colors/blob/master/colors.json */
+
+pre.language-bash {
+	border-color: #89e051;
+}
+
+pre.language-dockerfile {
+	border-color: #0db7ed;
+}
+
+pre.language-js {
+	border-color: #f1e05a;
+}
+
+pre.language-json {
+	border-color: #267CB9;
+}
+
+pre.language-php {
+	border-color: #474A8A;
+}
+
+pre.language-yaml {
+	border-color: #cb171e;
+}
+
+.table-bordered td {
+	border-top: 1px;
 }
 
 /*
@@ -547,6 +577,12 @@ Dark
 	}
 }
 
+@media screen {
+	.print-only {
+		display: none;
+	}
+}
+
 /*
 
 Print
@@ -558,14 +594,32 @@ Print
 		font-size: inherit;
 	}
 
+	.display-only {
+		display: none;
+	}
+
 	body {
 		margin: auto;
 	}
 
 	h1 {
 		font-size: 2.5rem;
+		padding-top: 0;
 		margin-top: 0;
 		margin-bottom: 1rem;
+	}
+
+	h1 small {
+		font-size: 1.2rem;
+	}
+
+	.page-articles-show h1 {
+		margin-bottom: 1.6rem;
+	}
+
+	pre, pre[class*="language-"], blockquote {
+		margin-left: 0;
+		margin-right: 0;
 	}
 
 	h2, h3, p {
@@ -575,6 +629,7 @@ Print
 
 	h2, h3 {
 		page-break-after: avoid;
+		page-break-inside: avoid;
 	}
 
 	blockquote, figure, img, pre, tr {
@@ -629,39 +684,20 @@ Print
 		border: 1px solid #ddd !important
 	}
 
+	.page-body {
+		max-width: none;
+	}
+
 	.article-meta,
 	.article-continue,
+	.article-author,
 	.page-footer {
 		display: none;
 	}
-}
 
-/* https://github.com/ozh/github-colors/blob/master/colors.json */
-
-pre.language-bash {
-	border-color: #89e051;
-}
-
-pre.language-dockerfile {
-	border-color: #0db7ed;
-}
-
-pre.language-js {
-	border-color: #f1e05a;
-}
-
-pre.language-json {
-	border-color: #267CB9;
-}
-
-pre.language-php {
-	border-color: #474A8A;
-}
-
-pre.language-yaml {
-	border-color: #cb171e;
-}
-
-.table-bordered td {
-	border-top: 1px;
+	h1 small,
+	.block-muted {
+		opacity: inherit !important;
+		color: #82888c !important;
+	}
 }

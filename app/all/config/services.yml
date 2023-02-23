@@ -1,18 +1,5 @@
 imports:
 - { resource: services/*.yaml }
 
-services:
-  _defaults:
-    autowire: true
-
-  App\Presentation\Listener\RespondEventListener:
-    public: true
-
-  App\Presentation\Listener\AlterViewListener:
-    public: true
-
-  App\Presentation\Listener\RecoverNotFoundListener:
-    public: true
-
-  App\Presentation\Listener\RecoverThrowableListener:
-    public: true
+parameters:
+  modules.cache.enabled: true

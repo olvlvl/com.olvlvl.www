@@ -58,16 +58,16 @@
         },
         {
             "name": "icanboogie/accessor",
-            "version": "v4.1.0",
+            "version": "v4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Accessor.git",
-                "reference": "c82397974bf3d02ee3946d3a32c267098829285c"
+                "reference": "745e4da28f02530cd711b984e6701fba94cc8340"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Accessor/zipball/c82397974bf3d02ee3946d3a32c267098829285c",
-                "reference": "c82397974bf3d02ee3946d3a32c267098829285c",
+                "url": "https://api.github.com/repos/ICanBoogie/Accessor/zipball/745e4da28f02530cd711b984e6701fba94cc8340",
+                "reference": "745e4da28f02530cd711b984e6701fba94cc8340",
                 "shasum": ""
             },
             "require": {
@@ -75,8 +75,8 @@
                 "php": ">=7.2.5"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.12.63",
-                "phpunit/phpunit": "^8.5"
+                "phpstan/phpstan": "^1.9.17",
+                "phpunit/phpunit": "^8.5.32"
             },
             "type": "library",
             "autoload": {
@@ -107,7 +107,7 @@
                 "issues": "https://github.com/ICanBoogie/Accessor/issues",
                 "source": "https://github.com/ICanBoogie/Accessor"
             },
-            "time": "2022-04-10T22:53:38+00:00"
+            "time": "2023-02-15T09:54:18+00:00"
         },
         {
             "name": "icanboogie/activerecord",
@@ -410,12 +410,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-render.git",
-                "reference": "b6bfd5bcbc6070496d098c5175cb1e9df238b52e"
+                "reference": "8d1309d1607a920b812f746dd36e6d6f14b3f509"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-render/zipball/b6bfd5bcbc6070496d098c5175cb1e9df238b52e",
-                "reference": "b6bfd5bcbc6070496d098c5175cb1e9df238b52e",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-render/zipball/8d1309d1607a920b812f746dd36e6d6f14b3f509",
+                "reference": "8d1309d1607a920b812f746dd36e6d6f14b3f509",
                 "shasum": ""
             },
             "require": {
@@ -456,7 +456,7 @@
                 "issues": "https://github.com/ICanBoogie/bind-render/issues",
                 "source": "https://github.com/ICanBoogie/bind-render"
             },
-            "time": "2023-02-08T01:54:10+00:00"
+            "time": "2023-02-22T21:18:51+00:00"
         },
         {
             "name": "icanboogie/bind-routing",
@@ -464,12 +464,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-routing.git",
-                "reference": "cfdb42ec2b2dab04828898540bc9285c1263a3f3"
+                "reference": "714e3ac590b8265037b2473a5cb9530d32b49234"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-routing/zipball/cfdb42ec2b2dab04828898540bc9285c1263a3f3",
-                "reference": "cfdb42ec2b2dab04828898540bc9285c1263a3f3",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-routing/zipball/714e3ac590b8265037b2473a5cb9530d32b49234",
+                "reference": "714e3ac590b8265037b2473a5cb9530d32b49234",
                 "shasum": ""
             },
             "require": {
@@ -517,7 +517,7 @@
                 "issues": "https://github.com/ICanBoogie/bind-routing/issues",
                 "source": "https://github.com/ICanBoogie/bind-routing"
             },
-            "time": "2023-02-08T01:52:58+00:00"
+            "time": "2023-02-13T00:56:38+00:00"
         },
         {
             "name": "icanboogie/bind-symfony-dependency-injection",
@@ -801,12 +801,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Errors.git",
-                "reference": "34ab403197ecb17ce35d102beea24008063966a1"
+                "reference": "b737f6a2ca20a9d50a5dcfe2b41b7dc39cdfc402"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Errors/zipball/34ab403197ecb17ce35d102beea24008063966a1",
-                "reference": "34ab403197ecb17ce35d102beea24008063966a1",
+                "url": "https://api.github.com/repos/ICanBoogie/Errors/zipball/b737f6a2ca20a9d50a5dcfe2b41b7dc39cdfc402",
+                "reference": "b737f6a2ca20a9d50a5dcfe2b41b7dc39cdfc402",
                 "shasum": ""
             },
             "require": {
@@ -814,8 +814,8 @@
                 "php": ">=8.1"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.5",
-                "phpunit/phpunit": "^9.5"
+                "phpstan/phpstan": "^1.9",
+                "phpunit/phpunit": "^10.0"
             },
             "type": "library",
             "autoload": {
@@ -844,7 +844,7 @@
                 "issues": "https://github.com/ICanBoogie/Errors/issues",
                 "source": "https://github.com/ICanBoogie/Errors"
             },
-            "time": "2022-04-17T02:17:02+00:00"
+            "time": "2023-02-16T00:55:24+00:00"
         },
         {
             "name": "icanboogie/event",
@@ -969,12 +969,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/ICanBoogie.git",
-                "reference": "9491df1e76c4cb68364753da38c3350a7f40433d"
+                "reference": "71710c0e71810da1d3ba5f0fe59e858dbb7483dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/ICanBoogie/zipball/9491df1e76c4cb68364753da38c3350a7f40433d",
-                "reference": "9491df1e76c4cb68364753da38c3350a7f40433d",
+                "url": "https://api.github.com/repos/ICanBoogie/ICanBoogie/zipball/71710c0e71810da1d3ba5f0fe59e858dbb7483dc",
+                "reference": "71710c0e71810da1d3ba5f0fe59e858dbb7483dc",
                 "shasum": ""
             },
             "require": {
@@ -1047,7 +1047,7 @@
                 "issues": "https://github.com/ICanBoogie/ICanBoogie/issues",
                 "source": "https://github.com/ICanBoogie/ICanBoogie"
             },
-            "time": "2023-02-08T13:24:49+00:00"
+            "time": "2023-02-15T00:09:06+00:00"
         },
         {
             "name": "icanboogie/inflector",
@@ -1119,12 +1119,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Module.git",
-                "reference": "d756c446002c4a7f0b72ff152127f394cace76b8"
+                "reference": "d1baf78f0384093a7d9893679a7d24ada7b0def5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Module/zipball/d756c446002c4a7f0b72ff152127f394cace76b8",
-                "reference": "d756c446002c4a7f0b72ff152127f394cace76b8",
+                "url": "https://api.github.com/repos/ICanBoogie/Module/zipball/d1baf78f0384093a7d9893679a7d24ada7b0def5",
+                "reference": "d1baf78f0384093a7d9893679a7d24ada7b0def5",
                 "shasum": ""
             },
             "require": {
@@ -1190,7 +1190,7 @@
                 "issues": "https://github.com/ICanBoogie/Module/issues",
                 "source": "https://github.com/ICanBoogie/Module"
             },
-            "time": "2023-02-10T13:33:33+00:00"
+            "time": "2023-02-22T21:30:32+00:00"
         },
         {
             "name": "icanboogie/prototype",
@@ -1254,12 +1254,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Render.git",
-                "reference": "0b6f86cd363a37d1d863fe53742cbc76bd73197a"
+                "reference": "18b5789d31da5074b02baae9af46c23ba46a1e85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Render/zipball/0b6f86cd363a37d1d863fe53742cbc76bd73197a",
-                "reference": "0b6f86cd363a37d1d863fe53742cbc76bd73197a",
+                "url": "https://api.github.com/repos/ICanBoogie/Render/zipball/18b5789d31da5074b02baae9af46c23ba46a1e85",
+                "reference": "18b5789d31da5074b02baae9af46c23ba46a1e85",
                 "shasum": ""
             },
             "require": {
@@ -1299,7 +1299,7 @@
                 "issues": "https://github.com/ICanBoogie/Render/issues",
                 "source": "https://github.com/ICanBoogie/Render"
             },
-            "time": "2023-02-10T02:34:47+00:00"
+            "time": "2023-02-22T19:21:16+00:00"
         },
         {
             "name": "icanboogie/render-engine-markdown",
@@ -1365,12 +1365,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Routing.git",
-                "reference": "1bb601af0ad5861d9341816270c3e5f334b18eec"
+                "reference": "9fe23e3fc14579ef0ade22e34e2df358f1102c85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Routing/zipball/1bb601af0ad5861d9341816270c3e5f334b18eec",
-                "reference": "1bb601af0ad5861d9341816270c3e5f334b18eec",
+                "url": "https://api.github.com/repos/ICanBoogie/Routing/zipball/9fe23e3fc14579ef0ade22e34e2df358f1102c85",
+                "reference": "9fe23e3fc14579ef0ade22e34e2df358f1102c85",
                 "shasum": ""
             },
             "require": {
@@ -1412,7 +1412,7 @@
                 "issues": "https://github.com/ICanBoogie/Routing/issues",
                 "source": "https://github.com/ICanBoogie/Routing"
             },
-            "time": "2023-02-10T19:33:38+00:00"
+            "time": "2023-02-10T19:45:31+00:00"
         },
         {
             "name": "icanboogie/service",

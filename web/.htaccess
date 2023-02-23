@@ -1,3 +1,10 @@
+<IfModule mod_proxy.c>
+	# Enables caching for generated HTML files
+	<filesMatch ".html$">
+		Header set Cache-Control "max-age=10800, public"
+	</filesMatch>
+</IfModule>
+
 <IfModule mod_rewrite.c>
 	<IfModule mod_negotiation.c>
 		Options -MultiViews
@@ -15,6 +22,10 @@
 
 	# Redirect Trailing Slashes...
 	RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+	# Rewrite '/' to file, if it exists
+	RewriteCond %{DOCUMENT_ROOT}/index.html -f
+	RewriteRule ^$ index.html [L]
 
 	# Handle Front Controller...
 	RewriteCond %{REQUEST_FILENAME} !-d

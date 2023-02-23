@@ -1,0 +1,9 @@
+parameters:
+  modules.cache.enabled: false
+
+services:
+  App\Modules\Cache\Listener\RespondEventListener:
+    arguments:
+      $destination: web/
+      $enabled: '%modules.cache.enabled%'
+    public: true

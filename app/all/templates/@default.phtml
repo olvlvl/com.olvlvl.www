@@ -13,7 +13,7 @@ use function strip_tags;
  */
 
 $og_description ??= "Olivier Laviale, on building software for internet";
-$document_title = escape(strip_tags(empty($page_title) ? '' : $page_title . ' â€” ')) . 'Olivier Laviale';
+$document_title = escape(strip_tags(empty($page_title) ? '' : $page_title . ' | ')) . 'Olivier Laviale';
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -45,7 +45,7 @@ $document_title = escape(strip_tags(empty($page_title) ? '' : $page_title . ' â€
 	<link type="text/css" rel="stylesheet" href="/assets/prism.css" />
 	<link type="text/css" rel="stylesheet" href="/assets/page.css" />
 
-	<script src="/assets/page.js" defer></script>
+	<script src="/assets/page.js" async></script>
 </head>
 <body class="<?= $body_css ?>">
 <div class="page-body">
