@@ -12,7 +12,7 @@ USER=$(COM_OLVLVL_WWW_USER)
 SERVER=$(COM_OLVLVL_WWW_SERVER)
 HOST=$(USER)@$(SERVER)
 
-all: vendor web/assets/page.js
+all: vendor assets
 
 vendor:
 	@composer install
@@ -66,9 +66,17 @@ deploy: vendor optimize clear-cache
 
 .PHONY: ssh
 ssh:
-	ssh $(HOST)
+	ssh -t $(HOST) "cd $(TARGET); bash --login"
+
+#
+# Assets
+#
+
+.PHONY: assets
+assets: web/assets/page.js web/assets/page.css
 
 web/assets/page.js: assets/text-balancer.js assets/prism.js assets/page.js
-	cat $^ > $@.fat
-	uglifyjs --compress --mangle -- $@.fat > $@
-	rm $@.fat
+	cat $^ | uglifyjs --compress --mangle > $@
+
+web/assets/page.css: assets/prism.css assets/page.css
+	cat $^ | cleancss > $@
