@@ -17,6 +17,8 @@ use function strip_tags;
 
 final class ArticleController extends ControllerAbstract
 {
+	private const CONTINUE_READING_COUNT = 3;
+
 	/**
 	 * @uses list
 	 * @uses show
@@ -35,7 +37,7 @@ final class ArticleController extends ControllerAbstract
 
 	private function list(): void
 	{
-		$articles = $this->model->order('date DESC')->all;
+		$articles = $this->model->order('-date')->all;
 
 		$this->response->headers->cache_control = 'public';
 		$this->response->expires = '+3 hour';
@@ -73,7 +75,7 @@ final class ArticleController extends ControllerAbstract
 
 	private function feed(): void
 	{
-		$articles = $this->model->limit(20)->order('date DESC')->all;
+		$articles = $this->model->limit(20)->order('-date')->all;
 		/* @var Article $first_article */
 		$first_article = reset($articles);
 
@@ -110,16 +112,16 @@ final class ArticleController extends ControllerAbstract
 		$articles = $this
 			->model
 			->where('{primary} != ? AND date < ?', $record->article_id, $record->date)
-			->order('date DESC')
-			->limit(3)
+			->order('-date')
+			->limit(self::CONTINUE_READING_COUNT)
 			->all;
 
-		$more = 3 - count($articles);
+		$more = self::CONTINUE_READING_COUNT - count($articles);
 
-		if ($more > 0) {
+		if ($more) {
 			$articles = array_merge(
 				$articles,
-				$this->model->order('date DESC')->limit($more)->all
+				$this->model->order('-date')->limit($more)->all
 			);
 		}
 

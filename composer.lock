@@ -115,12 +115,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/ActiveRecord.git",
-                "reference": "aa21eb11d5f43802c484da847d28ee3887f21c2b"
+                "reference": "217239680ca19cd8db9ca157c1041eab9a2b94ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/ActiveRecord/zipball/aa21eb11d5f43802c484da847d28ee3887f21c2b",
-                "reference": "aa21eb11d5f43802c484da847d28ee3887f21c2b",
+                "url": "https://api.github.com/repos/ICanBoogie/ActiveRecord/zipball/217239680ca19cd8db9ca157c1041eab9a2b94ce",
+                "reference": "217239680ca19cd8db9ca157c1041eab9a2b94ce",
                 "shasum": ""
             },
             "require": {
@@ -172,7 +172,7 @@
                 "issues": "https://github.com/ICanBoogie/ActiveRecord/issues",
                 "source": "https://github.com/ICanBoogie/ActiveRecord"
             },
-            "time": "2023-02-05T23:31:04+00:00"
+            "time": "2023-02-26T17:32:23+00:00"
         },
         {
             "name": "icanboogie/bind-activerecord",
