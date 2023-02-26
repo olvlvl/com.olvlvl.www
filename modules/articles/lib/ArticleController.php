@@ -2,7 +2,6 @@
 
 namespace App\Modules\Articles;
 
-use ICanBoogie\ActiveRecord\Query;
 use ICanBoogie\HTTP\NotFound;
 use ICanBoogie\HTTP\RedirectResponse;
 use ICanBoogie\HTTP\ResponseStatus;
@@ -11,6 +10,7 @@ use ICanBoogie\Routing\ControllerAbstract;
 use ICanBoogie\View\RenderTrait;
 use ICanBoogie\View\ViewProvider;
 
+use function array_merge;
 use function html_entity_decode;
 use function str_replace;
 use function strip_tags;
@@ -102,12 +102,27 @@ final class ArticleController extends ControllerAbstract
 		return str_replace("\n", " ", html_entity_decode(strip_tags($excerpt)));
 	}
 
-	private function resolve_continue_reading(Article $record): Query
+	/**
+	 * @return iterable<Article>
+	 */
+	private function resolve_continue_reading(Article $record): iterable
 	{
-		return $this
+		$articles = $this
 			->model
-			->where('{primary} != ?', $record->article_id)
-			->order('RANDOM()')
-			->limit(3);
+			->where('{primary} != ? AND date < ?', $record->article_id, $record->date)
+			->order('date DESC')
+			->limit(3)
+			->all;
+
+		$more = 3 - count($articles);
+
+		if ($more > 0) {
+			$articles = array_merge(
+				$articles,
+				$this->model->order('date DESC')->limit($more)->all
+			);
+		}
+
+		return $articles;
 	}
 }
