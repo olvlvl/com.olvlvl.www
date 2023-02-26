@@ -18,12 +18,10 @@ chdir(dirname(__DIR__));
 /*
  * URL rewriting functionality for the built-in PHP web server.
  */
-if (PHP_SAPI === 'cli-server')
-{
+if (PHP_SAPI === 'cli-server') {
 	$uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
-	if ($uri !== '/' && file_exists(__DIR__ . $uri))
-	{
+	if ($uri !== '/' && file_exists(__DIR__ . $uri)) {
 		return false;
 	}
 
@@ -38,14 +36,13 @@ if (PHP_SAPI === 'cli-server')
 $app = require __DIR__ . '/../bootstrap.php';
 
 try {
-	$app();
+	$app->run();
 } catch (Throwable $e) {
-
 	if (EventProfiler::$unused) {
 		echo '<pre>';
 		echo "# Unused events\n";
 
-		foreach (EventProfiler::$unused as [ $time, $event ]) {
+		foreach (EventProfiler::$unused as [$time, $event]) {
 			echo "[$time] $event\n";
 		}
 		echo '</pre>';

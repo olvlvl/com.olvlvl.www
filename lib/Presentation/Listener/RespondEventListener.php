@@ -2,20 +2,15 @@
 
 namespace App\Presentation\Listener;
 
-use Closure;
 use ICanBoogie\ConfigProfiler;
+use ICanBoogie\Console\CallableDisplayName;
 use ICanBoogie\Debug;
 use ICanBoogie\EventProfiler;
 use ICanBoogie\HTTP\Responder\WithEvent\RespondEvent;
-use ICanBoogie\Service\ServiceReference;
-use ReflectionFunction;
 
 use function array_fill;
 use function array_values;
-use function get_debug_type;
-use function implode;
-use function is_array;
-use function is_string;
+use function microtime;
 use function sprintf;
 use function str_repeat;
 use function strlen;
@@ -40,6 +35,7 @@ final class RespondEventListener
 	{
 		$boot_time = self::format_time($_SERVER['ICANBOOGIE_READY_TIME_FLOAT'] - $_SERVER['REQUEST_TIME_FLOAT']);
 		$total_time = self::format_time(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT']);
+		$delta_time = self::format_time(microtime(true) - $_SERVER['ICANBOOGIE_READY_TIME_FLOAT']);
 
 		$more = '';
 
@@ -50,7 +46,7 @@ final class RespondEventListener
 				. self::render_unused_events() . PHP_EOL;
 		}
 
-		return "<!-- booted in: $boot_time ms, completed in $total_time ms $more-->";
+		return "<!-- booted in $boot_time ms, completed in $total_time ms ($delta_time ms) $more-->";
 	}
 
 	static private function render_config(): string
@@ -90,7 +86,7 @@ final class RespondEventListener
 				sprintf("%08.03f", ($started_at - $zero) * 1000),
 				sprintf("%08.03f", ($ended_at - $started_at) * 1000),
 				$type,
-				self::callable_name($hook),
+				CallableDisplayName::from($hook),
 			];
 
 			$total_time += $ended_at - $started_at;
@@ -125,7 +121,7 @@ final class RespondEventListener
 		return round($micro_time * 1000, 3);
 	}
 
-	static private function render_table(string $title, array $header, array $rows, array $footer = [])
+	static private function render_table(string $title, array $header, array $rows, array $footer = []): string
 	{
 		$max_per_columns = array_fill(0, count($rows[0]), 0);
 
@@ -161,28 +157,5 @@ final class RespondEventListener
 		}
 
 		return $rc;
-	}
-
-	static private function callable_name(callable $callable): string
-	{
-		if (is_string($callable)) {
-			return $callable;
-		}
-
-		if (is_array($callable)) {
-			return implode('::', $callable);
-		}
-
-		if ($callable instanceof Closure) {
-			$reflection = new ReflectionFunction($callable);
-
-			return "(closure) " . $reflection->getFileName() . "@" . $reflection->getStartLine();
-		}
-
-		if ($callable instanceof ServiceReference) {
-			return "(ref) $callable";
-		}
-
-		return "callable " . get_debug_type($callable);
 	}
 }
