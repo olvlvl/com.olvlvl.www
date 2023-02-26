@@ -1,5 +1,6 @@
 # server
 ICANBOOGIE_INSTANCE=dev
+ICANBOOGIE_CMD=ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) vendor/bin/icanboogie
 SERVER_PORT=8010
 
 # deployment
@@ -17,7 +18,7 @@ vendor:
 	@composer install
 
 .PHONY: optimize
-optimize: vendor
+optimize: vendor clear-cache
 	@composer dump-autoload -oa
 #	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie optimize
 #	@php vendor/icanboogie-combined.php
@@ -26,15 +27,12 @@ optimize: vendor
 unoptimize: vendor
 	@composer dump-autoload
 	@rm -f vendor/icanboogie-combined.php
-	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie clear cache
+	$(ICANBOOGIE_CMD) cache:clear
 
 .PHONY: clear-cache
 clear-cache:
-#	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie clear cache
-	rm -fR repository/cache/*
-	rm -fR repository/var/*
+	$(ICANBOOGIE_CMD) cache:clear
 	rm -f repository/db.sqlite
-	rm -f web/*.html
 
 .PHONY: server
 server:
@@ -45,7 +43,7 @@ server:
 	@docker-compose up
 
 .PHONY: php-server
-php-server:
+php-server: clear-cache
 	@cd web && \
 	ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) \
 	php -S localhost:$(SERVER_PORT) index.php

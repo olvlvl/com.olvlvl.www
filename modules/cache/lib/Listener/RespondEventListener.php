@@ -32,6 +32,10 @@ final class RespondEventListener
 			return false;
 		}
 
+		if (!$event->request->method->is_get()) {
+			return false;
+		}
+
 		$response = $event->response;
 
 		if (!$response->status->is_ok) {
