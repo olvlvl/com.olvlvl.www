@@ -1,3 +1,7 @@
+# Pre-requisite
+# - GNU tar: brew install gnu-tar
+# - clean-css-cli: npm -g i clean-css-cli
+
 # server
 ICANBOOGIE_INSTANCE=dev
 ICANBOOGIE_CMD=ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) vendor/bin/icanboogie
@@ -50,8 +54,20 @@ php-server: clear-cache
 
 .PHONY: deploy
 deploy: vendor optimize clear-cache
+	# We're using GNU tar here: `brew install gnu-tar`
 	rm -f $(ARCHIVE_PATH)
-	COPYFILE_DISABLE=1 LC_ALL=en_US.UTF-8 tar -cjSf $(ARCHIVE_PATH) --exclude .git --exclude .idea --exclude tests --exclude .DS_Store  .
+	COPYFILE_DISABLE=1 gtar -cjSf $(ARCHIVE_PATH) \
+		--exclude-vcs \
+		--exclude .DS_Store \
+		--exclude .idea \
+		--exclude app/dev \
+		--exclude app/staging \
+		--exclude composer.lock \
+		--exclude content/articles-archive \
+		--exclude content/articles-backlog \
+		--exclude content/articles-dev \
+		.
+	#tar -tf $(ARCHIVE_PATH) | sort
 	scp $(ARCHIVE_PATH) $(HOST):$(ARCHIVE)
 	ssh $(HOST) "\
 		set -eux && \
@@ -62,7 +78,6 @@ deploy: vendor optimize clear-cache
 		mv $(TARGET_TMP) $(TARGET) && \
 		rm -Rf $(TARGET)_rm && \
 		rm $(ARCHIVE)"
-	composer dump
 
 .PHONY: ssh
 ssh:
