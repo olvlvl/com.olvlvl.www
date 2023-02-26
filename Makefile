@@ -52,6 +52,12 @@ php-server: clear-cache
 	ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) \
 	php -S localhost:$(SERVER_PORT) index.php
 
+.PHONY: php-server-staging
+php-server-staging: optimize
+	@cd web && \
+	ICANBOOGIE_INSTANCE=staging \
+	php -S localhost:$(SERVER_PORT) index.php
+
 .PHONY: deploy
 deploy: vendor optimize clear-cache
 	# We're using GNU tar here: `brew install gnu-tar`
