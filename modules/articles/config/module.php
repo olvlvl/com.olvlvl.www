@@ -10,6 +10,6 @@ return fn(ConfigBuilder $config) => $config
 	->add_module(
 		id: 'articles',
 		class: Module::class,
-		models: [ 'articles' ],
+		models: [ Article::class ],
 		path: dirname(__DIR__)
 	);

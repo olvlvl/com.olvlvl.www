@@ -10,9 +10,3 @@ services:
     - { name: action_alias, action: 'articles:show' }
     - { name: action_alias, action: 'articles:show_redirect' }
     - { name: action_alias, action: 'articles:feed' }
-
-  App\Presentation\Controller\PageController:
-    shared: false
-    tags:
-    - { name: action_responder }
-    - { name: action_alias, action: 'pages:me' }

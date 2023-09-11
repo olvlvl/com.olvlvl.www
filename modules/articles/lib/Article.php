@@ -3,6 +3,11 @@
 namespace App\Modules\Articles;
 
 use ICanBoogie\ActiveRecord;
+use ICanBoogie\ActiveRecord\Schema\Character;
+use ICanBoogie\ActiveRecord\Schema\Date;
+use ICanBoogie\ActiveRecord\Schema\Id;
+use ICanBoogie\ActiveRecord\Schema\Serial;
+use ICanBoogie\ActiveRecord\Schema\Text;
 use ICanBoogie\Binding\Routing\Prototype\UrlTrait;
 
 use function strip_tags;
@@ -17,14 +22,20 @@ class Article extends ActiveRecord
 	use UrlTrait;
 	use ActiveRecord\Property\DateProperty;
 
-	public const MODEL_ID = 'articles';
-
+	#[Id, Serial]
 	public int $article_id;
+	#[Character]
 	public string $title;
+	#[Character(unique: true)]
 	public string $slug;
+	#[Text]
 	public string $body;
+	#[Text]
 	public string $excerpt;
+	#[Character]
 	public string $hash;
+	#[Date]
+	private $date;
 
 	static public function assignable(): array
 	{

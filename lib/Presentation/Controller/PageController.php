@@ -3,6 +3,7 @@
 namespace App\Presentation\Controller;
 
 use App\Application\Markdown;
+use ICanBoogie\Binding\Routing\Attribute\Get;
 use ICanBoogie\Routing\Controller\ActionTrait;
 use ICanBoogie\Routing\ControllerAbstract;
 use ICanBoogie\View\RenderTrait;
@@ -26,6 +27,7 @@ final class PageController extends ControllerAbstract
 	) {
 	}
 
+	#[Get("/resume.html")]
 	private function pages_me(): void
 	{
 		$content = $this->render_markdown(PAGES . '/resume.md');

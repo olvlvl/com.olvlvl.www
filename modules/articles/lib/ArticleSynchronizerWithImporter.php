@@ -3,6 +3,8 @@
 namespace App\Modules\Articles;
 
 use DirectoryIterator;
+use ICanBoogie\ActiveRecord\Model;
+use ICanBoogie\Binding\ActiveRecord\Record;
 use RegexIterator;
 use RuntimeException;
 use Throwable;
@@ -13,7 +15,8 @@ final class ArticleSynchronizerWithImporter implements ArticleSynchronizer
 	 * @param string[] $article_locations
 	 */
 	public function __construct(
-		private readonly ArticleModel $model,
+		#[Record(Article::class)]
+		private readonly Model $model,
 		private readonly ArticleImporter $importer,
 		private readonly array $article_locations,
 	) {

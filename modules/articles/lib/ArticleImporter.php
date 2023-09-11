@@ -3,6 +3,8 @@
 namespace App\Modules\Articles;
 
 use App\Application\Markdown;
+use ICanBoogie\ActiveRecord\Model;
+use ICanBoogie\Binding\ActiveRecord\Record;
 use ICanBoogie\DateTime;
 use LogicException;
 use SplFileInfo;
@@ -26,7 +28,8 @@ final class ArticleImporter
 	}
 
 	public function __construct(
-		private readonly ArticleModel $model,
+		#[Record(Article::class)]
+		private readonly Model $model,
 		private readonly Markdown $markdown,
 	) {
 	}

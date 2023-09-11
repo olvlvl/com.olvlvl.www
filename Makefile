@@ -73,17 +73,18 @@ deploy: vendor optimize clear-cache
 		--exclude content/articles-backlog \
 		--exclude content/articles-dev \
 		.
+	ll $(ARCHIVE_PATH)
 	#tar -tf $(ARCHIVE_PATH) | sort
-	scp $(ARCHIVE_PATH) $(HOST):$(ARCHIVE)
-	ssh $(HOST) "\
-		set -eux && \
-		rm -Rf $(TARGET_TMP) && \
-		mkdir -p $(TARGET_TMP) && \
-		tar -xf $(ARCHIVE) -C $(TARGET_TMP) && \
-		mv $(TARGET) $(TARGET)_rm && \
-		mv $(TARGET_TMP) $(TARGET) && \
-		rm -Rf $(TARGET)_rm && \
-		rm $(ARCHIVE)"
+#	scp $(ARCHIVE_PATH) $(HOST):$(ARCHIVE)
+#	ssh $(HOST) "\
+#		set -eux && \
+#		rm -Rf $(TARGET_TMP) && \
+#		mkdir -p $(TARGET_TMP) && \
+#		tar -xf $(ARCHIVE) -C $(TARGET_TMP) && \
+#		mv $(TARGET) $(TARGET)_rm && \
+#		mv $(TARGET_TMP) $(TARGET) && \
+#		rm -Rf $(TARGET)_rm && \
+#		rm $(ARCHIVE)"
 
 .PHONY: ssh
 ssh:

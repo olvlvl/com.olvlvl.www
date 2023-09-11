@@ -30,14 +30,13 @@ final class ArticleController extends ControllerAbstract
 	public const ACTION_FEED = 'feed';
 
 	public function __construct(
-		private readonly ArticleModel $model,
 		private readonly ViewProvider $view_provider,
 	) {
 	}
 
 	private function list(): void
 	{
-		$articles = $this->model->order('-date')->all;
+		$articles = Article::query()->order('-date')->all;
 
 		$this->response->headers->cache_control = 'public';
 		$this->response->expires = '+3 hour';
@@ -75,7 +74,7 @@ final class ArticleController extends ControllerAbstract
 
 	private function feed(): void
 	{
-		$articles = $this->model->limit(20)->order('-date')->all;
+		$articles = Article::query()->limit(20)->order('-date')->all;
 		/* @var Article $first_article */
 		$first_article = reset($articles);
 
@@ -94,8 +93,7 @@ final class ArticleController extends ControllerAbstract
 	 */
 	private function find_one(string $year, string $month, string $slug): Article
 	{
-		return $this->model
-			->where('strftime("%Y", `date`) = ? AND strftime("%m", `date`) = ? AND slug = ?', $year, $month, $slug)
+		return Article::where('strftime("%Y", `date`) = ? AND strftime("%m", `date`) = ? AND slug = ?', $year, $month, $slug)
 			->one ?: throw new NotFound;
 	}
 
@@ -109,9 +107,7 @@ final class ArticleController extends ControllerAbstract
 	 */
 	private function resolve_continue_reading(Article $record): iterable
 	{
-		$articles = $this
-			->model
-			->where('{primary} != ? AND date < ?', $record->article_id, $record->date)
+		$articles = Article::where('{primary} != ? AND date < ?', $record->article_id, $record->date)
 			->order('-date')
 			->limit(self::CONTINUE_READING_COUNT)
 			->all;
@@ -121,7 +117,7 @@ final class ArticleController extends ControllerAbstract
 		if ($more) {
 			$articles = array_merge(
 				$articles,
-				$this->model->order('-date')->limit($more)->all
+				Article::query()->order('-date')->limit($more)->all
 			);
 		}
 

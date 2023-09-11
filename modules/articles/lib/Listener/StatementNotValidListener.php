@@ -2,9 +2,11 @@
 
 namespace App\Modules\Articles\Listener;
 
-use App\Modules\Articles\ArticleModel;
+use App\Modules\Articles\Article;
 use App\Modules\Articles\ArticleSynchronizer;
+use ICanBoogie\ActiveRecord\Model;
 use ICanBoogie\ActiveRecord\StatementNotValid;
+use ICanBoogie\Binding\ActiveRecord\Record;
 use ICanBoogie\HTTP\RecoverEvent;
 use ICanBoogie\HTTP\RedirectResponse;
 use Throwable;
@@ -19,7 +21,8 @@ use function str_contains;
 final class StatementNotValidListener
 {
 	public function __construct(
-		private readonly ArticleModel $model,
+		#[Record(Article::class)]
+		private readonly Model $model,
 		private readonly ArticleSynchronizer $synchronizer
 	) {
 	}

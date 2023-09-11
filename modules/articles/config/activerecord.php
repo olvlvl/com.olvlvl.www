@@ -1,23 +1,18 @@
 <?php
 
 use App\Modules\Articles\Article;
-use App\Modules\Articles\ArticleModel;
-use ICanBoogie\ActiveRecord\Schema;
-use ICanBoogie\ActiveRecord\SchemaColumn;
 use ICanBoogie\Binding\ActiveRecord\ConfigBuilder;
 
 return fn(ConfigBuilder $config) => $config
+	->use_attributes()
 	->add_model(
-		id: 'articles',
-		schema: new Schema([
-			'article_id' => SchemaColumn::serial(primary: true),
-			'title' => SchemaColumn::varchar(),
-			'slug' => SchemaColumn::varchar(80),
-			'body' => SchemaColumn::text(),
-			'excerpt' => SchemaColumn::text(),
-			'date' => new SchemaColumn('DATE'),
-			'hash' => SchemaColumn::varchar(),
-		]),
 		activerecord_class: Article::class,
-		model_class: ArticleModel::class,
+//		schema_builder: fn(SchemaBuilder $schema) => $schema
+//			->add_serial('article_id', primary: true)
+//			->add_varchar('title')
+//			->add_varchar('slug', size: 80)
+//			->add_text('body')
+//			->add_text('excerpt')
+//			->add_date('date')
+//			->add_varchar('hash'),
 	);
