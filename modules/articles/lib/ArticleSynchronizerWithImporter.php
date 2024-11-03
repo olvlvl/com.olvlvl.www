@@ -3,22 +3,20 @@
 namespace App\Modules\Articles;
 
 use DirectoryIterator;
-use ICanBoogie\ActiveRecord\Model;
-use ICanBoogie\Binding\ActiveRecord\Record;
 use RegexIterator;
 use RuntimeException;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Throwable;
 
-final class ArticleSynchronizerWithImporter implements ArticleSynchronizer
+final readonly class ArticleSynchronizerWithImporter implements ArticleSynchronizer
 {
 	/**
 	 * @param string[] $article_locations
 	 */
 	public function __construct(
-		#[Record(Article::class)]
-		private readonly Model $model,
-		private readonly ArticleImporter $importer,
-		private readonly array $article_locations,
+		private ArticleImporter $importer,
+		#[Autowire(param: 'article_locations')]
+		private array $article_locations,
 	) {
 	}
 
@@ -30,7 +28,7 @@ final class ArticleSynchronizerWithImporter implements ArticleSynchronizer
 			$ids = array_merge($ids, $this->import_articles($directory));
 		}
 
-		$this->model->where([ '!article_id' => $ids ])->delete();
+		Article::where([ '!article_id' => $ids ])->delete();
 	}
 
 	/**

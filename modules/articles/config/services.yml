@@ -2,7 +2,7 @@ parameters:
   article_locations:
   - content/articles
 
-  database_location: repository/db.sqlite
+  database_location: var/db.sqlite
 
 services:
   _defaults:
@@ -12,19 +12,10 @@ services:
 
   App\Modules\Articles\ArticleSynchronizer:
     class: App\Modules\Articles\ArticleSynchronizerWithImporter
-    arguments:
-      $article_locations: '%article_locations%'
     lazy: true
 
   App\Modules\Articles\Listener\BeforeRespondEventListener:
-    arguments:
-      $article_locations: '%article_locations%'
-      $database_location: '%database_location%'
     public: true
-    tags:
-    - name: icanboogie.event
-      sender: App\Modules\Articles\ArticleController
-      event: ICanBoogie\Routing\Controller\BeforeActionEvent
 
   App\Modules\Articles\Listener\StatementNotValidListener:
     public: true

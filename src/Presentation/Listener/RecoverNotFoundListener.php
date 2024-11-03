@@ -2,19 +2,21 @@
 
 namespace App\Presentation\Listener;
 
+use ICanBoogie\Event\Listen;
 use ICanBoogie\HTTP\NotFound;
 use ICanBoogie\HTTP\RecoverEvent;
 use ICanBoogie\HTTP\Response;
 use ICanBoogie\Render\Renderer;
 use ICanBoogie\Render\RenderOptions;
 
-final class RecoverNotFoundListener
+final readonly class RecoverNotFoundListener
 {
 	public function __construct(
-		private readonly Renderer $renderer
+		private Renderer $renderer
 	) {
 	}
 
+	#[Listen]
 	public function __invoke(RecoverEvent $event, NotFound $sender): void
 	{
 		$html = $this->renderer->render(

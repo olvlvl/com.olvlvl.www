@@ -4,7 +4,6 @@ namespace App\Presentation\Listener;
 
 use ICanBoogie\ConfigProfiler;
 use ICanBoogie\Console\CallableDisplayName;
-use ICanBoogie\Debug;
 use ICanBoogie\EventProfiler;
 use ICanBoogie\HTTP\Responder\WithEvent\RespondEvent;
 
@@ -34,19 +33,19 @@ final class RespondEventListener
 	static private function render_stats(): string
 	{
 		$boot_time = self::format_time($_SERVER['ICANBOOGIE_READY_TIME_FLOAT'] - $_SERVER['REQUEST_TIME_FLOAT']);
+		$run_time = self::format_time(microtime(true) - $_SERVER['ICANBOOGIE_READY_TIME_FLOAT']);
 		$total_time = self::format_time(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT']);
-		$delta_time = self::format_time(microtime(true) - $_SERVER['ICANBOOGIE_READY_TIME_FLOAT']);
 
 		$more = '';
 
-		if (Debug::is_dev()) {
+		if (filter_var(getenv('APP_MORE_METRICS'), FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE)) {
 			$more = PHP_EOL . PHP_EOL
 				. self::render_config() . PHP_EOL
 				. self::render_used_events() . PHP_EOL
 				. self::render_unused_events() . PHP_EOL;
 		}
 
-		return "<!-- booted in $boot_time ms, completed in $total_time ms ($delta_time ms) $more-->";
+		return "<!-- booted in $boot_time ms, responded in $run_time ms (total: $total_time ms) $more-->";
 	}
 
 	static private function render_config(): string

@@ -9,10 +9,10 @@ use function preg_replace;
 use function preg_replace_callback;
 use function str_replace;
 
-class Markdown
+readonly class Markdown
 {
 	public function __construct(
-		private readonly Parsedown $inner
+		private Parsedown $inner
 	) {
 	}
 

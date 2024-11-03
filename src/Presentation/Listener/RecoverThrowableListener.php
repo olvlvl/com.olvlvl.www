@@ -2,6 +2,8 @@
 
 namespace App\Presentation\Listener;
 
+use Exception;
+use ICanBoogie\Event\Listen;
 use ICanBoogie\HTTP\RecoverEvent;
 use ICanBoogie\HTTP\Response;
 use ICanBoogie\HTTP\ResponseStatus;
@@ -9,14 +11,15 @@ use ICanBoogie\Render\Renderer;
 use ICanBoogie\Render\RenderOptions;
 use Throwable;
 
-final class RecoverThrowableListener
+final readonly class RecoverThrowableListener
 {
 	public function __construct(
-		private readonly Renderer $renderer
+		private Renderer $renderer
 	) {
 	}
 
-	public function __invoke(RecoverEvent $event, Throwable $sender): void
+	#[Listen]
+	public function __invoke(RecoverEvent $event, Exception $sender): void
 	{
 		try {
 			$code = $sender->getCode();

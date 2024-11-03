@@ -3,30 +3,36 @@
 namespace App\Modules\Articles\Listener;
 
 use App\Modules\Articles\ArticleSynchronizer;
+use ICanBoogie\Event\Listen;
 use ICanBoogie\HTTP\Responder\WithEvent\BeforeRespondEvent;
 use ICanBoogie\Module\ModuleInstaller;
 
 use ICanBoogie\Module\ModuleInstaller\ModuleInstallFailed;
 
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
+
 use function file_exists;
 use function filemtime;
 
-final class BeforeRespondEventListener
+final readonly class BeforeRespondEventListener
 {
 	/**
 	 * @param string[] $article_locations
 	 */
 	public function __construct(
-		private readonly array $article_locations,
-		private readonly string $database_location,
-		private readonly ArticleSynchronizer $synchronizer,
-		private readonly ModuleInstaller $module_installer,
+		#[Autowire(param: 'article_locations')]
+		private array $article_locations,
+		#[Autowire(param: 'database_location')]
+		private string $database_location,
+		private ArticleSynchronizer $synchronizer,
+		private ModuleInstaller $module_installer,
 	) {
 	}
 
 	/**
 	 * @throws ModuleInstallFailed
 	 */
+	#[Listen]
 	public function __invoke(BeforeRespondEvent $event): void
 	{
 		if (!$this->should_update( $database_exists)) {

@@ -2,18 +2,20 @@
 
 namespace App\Modules\Cache\Listener;
 
+use ICanBoogie\Event\Listen;
 use ICanBoogie\HTTP\Responder\WithEvent\RespondEvent;
 
 use function file_put_contents;
 
-final class RespondEventListener
+final readonly class RespondEventListener
 {
 	public function __construct(
-		private readonly string $destination,
-		private readonly bool $enabled,
+		private string $destination,
+		private bool $enabled,
 	) {
 	}
 
+	#[Listen]
 	public function __invoke(RespondEvent $event): void
 	{
 		if (!$this->should_write($event)) {

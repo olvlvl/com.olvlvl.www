@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Presentation\Controller;
+namespace App\Presentation\HTTP;
 
 use App\Application\Markdown;
 use ICanBoogie\Binding\Routing\Attribute\Get;
@@ -16,7 +16,7 @@ use const App\PAGES;
 final class PageController extends ControllerAbstract
 {
 	/**
-	 * @uses pages_me
+	 * @uses me
 	 */
 	use ActionTrait;
 	use RenderTrait;
@@ -28,7 +28,7 @@ final class PageController extends ControllerAbstract
 	}
 
 	#[Get("/resume.html")]
-	private function pages_me(): void
+	private function me(): void
 	{
 		$content = $this->render_markdown(PAGES . '/resume.md');
 

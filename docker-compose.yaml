@@ -1,5 +1,4 @@
 ---
-version: "3.2"
 services:
   app:
     build: .
@@ -7,6 +6,7 @@ services:
       PHP_IDE_CONFIG: 'serverName=olvlvl-com'
       XDEBUG_MODE: develop
       ICANBOOGIE_INSTANCE: dev
+      APP_MORE_METRICS: true
     ports:
       - '8010:80'
     volumes:

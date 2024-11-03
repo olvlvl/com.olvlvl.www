@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Modules\Articles;
+namespace App\Presentation\HTTP;
 
+use App\Modules\Articles\Article;
+use ICanBoogie\Binding\Routing\Attribute\Get;
 use ICanBoogie\HTTP\NotFound;
 use ICanBoogie\HTTP\RedirectResponse;
 use ICanBoogie\HTTP\ResponseStatus;
@@ -11,6 +13,7 @@ use ICanBoogie\View\RenderTrait;
 use ICanBoogie\View\ViewProvider;
 
 use function array_merge;
+use function count;
 use function html_entity_decode;
 use function str_replace;
 use function strip_tags;
@@ -22,18 +25,18 @@ final class ArticleController extends ControllerAbstract
 	/**
 	 * @uses list
 	 * @uses show
+	 * @uses show_redirect
 	 * @uses feed
 	 */
 	use ActionTrait;
 	use RenderTrait;
-
-	public const ACTION_FEED = 'feed';
 
 	public function __construct(
 		private readonly ViewProvider $view_provider,
 	) {
 	}
 
+	#[Get('/')]
 	private function list(): void
 	{
 		$articles = Article::query()->order('-date')->all;
@@ -47,6 +50,7 @@ final class ArticleController extends ControllerAbstract
 	/**
 	 * @throws NotFound
 	 */
+	#[Get("/<year:\d{4}>-<month:\d{2}>-:slug.html")]
 	private function show(string $year, string $month, string $slug): void
 	{
 		$article = $this->find_one($year, $month, $slug);
@@ -58,13 +62,45 @@ final class ArticleController extends ControllerAbstract
 			'page_title' => $article->title,
 			'og_url' => $article->url,
 			'og_description' => $this->format_description($article->excerpt),
-			'continue_reading' => $this->resolve_continue_reading($article),
+			'continue_reading' => $this->find_continue_reading($article),
 		]);
 	}
 
 	/**
 	 * @throws NotFound
 	 */
+	private function find_one(string $year, string $month, string $slug): Article
+	{
+		return Article::where('strftime("%Y", `date`) = ? AND strftime("%m", `date`) = ? AND slug = ?', $year, $month, $slug)
+			->one ?: throw new NotFound;
+	}
+
+	/**
+	 * @return iterable<Article>
+	 */
+	private function find_continue_reading(Article $record): iterable
+	{
+		$articles = Article::where('{primary} != ? AND date < ?', $record->article_id, $record->date)
+			->order('-date')
+			->take(self::CONTINUE_READING_COUNT)
+			->all;
+
+		$more = self::CONTINUE_READING_COUNT - count($articles);
+
+		if ($more) {
+			$articles = array_merge(
+				$articles,
+				Article::query()->order('-date')->take($more)->all
+			);
+		}
+
+		return $articles;
+	}
+
+	/**
+	 * @throws NotFound
+	 */
+	#[Get("/<year:\d{4}>-<month:\d{2}>-:slug")]
 	private function show_redirect(string $year, string $month, string $slug): RedirectResponse
 	{
 		$record = $this->find_one($year, $month, $slug);
@@ -72,9 +108,10 @@ final class ArticleController extends ControllerAbstract
 		return new RedirectResponse($record->url, ResponseStatus::STATUS_MOVED_PERMANENTLY);
 	}
 
+	#[Get("/index.atom")]
 	private function feed(): void
 	{
-		$articles = Article::query()->limit(20)->order('-date')->all;
+		$articles = Article::query()->take(20)->order('-date')->all;
 		/* @var Article $first_article */
 		$first_article = reset($articles);
 
@@ -88,39 +125,8 @@ final class ArticleController extends ControllerAbstract
 		]);
 	}
 
-	/**
-	 * @throws NotFound
-	 */
-	private function find_one(string $year, string $month, string $slug): Article
-	{
-		return Article::where('strftime("%Y", `date`) = ? AND strftime("%m", `date`) = ? AND slug = ?', $year, $month, $slug)
-			->one ?: throw new NotFound;
-	}
-
 	private function format_description(string $excerpt): string
 	{
 		return str_replace("\n", " ", html_entity_decode(strip_tags($excerpt)));
-	}
-
-	/**
-	 * @return iterable<Article>
-	 */
-	private function resolve_continue_reading(Article $record): iterable
-	{
-		$articles = Article::where('{primary} != ? AND date < ?', $record->article_id, $record->date)
-			->order('-date')
-			->limit(self::CONTINUE_READING_COUNT)
-			->all;
-
-		$more = self::CONTINUE_READING_COUNT - count($articles);
-
-		if ($more) {
-			$articles = array_merge(
-				$articles,
-				Article::query()->order('-date')->limit($more)->all
-			);
-		}
-
-		return $articles;
 	}
 }

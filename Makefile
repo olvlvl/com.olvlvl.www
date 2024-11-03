@@ -1,11 +1,12 @@
 # Pre-requisite
-# - GNU tar: brew install gnu-tar
-# - clean-css-cli: npm -g i clean-css-cli
+# brew install gnu-tar
+# npm -g i clean-css-cli
+# npm install uglify-js -g
 
 # server
 ICANBOOGIE_INSTANCE=dev
 ICANBOOGIE_CMD=ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) vendor/bin/icanboogie
-SERVER_PORT=8010
+LOCAL_PORT=8010
 
 # deployment
 TARGET=com.olvlvl.www
@@ -13,7 +14,7 @@ TARGET_TMP=$(TARGET)_tmp
 ARCHIVE=$(TARGET).tar.gz
 ARCHIVE_PATH=/tmp/$(ARCHIVE)
 USER=$(COM_OLVLVL_WWW_USER)
-SERVER=$(COM_OLVLVL_WWW_SERVER)
+SERVER=$(COM_OLVLVL_WWW_HOST)
 HOST=$(USER)@$(SERVER)
 
 all: vendor assets
@@ -43,20 +44,20 @@ server:
 	@rm -rf repository/cache/*
 	@rm -rf repository/var/*
 	@rm -f repository/db.sqlite
-	@echo "Open http://localhost:$(SERVER_PORT) when ready."
+	@echo "Open http://localhost:$(LOCAL_PORT) when ready."
 	@docker-compose up
 
 .PHONY: php-server
 php-server: clear-cache
 	@cd web && \
 	ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) \
-	php -S localhost:$(SERVER_PORT) index.php
+	php -S localhost:$(LOCAL_PORT) index.php
 
 .PHONY: php-server-staging
 php-server-staging: optimize
 	@cd web && \
 	ICANBOOGIE_INSTANCE=staging \
-	php -S localhost:$(SERVER_PORT) index.php
+	php -S localhost:$(LOCAL_PORT) index.php
 
 .PHONY: deploy
 deploy: vendor optimize clear-cache

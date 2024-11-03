@@ -4,16 +4,16 @@
 	"config": {
 		"sort-packages": true,
 		"allow-plugins": {
-			"olvlvl/composer-attribute-collector": true
+			"olvlvl/composer-attribute-collector": true,
+			"icanboogie/autoconfig": true
 		}
 	},
 	"replace": {
 		"symfony/polyfill-ctype": "*",
-		"symfony/polyfill-mbstring": "*",
-		"symfony/polyfill-php81": "*"
+		"symfony/polyfill-mbstring": "*"
 	},
 	"require": {
-		"php": ">=8.1",
+		"php": ">=8.2",
 		"erusev/parsedown": "^1.7",
 		"icanboogie/bind-activerecord": "^6.0",
 		"icanboogie/bind-view": "^6.0",
@@ -25,7 +25,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"App\\": "lib",
+			"App\\": "src",
 			"App\\Modules\\Articles\\": "modules/articles/lib",
 			"App\\Modules\\Cache\\": "modules/cache/lib"
 		},
@@ -39,12 +39,9 @@
 		},
 		"composer-attribute-collector": {
 			"include": [
-				"lib",
+				"src",
 				"modules"
 			]
 		}
-	},
-	"scripts": {
-		"post-autoload-dump": "ICanBoogie\\Autoconfig\\Hooks::on_autoload_dump"
 	}
 }

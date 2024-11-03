@@ -3,6 +3,7 @@
 namespace App\Modules\Articles;
 
 use App\Application\Markdown;
+use App\Application\StrUtil;
 use ICanBoogie\ActiveRecord\Model;
 use ICanBoogie\Binding\ActiveRecord\Record;
 use ICanBoogie\DateTime;
@@ -10,7 +11,6 @@ use LogicException;
 use SplFileInfo;
 
 use function file_get_contents;
-use function ICanBoogie\excerpt;
 use function preg_replace;
 use function preg_replace_callback;
 use function strpos;
@@ -90,7 +90,7 @@ final class ArticleImporter
 	}
 
 	/**
-	 * Creates an excerpt of a body of text.
+	 * Creates an excerpt of a text.
 	 */
 	private function excerpt(string $body): string
 	{
@@ -100,7 +100,7 @@ final class ArticleImporter
 			$body = trim(substr($body, 0, $separator_position));
 		}
 
-		$excerpt = excerpt($body);
+		$excerpt = StrUtil::excerpt($body);
 		$excerpt = strip_tags($excerpt, '<' . implode('><', self::ALLOWED_TAGS) . '>');
 
 		if (!str_contains($excerpt, '[…]')) {

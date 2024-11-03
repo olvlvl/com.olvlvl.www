@@ -35,13 +35,13 @@ textBalancer = (function () {
 	// Make the headline element as narrow as possible while maintaining its current height (number of lines). Binary search.
 	function squeezeContainer(headline, originalHeight, bottomRange, topRange) {
 		if ((bottomRange + 4) >= topRange) {
-			headline.style.maxWidth = topRange + 'px'
+			headline.style.maxWidth = Math.ceil(topRange) + 'px'
 			return
 		}
 
 		const mid = (bottomRange + topRange) / 2
 
-		headline.style.maxWidth = mid + 'px'
+		headline.style.maxWidth = Math.ceil(mid) + 'px'
 
 		if (headline.clientHeight > originalHeight) {
 			// we've squeezed too far and headline has spilled onto an additional line; recurse on wider range
