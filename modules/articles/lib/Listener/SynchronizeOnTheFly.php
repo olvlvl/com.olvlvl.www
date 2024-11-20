@@ -3,25 +3,20 @@
 namespace App\Modules\Articles\Listener;
 
 use App\Modules\Articles\ArticleSynchronizer;
-use ICanBoogie\Event\Listen;
+use ICanBoogie\Event\Listener;
 use ICanBoogie\HTTP\Responder\WithEvent\BeforeRespondEvent;
 use ICanBoogie\Module\ModuleInstaller;
-
 use ICanBoogie\Module\ModuleInstaller\ModuleInstallFailed;
-
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 use function file_exists;
 use function filemtime;
 
-final readonly class BeforeRespondEventListener
+final readonly class SynchronizeOnTheFly
 {
-	/**
-	 * @param string[] $article_locations
-	 */
 	public function __construct(
-		#[Autowire(param: 'article_locations')]
-		private array $article_locations,
+		#[Autowire(param: 'article_location')]
+		private string $article_location,
 		#[Autowire(param: 'database_location')]
 		private string $database_location,
 		private ArticleSynchronizer $synchronizer,
@@ -32,7 +27,7 @@ final readonly class BeforeRespondEventListener
 	/**
 	 * @throws ModuleInstallFailed
 	 */
-	#[Listen]
+	#[Listener]
 	public function __invoke(BeforeRespondEvent $event): void
 	{
 		if (!$this->should_update( $database_exists)) {
@@ -56,11 +51,9 @@ final readonly class BeforeRespondEventListener
 
 		$database_mtime = filemtime($this->database_location);
 
-		foreach ($this->article_locations as $directory) {
-			if ($database_mtime < filemtime($directory)) {
-				return true;
-			}
-		}
+        if ($database_mtime < filemtime($this->article_location)) {
+            return true;
+        }
 
 		return false;
 	}

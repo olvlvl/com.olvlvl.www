@@ -7,7 +7,7 @@ use App\Modules\Articles\ArticleSynchronizer;
 use ICanBoogie\ActiveRecord\Model;
 use ICanBoogie\ActiveRecord\StatementNotValid;
 use ICanBoogie\Binding\ActiveRecord\Record;
-use ICanBoogie\Event\Listen;
+use ICanBoogie\Event\Listener;
 use ICanBoogie\HTTP\RecoverEvent;
 use ICanBoogie\HTTP\RedirectResponse;
 use Throwable;
@@ -19,7 +19,7 @@ use function str_contains;
  *
  * The database is destroyed before when the server is started.
  */
-final readonly class StatementNotValidListener
+final readonly class RecoverFromMissingTable
 {
 	public function __construct(
 		#[Record(Article::class)]
@@ -31,7 +31,7 @@ final readonly class StatementNotValidListener
 	/**
 	 * @throws Throwable
 	 */
-	#[Listen]
+	#[Listener]
 	public function __invoke(RecoverEvent $event, StatementNotValid $sender): void
 	{
 		if (!str_contains($sender->getMessage(), "no such table: articles")) {

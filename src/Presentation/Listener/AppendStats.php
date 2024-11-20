@@ -2,8 +2,10 @@
 
 namespace App\Presentation\Listener;
 
+use App\Application\Toggles;
 use ICanBoogie\ConfigProfiler;
 use ICanBoogie\Console\CallableDisplayName;
+use ICanBoogie\Event\Listener;
 use ICanBoogie\EventProfiler;
 use ICanBoogie\HTTP\Responder\WithEvent\RespondEvent;
 
@@ -17,10 +19,15 @@ use function substr;
 
 use const PHP_EOL;
 
-final class RespondEventListener
+final class AppendStats
 {
+    #[Listener]
 	public function __invoke(RespondEvent $event): void
 	{
+        if (!Toggles::should_append_stats()) {
+            return;
+        }
+
 		$response = $event->response;
 
 		if (!$response?->body || $response->headers->content_type->type !== 'text/html') {
@@ -30,39 +37,35 @@ final class RespondEventListener
 		$response->body = self::render_stats() . $response->body;
 	}
 
-	static private function render_stats(): string
+	private static function render_stats(): string
 	{
 		$boot_time = self::format_time($_SERVER['ICANBOOGIE_READY_TIME_FLOAT'] - $_SERVER['REQUEST_TIME_FLOAT']);
 		$run_time = self::format_time(microtime(true) - $_SERVER['ICANBOOGIE_READY_TIME_FLOAT']);
 		$total_time = self::format_time(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT']);
 
-		$more = '';
-
-		if (filter_var(getenv('APP_MORE_METRICS'), FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE)) {
-			$more = PHP_EOL . PHP_EOL
-				. self::render_config() . PHP_EOL
-				. self::render_used_events() . PHP_EOL
-				. self::render_unused_events() . PHP_EOL;
-		}
+        $more = PHP_EOL . PHP_EOL
+            . self::render_config() . PHP_EOL
+            . self::render_used_events() . PHP_EOL
+            . self::render_unused_events() . PHP_EOL;
 
 		return "<!-- booted in $boot_time ms, responded in $run_time ms (total: $total_time ms) $more-->";
 	}
 
-	static private function render_config(): string
+	private static function render_config(): string
 	{
 		$zero = $_SERVER['REQUEST_TIME_FLOAT'];
 		$rows = [];
 		$total_time = 0;
 
-		foreach (ConfigProfiler::$entries as [$started_at, $finished_at, $name, $builder_class]) {
+		foreach (ConfigProfiler::$records as $record) {
 			$rows[] = [
-				sprintf("%08.03f", ($started_at - $zero) * 1000),
-				sprintf("%08.03f", ($finished_at - $started_at) * 1000),
-				$name,
-				$builder_class,
+				sprintf("%08.03f", ($record->timestamp - $zero) * 1000),
+				sprintf("%08.03f", $record->duration * 1000),
+				$record->config_class,
+				$record->builder_class,
 			];
 
-			$total_time += $finished_at - $started_at;
+			$total_time += $record->duration;
 		}
 
 		$total_time_ms = sprintf("%.03f ms", $total_time * 1000);
@@ -74,7 +77,7 @@ final class RespondEventListener
 		);
 	}
 
-	static private function render_used_events(): string
+	private static function render_used_events(): string
 	{
 		$zero = $_SERVER['REQUEST_TIME_FLOAT'];
 		$rows = [];
@@ -100,7 +103,7 @@ final class RespondEventListener
 		);
 	}
 
-	static private function render_unused_events(): string
+	private static function render_unused_events(): string
 	{
 		$zero = $_SERVER['REQUEST_TIME_FLOAT'];
 		$rows = [];
@@ -115,14 +118,20 @@ final class RespondEventListener
 		return self::render_table("Unused Events", [ "At", "Type" ], $rows);
 	}
 
-	static private function format_time(float $micro_time): float
+	private static function format_time(float $micro_time): float
 	{
 		return round($micro_time * 1000, 3);
 	}
 
-	static private function render_table(string $title, array $header, array $rows, array $footer = []): string
+	/**
+	 * @param string $title
+	 * @param string[] $header
+	 * @param iterable<string[]> $rows
+	 * @param string[] $footer
+	 */
+	private static function render_table(string $title, array $header, iterable $rows, array $footer = []): string
 	{
-		$max_per_columns = array_fill(0, count($rows[0]), 0);
+		$max_per_columns = array_fill(0, count($header), 0);
 
 		foreach ($rows as $row) {
 			foreach (array_values($row) as $i => $column) {

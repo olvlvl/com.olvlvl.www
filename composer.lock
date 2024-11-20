@@ -4,29 +4,30 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4db070c634f09df68dcf8698f8bfb9d8",
+    "content-hash": "803d529788c047c83323658cd22b6a8c",
     "packages": [
         {
             "name": "erusev/parsedown",
-            "version": "1.7.4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "cb17b6477dfff935958ba01325f2e8a2bfa6dab3"
+                "reference": "999fcf788675b65b5344e2744443fc4d5f76cc14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/cb17b6477dfff935958ba01325f2e8a2bfa6dab3",
-                "reference": "cb17b6477dfff935958ba01325f2e8a2bfa6dab3",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/999fcf788675b65b5344e2744443fc4d5f76cc14",
+                "reference": "999fcf788675b65b5344e2744443fc4d5f76cc14",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "php": ">=5.3.0"
+                "php": ">=7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35"
+                "phpunit/phpunit": "^7.5|^8.5|^9.6"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -52,9 +53,9 @@
             ],
             "support": {
                 "issues": "https://github.com/erusev/parsedown/issues",
-                "source": "https://github.com/erusev/parsedown/tree/1.7.x"
+                "source": "https://github.com/erusev/parsedown/tree/master"
             },
-            "time": "2019-12-30T22:54:17+00:00"
+            "time": "2024-11-10T07:39:46+00:00"
         },
         {
             "name": "icanboogie/accessor",
@@ -115,26 +116,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/ActiveRecord.git",
-                "reference": "27cc8e64f66ea83535cc75b6ad9726143463033e"
+                "reference": "f7b04abe571552e350545a52061100d8d7558e26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/ActiveRecord/zipball/27cc8e64f66ea83535cc75b6ad9726143463033e",
-                "reference": "27cc8e64f66ea83535cc75b6ad9726143463033e",
+                "url": "https://api.github.com/repos/ICanBoogie/ActiveRecord/zipball/f7b04abe571552e350545a52061100d8d7558e26",
+                "reference": "f7b04abe571552e350545a52061100d8d7558e26",
                 "shasum": ""
             },
             "require": {
                 "ext-pdo": "*",
                 "icanboogie/common": "^6.0",
                 "icanboogie/datetime": "^3.0",
-                "icanboogie/inflector": "^2.2",
+                "icanboogie/inflector": "^3.0",
                 "icanboogie/prototype": "^6.0",
                 "icanboogie/validate": "^6.0",
                 "php": ">=8.2"
             },
             "require-dev": {
                 "ext-pdo_mysql": "*",
-                "phpstan/phpstan": "^1.12",
+                "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^11.4"
             },
             "default-branch": true,
@@ -171,7 +172,7 @@
                 "issues": "https://github.com/ICanBoogie/ActiveRecord/issues",
                 "source": "https://github.com/ICanBoogie/ActiveRecord"
             },
-            "time": "2024-11-02T21:55:43+00:00"
+            "time": "2024-11-18T22:41:20+00:00"
         },
         {
             "name": "icanboogie/autoconfig",
@@ -179,17 +180,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Autoconfig.git",
-                "reference": "662fbc25c759f8c13174b88234dd1ca338890ca7"
+                "reference": "f736ef3a765a0debb98cbf660dad716ae7878dfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Autoconfig/zipball/662fbc25c759f8c13174b88234dd1ca338890ca7",
-                "reference": "662fbc25c759f8c13174b88234dd1ca338890ca7",
+                "url": "https://api.github.com/repos/ICanBoogie/Autoconfig/zipball/f736ef3a765a0debb98cbf660dad716ae7878dfe",
+                "reference": "f736ef3a765a0debb98cbf660dad716ae7878dfe",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^2.0",
-                "icanboogie/accessor": "6.0.x-dev",
                 "icanboogie/icanboogie": "^6.0",
                 "php": ">=8.2"
             },
@@ -226,7 +226,7 @@
                 "issues": "https://github.com/ICanBoogie/Autoconfig/issues",
                 "source": "https://github.com/ICanBoogie/Autoconfig"
             },
-            "time": "2024-11-01T08:36:59+00:00"
+            "time": "2024-11-03T14:15:17+00:00"
         },
         {
             "name": "icanboogie/bind-activerecord",
@@ -234,22 +234,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-activerecord.git",
-                "reference": "58de985ef72f957cdfb6c0dcb9e1cbaaa26ff124"
+                "reference": "84fe2f6ac462eb343830f3df9abd3a9a0096622f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-activerecord/zipball/58de985ef72f957cdfb6c0dcb9e1cbaaa26ff124",
-                "reference": "58de985ef72f957cdfb6c0dcb9e1cbaaa26ff124",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-activerecord/zipball/84fe2f6ac462eb343830f3df9abd3a9a0096622f",
+                "reference": "84fe2f6ac462eb343830f3df9abd3a9a0096622f",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/activerecord": "^6.0",
                 "icanboogie/icanboogie": "^6.0",
-                "php": ">=8.1"
+                "php": ">=8.2"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^10.0"
+                "phpstan/phpstan": "^2.0",
+                "phpunit/phpunit": "^11.4"
             },
             "default-branch": true,
             "type": "library",
@@ -268,7 +268,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
@@ -284,7 +284,7 @@
                 "issues": "https://github.com/ICanBoogie/bind-activerecord/issues",
                 "source": "https://github.com/ICanBoogie/bind-activerecord"
             },
-            "time": "2023-09-30T11:18:18+00:00"
+            "time": "2024-11-19T04:02:14+00:00"
         },
         {
             "name": "icanboogie/bind-event",
@@ -524,24 +524,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-routing.git",
-                "reference": "2a9d0c7a1587dc983e3ba8babdeb90fd6edbdf79"
+                "reference": "33285b16aae5b2b556d6796ec55a43ec542822b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-routing/zipball/2a9d0c7a1587dc983e3ba8babdeb90fd6edbdf79",
-                "reference": "2a9d0c7a1587dc983e3ba8babdeb90fd6edbdf79",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-routing/zipball/33285b16aae5b2b556d6796ec55a43ec542822b2",
+                "reference": "33285b16aae5b2b556d6796ec55a43ec542822b2",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/icanboogie": "^6.0",
+                "icanboogie/inflector": "^3.0",
                 "icanboogie/routing": "^6.0",
-                "php": ">=8.1"
+                "php": ">=8.2"
             },
             "require-dev": {
                 "icanboogie/console": "^6.0",
                 "olvlvl/composer-attribute-collector": "^2.1",
-                "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^10.0"
+                "phpstan/phpstan": "^2.0",
+                "phpunit/phpunit": "^11.4"
             },
             "default-branch": true,
             "type": "library",
@@ -565,7 +566,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
@@ -585,7 +586,7 @@
                 "issues": "https://github.com/ICanBoogie/bind-routing/issues",
                 "source": "https://github.com/ICanBoogie/bind-routing"
             },
-            "time": "2024-04-01T10:41:58+00:00"
+            "time": "2024-11-20T08:45:46+00:00"
         },
         {
             "name": "icanboogie/bind-symfony-dependency-injection",
@@ -762,22 +763,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Config.git",
-                "reference": "3c64603734c645a480b9d7bab4efc4072e32c712"
+                "reference": "1cb3b3a9ed4e21c217ab1a24a6d6e86e1a06c892"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Config/zipball/3c64603734c645a480b9d7bab4efc4072e32c712",
-                "reference": "3c64603734c645a480b9d7bab4efc4072e32c712",
+                "url": "https://api.github.com/repos/ICanBoogie/Config/zipball/1cb3b3a9ed4e21c217ab1a24a6d6e86e1a06c892",
+                "reference": "1cb3b3a9ed4e21c217ab1a24a6d6e86e1a06c892",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/common": "^6.0",
                 "icanboogie/storage": "^6.0",
-                "php": ">=8.1"
+                "php": ">=8.2"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.6",
-                "phpunit/phpunit": "^9.5"
+                "phpstan/phpstan": "^2.0",
+                "phpunit/phpunit": "^11.4"
             },
             "default-branch": true,
             "type": "library",
@@ -807,7 +808,7 @@
                 "issues": "https://github.com/ICanBoogie/Config/issues",
                 "source": "https://github.com/ICanBoogie/Config"
             },
-            "time": "2022-05-22T01:05:05+00:00"
+            "time": "2024-11-17T15:47:37+00:00"
         },
         {
             "name": "icanboogie/console",
@@ -974,23 +975,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Event.git",
-                "reference": "dfdb75f5ebd5fa37a9d55a6bbd9d996694bdf581"
+                "reference": "88eb0dbb08ac800f358d32d8b2b81b79c1e7a5e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Event/zipball/dfdb75f5ebd5fa37a9d55a6bbd9d996694bdf581",
-                "reference": "dfdb75f5ebd5fa37a9d55a6bbd9d996694bdf581",
+                "url": "https://api.github.com/repos/ICanBoogie/Event/zipball/88eb0dbb08ac800f358d32d8b2b81b79c1e7a5e4",
+                "reference": "88eb0dbb08ac800f358d32d8b2b81b79c1e7a5e4",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/accessor": "^6.0",
-                "icanboogie/inflector": "^2.0",
                 "php": ">=8.1"
             },
             "require-dev": {
                 "icanboogie/service": "dev-master",
                 "olvlvl/composer-attribute-collector": "^2.0",
-                "phpstan/phpstan": "^1.10",
+                "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^10.3"
             },
             "default-branch": true,
@@ -1031,7 +1031,7 @@
                 "issues": "https://github.com/ICanBoogie/Event/issues",
                 "source": "https://github.com/ICanBoogie/Event"
             },
-            "time": "2024-11-01T09:10:12+00:00"
+            "time": "2024-11-19T01:51:31+00:00"
         },
         {
             "name": "icanboogie/http",
@@ -1039,25 +1039,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/HTTP.git",
-                "reference": "cdc639508300a2a00c26727ccd261914d3fc623c"
+                "reference": "bc5211ed09edd274c3537a8ced9b213c985f5017"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/HTTP/zipball/cdc639508300a2a00c26727ccd261914d3fc623c",
-                "reference": "cdc639508300a2a00c26727ccd261914d3fc623c",
+                "url": "https://api.github.com/repos/ICanBoogie/HTTP/zipball/bc5211ed09edd274c3537a8ced9b213c985f5017",
+                "reference": "bc5211ed09edd274c3537a8ced9b213c985f5017",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "icanboogie/datetime": "^3.0",
+                "icanboogie/accessor": "^6.0",
                 "icanboogie/event": "^6.0",
-                "icanboogie/prototype": "^6.0",
                 "php": ">=8.2"
             },
             "require-dev": {
                 "ext-fileinfo": "*",
                 "ext-gd": "*",
-                "phpstan/phpstan": "^1.12",
+                "icanboogie/datetime": "^3.0",
+                "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^11.4"
             },
             "default-branch": true,
@@ -1091,7 +1091,7 @@
                 "issues": "https://github.com/ICanBoogie/HTTP/issues",
                 "source": "https://github.com/ICanBoogie/HTTP"
             },
-            "time": "2024-11-02T22:16:16+00:00"
+            "time": "2024-11-17T22:59:29+00:00"
         },
         {
             "name": "icanboogie/icanboogie",
@@ -1099,12 +1099,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/ICanBoogie.git",
-                "reference": "7abfb2d71f25295e6259eb70908ea05c391f2c36"
+                "reference": "34de599ce9733c5f26eb3d554a6bb36926f05818"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/ICanBoogie/zipball/7abfb2d71f25295e6259eb70908ea05c391f2c36",
-                "reference": "7abfb2d71f25295e6259eb70908ea05c391f2c36",
+                "url": "https://api.github.com/repos/ICanBoogie/ICanBoogie/zipball/34de599ce9733c5f26eb3d554a6bb36926f05818",
+                "reference": "34de599ce9733c5f26eb3d554a6bb36926f05818",
                 "shasum": ""
             },
             "require": {
@@ -1118,24 +1118,12 @@
                 "icanboogie/config": "^6.0",
                 "icanboogie/console": "^6.0",
                 "icanboogie/service": "dev-master",
-                "icanboogie/session": "^6.0",
                 "php": ">=8.2",
                 "psr/log": "^3.0"
             },
             "require-dev": {
-                "composer/composer": "^2.0",
-                "phpstan/phpstan": "^1.12",
+                "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^11.4"
-            },
-            "suggest": {
-                "icanboogie/bind-activerecord": "ActiveRecord Object-relational mapping.",
-                "icanboogie/bind-cldr": "Provides internationalization to your application.",
-                "icanboogie/bind-render": "Provides a rendering API to your application.",
-                "icanboogie/bind-view": "Provides views to your application.",
-                "icanboogie/i18n": "Provides localization for your application and nice internationalization helpers.",
-                "icanboogie/image": "Provides image resizing, filling, and color resolving.",
-                "icanboogie/module": "Provides support to extend ICanBoogie using modules.",
-                "icanboogie/operation": "Operation oriented controllers API."
             },
             "default-branch": true,
             "type": "library",
@@ -1150,7 +1138,6 @@
             },
             "autoload": {
                 "files": [
-                    "bootstrap.php",
                     "helpers.php"
                 ],
                 "psr-4": {
@@ -1178,20 +1165,20 @@
                 "issues": "https://github.com/ICanBoogie/ICanBoogie/issues",
                 "source": "https://github.com/ICanBoogie/ICanBoogie"
             },
-            "time": "2024-11-02T11:28:38+00:00"
+            "time": "2024-11-20T08:33:00+00:00"
         },
         {
             "name": "icanboogie/inflector",
-            "version": "v2.2.1",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Inflector.git",
-                "reference": "0288676d1cd48899386f8bbe50643d3ade5dc13b"
+                "reference": "efd39beb340cbe3bfc9b1a9a732adceec44b31a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Inflector/zipball/0288676d1cd48899386f8bbe50643d3ade5dc13b",
-                "reference": "0288676d1cd48899386f8bbe50643d3ade5dc13b",
+                "url": "https://api.github.com/repos/ICanBoogie/Inflector/zipball/efd39beb340cbe3bfc9b1a9a732adceec44b31a1",
+                "reference": "efd39beb340cbe3bfc9b1a9a732adceec44b31a1",
                 "shasum": ""
             },
             "require": {
@@ -1202,15 +1189,12 @@
                 "icanboogie/common": "<2.0"
             },
             "require-dev": {
-                "icanboogie/common": "^2.0",
-                "phpstan/phpstan": "^0.12.92",
-                "phpunit/phpunit": "^7.5"
+                "icanboogie/common": "^2.1",
+                "phpstan/phpstan": "^1.4|^2.0",
+                "phpunit/phpunit": "^7.5.20|^11.4"
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "lib/helpers.php"
-                ],
                 "psr-4": {
                     "ICanBoogie\\": "lib/"
                 }
@@ -1223,12 +1207,12 @@
                 {
                     "name": "Olivier Laviale",
                     "email": "olivier.laviale@gmail.com",
-                    "homepage": "http://www.weirdog.com/",
+                    "homepage": "https://olvlvl.com/",
                     "role": "Developer"
                 }
             ],
             "description": "Multilingual inflector that transforms words from singular to plural, underscore to camel case, and more.",
-            "homepage": "http://icanboogie.org/",
+            "homepage": "https://icanboogie.org/",
             "keywords": [
                 "camelize",
                 "hyphenate",
@@ -1242,7 +1226,7 @@
                 "issues": "https://github.com/ICanBoogie/Inflector/issues",
                 "source": "https://github.com/ICanBoogie/Inflector"
             },
-            "time": "2023-03-12T18:39:52+00:00"
+            "time": "2024-11-18T13:23:43+00:00"
         },
         {
             "name": "icanboogie/module",
@@ -1250,19 +1234,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Module.git",
-                "reference": "2156dddf313ba71b751b0336b69f47d63fb55023"
+                "reference": "a00e3f9d9ebcfc6e08eec210bdfefc13c1cccc5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Module/zipball/2156dddf313ba71b751b0336b69f47d63fb55023",
-                "reference": "2156dddf313ba71b751b0336b69f47d63fb55023",
+                "url": "https://api.github.com/repos/ICanBoogie/Module/zipball/a00e3f9d9ebcfc6e08eec210bdfefc13c1cccc5c",
+                "reference": "a00e3f9d9ebcfc6e08eec210bdfefc13c1cccc5c",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/errors": "^6.0",
                 "icanboogie/event": "^6.0",
                 "icanboogie/icanboogie": "^6.0",
-                "php": ">=8.1"
+                "php": ">=8.2"
             },
             "replace": {
                 "icanboogie/operation": "^5.0"
@@ -1274,8 +1258,8 @@
                 "icanboogie/bind-routing": "^6.0",
                 "icanboogie/bind-view": "^6.0",
                 "icanboogie/console": "^6.0",
-                "phpstan/phpstan": "^1.9",
-                "phpunit/phpunit": "^9.5"
+                "phpstan/phpstan": "^2.0",
+                "phpunit/phpunit": "^11.4"
             },
             "suggest": {
                 "icanboogie/facets": "In order to provide records fetchers to controllers."
@@ -1303,7 +1287,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
@@ -1323,7 +1307,7 @@
                 "issues": "https://github.com/ICanBoogie/Module/issues",
                 "source": "https://github.com/ICanBoogie/Module"
             },
-            "time": "2023-09-11T12:09:16+00:00"
+            "time": "2024-11-19T04:33:11+00:00"
         },
         {
             "name": "icanboogie/prototype",
@@ -1331,12 +1315,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Prototype.git",
-                "reference": "97825c3caf50d8debd325bd6832a0962dcb58fcb"
+                "reference": "35f868e4c7e74950488cdc5584e93391e1d16d73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Prototype/zipball/97825c3caf50d8debd325bd6832a0962dcb58fcb",
-                "reference": "97825c3caf50d8debd325bd6832a0962dcb58fcb",
+                "url": "https://api.github.com/repos/ICanBoogie/Prototype/zipball/35f868e4c7e74950488cdc5584e93391e1d16d73",
+                "reference": "35f868e4c7e74950488cdc5584e93391e1d16d73",
                 "shasum": ""
             },
             "require": {
@@ -1345,9 +1329,10 @@
                 "php": ">=8.1"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^10.0"
+                "phpstan/phpstan": "^1.12",
+                "phpunit/phpunit": "^10.5"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -1379,7 +1364,7 @@
                 "issues": "https://github.com/ICanBoogie/Prototype/issues",
                 "source": "https://github.com/ICanBoogie/Prototype"
             },
-            "time": "2023-10-03T21:05:52+00:00"
+            "time": "2024-11-16T01:12:25+00:00"
         },
         {
             "name": "icanboogie/render",
@@ -1387,22 +1372,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Render.git",
-                "reference": "22ed3cbeb0a11ebb9ce948bac2bcd18aee74ed5a"
+                "reference": "c06d0afcaddeedfed750305682957aab85593bd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Render/zipball/22ed3cbeb0a11ebb9ce948bac2bcd18aee74ed5a",
-                "reference": "22ed3cbeb0a11ebb9ce948bac2bcd18aee74ed5a",
+                "url": "https://api.github.com/repos/ICanBoogie/Render/zipball/c06d0afcaddeedfed750305682957aab85593bd7",
+                "reference": "c06d0afcaddeedfed750305682957aab85593bd7",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/accessor": "^6.0",
-                "php": ">=8.1",
+                "php": ">=8.2",
                 "psr/container": "^2.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^10.2"
+                "phpstan/phpstan": "^2.0",
+                "phpunit/phpunit": "^11.4"
             },
             "default-branch": true,
             "type": "library",
@@ -1413,7 +1398,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
@@ -1433,7 +1418,7 @@
                 "issues": "https://github.com/ICanBoogie/Render/issues",
                 "source": "https://github.com/ICanBoogie/Render"
             },
-            "time": "2023-10-03T21:29:15+00:00"
+            "time": "2024-11-19T21:28:35+00:00"
         },
         {
             "name": "icanboogie/render-engine-markdown",
@@ -1499,12 +1484,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Routing.git",
-                "reference": "99069927ef3ee1a86cb72da9ae3fccdf67b96c57"
+                "reference": "73b90ea608f1ec76ae5bf1480a6f1bf85923fecb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Routing/zipball/99069927ef3ee1a86cb72da9ae3fccdf67b96c57",
-                "reference": "99069927ef3ee1a86cb72da9ae3fccdf67b96c57",
+                "url": "https://api.github.com/repos/ICanBoogie/Routing/zipball/73b90ea608f1ec76ae5bf1480a6f1bf85923fecb",
+                "reference": "73b90ea608f1ec76ae5bf1480a6f1bf85923fecb",
                 "shasum": ""
             },
             "require": {
@@ -1514,7 +1499,7 @@
             },
             "require-dev": {
                 "olvlvl/phpunit-given": "^11.0",
-                "phpstan/phpstan": "^1.12",
+                "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^11.4",
                 "psr/container": "^2.0"
             },
@@ -1547,7 +1532,7 @@
                 "issues": "https://github.com/ICanBoogie/Routing/issues",
                 "source": "https://github.com/ICanBoogie/Routing"
             },
-            "time": "2024-11-03T00:47:21+00:00"
+            "time": "2024-11-17T22:53:16+00:00"
         },
         {
             "name": "icanboogie/service",
@@ -1600,58 +1585,6 @@
                 "source": "https://github.com/ICanBoogie/Service"
             },
             "time": "2017-05-25T11:04:27+00:00"
-        },
-        {
-            "name": "icanboogie/session",
-            "version": "6.0.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ICanBoogie/Session.git",
-                "reference": "605c2c21b60c8549fe8f7a38789a40115cb8c8ca"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Session/zipball/605c2c21b60c8549fe8f7a38789a40115cb8c8ca",
-                "reference": "605c2c21b60c8549fe8f7a38789a40115cb8c8ca",
-                "shasum": ""
-            },
-            "require": {
-                "icanboogie/accessor": "^6.0",
-                "php": ">=8.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^10.3"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ICanBoogie\\": "lib/",
-                    "ICanBoogie\\Session\\": "lib/Session"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Olivier Laviale",
-                    "email": "olivier.laviale@gmail.com",
-                    "homepage": "https://olvlvl.com/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Manage sessions",
-            "homepage": "https://icanboogie.org/",
-            "keywords": [
-                "session"
-            ],
-            "support": {
-                "issues": "https://github.com/ICanBoogie/Session/issues",
-                "source": "https://github.com/ICanBoogie/Session"
-            },
-            "time": "2024-01-20T11:33:35+00:00"
         },
         {
             "name": "icanboogie/storage",
@@ -1713,21 +1646,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Validate.git",
-                "reference": "58732f30353b60781d6ee9a09a67370c0d45eeac"
+                "reference": "324905a98c3e67b03e026287af9ec3e189797a36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Validate/zipball/58732f30353b60781d6ee9a09a67370c0d45eeac",
-                "reference": "58732f30353b60781d6ee9a09a67370c0d45eeac",
+                "url": "https://api.github.com/repos/ICanBoogie/Validate/zipball/324905a98c3e67b03e026287af9ec3e189797a36",
+                "reference": "324905a98c3e67b03e026287af9ec3e189797a36",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.1"
+                "php": ">=8.2"
             },
             "require-dev": {
                 "icanboogie/errors": "^6.0",
-                "phpstan/phpstan": "^1.5",
-                "phpunit/phpunit": "^9.5",
+                "phpstan/phpstan": "^1.12",
+                "phpunit/phpunit": "^11.4",
                 "psr/container": "^2.0"
             },
             "type": "library",
@@ -1758,7 +1691,7 @@
                 "issues": "https://github.com/ICanBoogie/validate/issues",
                 "source": "https://github.com/ICanBoogie/validate"
             },
-            "time": "2022-04-17T03:04:08+00:00"
+            "time": "2024-11-16T21:10:52+00:00"
         },
         {
             "name": "icanboogie/view",
@@ -1766,12 +1699,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/View.git",
-                "reference": "a3c6f967d810a529f3d7459a986b51bb32364453"
+                "reference": "85051838407775a084540d80daade58d5b11f8ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/View/zipball/a3c6f967d810a529f3d7459a986b51bb32364453",
-                "reference": "a3c6f967d810a529f3d7459a986b51bb32364453",
+                "url": "https://api.github.com/repos/ICanBoogie/View/zipball/85051838407775a084540d80daade58d5b11f8ce",
+                "reference": "85051838407775a084540d80daade58d5b11f8ce",
                 "shasum": ""
             },
             "require": {
@@ -1779,11 +1712,11 @@
                 "icanboogie/event": "^6.0",
                 "icanboogie/render": "^6.0",
                 "icanboogie/routing": "^6.0",
-                "php": ">=8.1"
+                "php": ">=8.2"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.9",
-                "phpunit/phpunit": "^9.6"
+                "phpstan/phpstan": "^2.0",
+                "phpunit/phpunit": "^11.4"
             },
             "suggest": {
                 "icanboogie/bind-view": "Binds the package to ICanBoogie"
@@ -1797,7 +1730,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
@@ -1817,7 +1750,7 @@
                 "issues": "https://github.com/ICanBoogie/View/issues",
                 "source": "https://github.com/ICanBoogie/View"
             },
-            "time": "2023-02-10T02:41:00+00:00"
+            "time": "2024-11-19T04:50:52+00:00"
         },
         {
             "name": "olvlvl/composer-attribute-collector",
@@ -2038,16 +1971,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v7.1.6",
+            "version": "v7.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "5c6152766251ff45a44b76affadd5287e253fb27"
+                "reference": "dc373a5cbd345354696f5dfd39c5c7a8ea23f4c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/5c6152766251ff45a44b76affadd5287e253fb27",
-                "reference": "5c6152766251ff45a44b76affadd5287e253fb27",
+                "url": "https://api.github.com/repos/symfony/config/zipball/dc373a5cbd345354696f5dfd39c5c7a8ea23f4c8",
+                "reference": "dc373a5cbd345354696f5dfd39c5c7a8ea23f4c8",
                 "shasum": ""
             },
             "require": {
@@ -2093,7 +2026,7 @@
             "description": "Helps you find, load, combine, autofill and validate configuration values of any kind",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/config/tree/v7.1.6"
+                "source": "https://github.com/symfony/config/tree/v7.1.7"
             },
             "funding": [
                 {
@@ -2109,20 +2042,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-10-25T15:11:02+00:00"
+            "time": "2024-11-04T11:34:07+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v7.1.6",
+            "version": "v7.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "bb5192af6edc797cbab5c8e8ecfea2fe5f421e57"
+                "reference": "ff04e5b5ba043d2badfb308197b9e6b42883fcd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/bb5192af6edc797cbab5c8e8ecfea2fe5f421e57",
-                "reference": "bb5192af6edc797cbab5c8e8ecfea2fe5f421e57",
+                "url": "https://api.github.com/repos/symfony/console/zipball/ff04e5b5ba043d2badfb308197b9e6b42883fcd5",
+                "reference": "ff04e5b5ba043d2badfb308197b9e6b42883fcd5",
                 "shasum": ""
             },
             "require": {
@@ -2186,7 +2119,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v7.1.6"
+                "source": "https://github.com/symfony/console/tree/v7.1.8"
             },
             "funding": [
                 {
@@ -2202,20 +2135,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-10-09T08:46:59+00:00"
+            "time": "2024-11-06T14:23:19+00:00"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v7.1.6",
+            "version": "v7.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "1f12f9d580ef8dd09e3b756aa111cc2d5f311bfd"
+                "reference": "e4d13f0f394f4d02a041ff76acd31c5a20a5f70b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/1f12f9d580ef8dd09e3b756aa111cc2d5f311bfd",
-                "reference": "1f12f9d580ef8dd09e3b756aa111cc2d5f311bfd",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/e4d13f0f394f4d02a041ff76acd31c5a20a5f70b",
+                "reference": "e4d13f0f394f4d02a041ff76acd31c5a20a5f70b",
                 "shasum": ""
             },
             "require": {
@@ -2266,7 +2199,7 @@
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dependency-injection/tree/v7.1.6"
+                "source": "https://github.com/symfony/dependency-injection/tree/v7.1.8"
             },
             "funding": [
                 {
@@ -2282,7 +2215,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-10-25T15:11:02+00:00"
+            "time": "2024-11-09T09:16:45+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -2661,16 +2594,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v7.1.6",
+            "version": "v7.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "61b72d66bf96c360a727ae6232df5ac83c71f626"
+                "reference": "591ebd41565f356fcd8b090fe64dbb5878f50281"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/61b72d66bf96c360a727ae6232df5ac83c71f626",
-                "reference": "61b72d66bf96c360a727ae6232df5ac83c71f626",
+                "url": "https://api.github.com/repos/symfony/string/zipball/591ebd41565f356fcd8b090fe64dbb5878f50281",
+                "reference": "591ebd41565f356fcd8b090fe64dbb5878f50281",
                 "shasum": ""
             },
             "require": {
@@ -2728,7 +2661,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v7.1.6"
+                "source": "https://github.com/symfony/string/tree/v7.1.8"
             },
             "funding": [
                 {
@@ -2744,7 +2677,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-25T14:20:29+00:00"
+            "time": "2024-11-13T13:31:21+00:00"
         },
         {
             "name": "symfony/var-exporter",
@@ -2894,10 +2827,78 @@
             "time": "2024-09-25T14:20:29+00:00"
         }
     ],
-    "packages-dev": [],
-    "aliases": [],
+    "packages-dev": [
+        {
+            "name": "phpstan/phpstan",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan.git",
+                "reference": "6c98c7600fc717b2c78c11ef60040d5b1e359c82"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/6c98c7600fc717b2c78c11ef60040d5b1e359c82",
+                "reference": "6c98c7600fc717b2c78c11ef60040d5b1e359c82",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0"
+            },
+            "conflict": {
+                "phpstan/phpstan-shim": "*"
+            },
+            "bin": [
+                "phpstan",
+                "phpstan.phar"
+            ],
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPStan - PHP Static Analysis Tool",
+            "keywords": [
+                "dev",
+                "static analysis"
+            ],
+            "support": {
+                "docs": "https://phpstan.org/user-guide/getting-started",
+                "forum": "https://github.com/phpstan/phpstan/discussions",
+                "issues": "https://github.com/phpstan/phpstan/issues",
+                "security": "https://github.com/phpstan/phpstan/security/policy",
+                "source": "https://github.com/phpstan/phpstan-src"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/ondrejmirtes",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/phpstan",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-11-17T14:17:00+00:00"
+        }
+    ],
+    "aliases": [
+        {
+            "package": "erusev/parsedown",
+            "version": "9999999-dev",
+            "alias": "1.8",
+            "alias_normalized": "1.8.0.0"
+        }
+    ],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "erusev/parsedown": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

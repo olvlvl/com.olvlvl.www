@@ -2,7 +2,7 @@
 
 namespace App\Modules\Cache\Listener;
 
-use ICanBoogie\Event\Listen;
+use ICanBoogie\Event\Listener;
 use ICanBoogie\HTTP\Responder\WithEvent\RespondEvent;
 
 use function file_put_contents;
@@ -15,7 +15,7 @@ final readonly class RespondEventListener
 	) {
 	}
 
-	#[Listen]
+	#[Listener]
 	public function __invoke(RespondEvent $event): void
 	{
 		if (!$this->should_write($event)) {

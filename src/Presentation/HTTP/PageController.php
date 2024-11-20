@@ -11,8 +11,6 @@ use ICanBoogie\View\ViewProvider;
 
 use function file_get_contents;
 
-use const App\PAGES;
-
 final class PageController extends ControllerAbstract
 {
 	/**
@@ -20,6 +18,8 @@ final class PageController extends ControllerAbstract
 	 */
 	use ActionTrait;
 	use RenderTrait;
+
+    private const PAGES = "content/pages";
 
 	public function __construct(
 		private readonly ViewProvider $view_provider,
@@ -30,7 +30,7 @@ final class PageController extends ControllerAbstract
 	#[Get("/resume.html")]
 	private function me(): void
 	{
-		$content = $this->render_markdown(PAGES . '/resume.md');
+		$content = $this->render_markdown(self::PAGES . '/resume.md');
 
 		$this->response->headers->cache_control = 'public';
 		$this->response->expires = '+3 hour';

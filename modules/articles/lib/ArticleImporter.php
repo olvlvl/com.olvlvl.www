@@ -22,11 +22,14 @@ final class ArticleImporter
 	/**
 	 * Returns the hash of an article file.
 	 */
-	static private function hash(SplFileInfo $file): string
+	private static function hash(SplFileInfo $file): string
 	{
 		return base64_encode(hash_file('sha384', $file->getPathname(), 'true'));
 	}
 
+	/**
+	 * @param Model<Article> $model
+	 */
 	public function __construct(
 		#[Record(Article::class)]
 		private readonly Model $model,
@@ -34,6 +37,11 @@ final class ArticleImporter
 	) {
 	}
 
+	/**
+	 * @throws \DateMalformedStringException
+	 * @throws \DateInvalidTimeZoneException
+	 * @throws \Throwable
+	 */
 	public function __invoke(SplFileInfo $file): Article
 	{
 		$filename = $file->getFilename();
@@ -52,16 +60,18 @@ final class ArticleImporter
 			$article = Article::from([
 
 				'slug' => $slug,
-				'date' => $date
+				'date' => $date,
 
 			]);
 		}
 
-		[ $title, $body ] = $this->markdown($file);
+		[ $title, $body, $metadata ] = $this->markdown($file);
+
 		$excerpt = $this->excerpt($body);
+		$visibility = $this->resolve_visibility($metadata);
 
 		$article
-			->assign(compact('title', 'body', 'excerpt', 'hash'))
+			->assign(compact('title', 'body', 'excerpt', 'hash', 'visibility'))
 			->save();
 
 		return $article;
@@ -70,11 +80,13 @@ final class ArticleImporter
 	/**
 	 * @param SplFileInfo $file
 	 *
-	 * @return array An array with title and body.
+	 * @return array{ string, string, array<string, string> } An array with title, body, and metadata.
 	 */
 	private function markdown(SplFileInfo $file): array
 	{
 		$markdown = file_get_contents($file->getPathname());
+		$metadata = $this->extract_metadata($markdown);
+
 		$html = $this->markdown->text($markdown);
 		$html = preg_replace_callback('/<h1[^>]*>(.+)<\/h1>/', function ($matches) use (&$title) {
 			$title = $matches[1];
@@ -86,7 +98,28 @@ final class ArticleImporter
 			throw new LogicException("Unable to locate article title in {$file->getFilename()}");
 		}
 
-		return [ $title, trim($html) ];
+		return [ $title, trim($html), $metadata ];
+	}
+
+	/**
+	 * @param string $markdown
+	 *
+	 * @return array<string, string>
+	 */
+	private function extract_metadata(string &$markdown): array
+	{
+		if (!preg_match('/^---\s*([\s\S]*?)\s*---\n+/', $markdown, $bm)) {
+			return [];
+		}
+
+		// Remove the metadata from the $markdown variable
+		$markdown = substr($markdown, strlen($bm[0]));
+
+		if (!preg_match_all('/(\S+):\s*([^\n]+)/', $bm[1], $lm)) {
+			return [];
+		}
+
+		return array_combine($lm[1], $lm[2]);
 	}
 
 	/**
@@ -108,5 +141,21 @@ final class ArticleImporter
 		}
 
 		return $excerpt;
+	}
+
+	/**
+	 * @param array{ visibility?: string } $metadata
+	 *
+	 * @return Article::VISIBILITY_*
+	 */
+	private function resolve_visibility(array $metadata): int
+	{
+		return match ($str = $metadata['visibility'] ?? 'none') {
+			'none' => Article::VISIBILITY_NONE,
+			'private' => Article::VISIBILITY_PRIVATE,
+			'protected' => Article::VISIBILITY_PROTECTED,
+			'public' => Article::VISIBILITY_PUBLIC,
+			default => throw new \InvalidArgumentException("Unknown visibility $str"),
+		};
 	}
 }

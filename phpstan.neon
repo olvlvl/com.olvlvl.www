@@ -1,0 +1,7 @@
+# $schema: https://phpstan.olvlvl.com/schema.json
+parameters:
+  level: 2
+  paths:
+    - app
+    - modules
+    - src

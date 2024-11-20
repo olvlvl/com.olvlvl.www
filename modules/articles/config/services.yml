@@ -1,7 +1,5 @@
 parameters:
-  article_locations:
-  - content/articles
-
+  article_location: content/articles
   database_location: var/db.sqlite
 
 services:
@@ -14,8 +12,15 @@ services:
     class: App\Modules\Articles\ArticleSynchronizerWithImporter
     lazy: true
 
-  App\Modules\Articles\Listener\BeforeRespondEventListener:
+  App\Modules\Articles\Listener\SynchronizeOnTheFly:
     public: true
 
-  App\Modules\Articles\Listener\StatementNotValidListener:
+  App\Modules\Articles\Listener\RecoverFromMissingTable:
     public: true
+
+  # Console
+
+  App\Modules\Articles\Console\ImportArticlesCommand:
+    class: App\Modules\Articles\Console\ImportArticlesCommand
+    tags:
+      - { name: console.command }

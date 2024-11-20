@@ -6,6 +6,8 @@ use ICanBoogie\ActiveRecord;
 use ICanBoogie\ActiveRecord\Schema\Character;
 use ICanBoogie\ActiveRecord\Schema\Date;
 use ICanBoogie\ActiveRecord\Schema\Id;
+use ICanBoogie\ActiveRecord\Schema\Index;
+use ICanBoogie\ActiveRecord\Schema\Integer;
 use ICanBoogie\ActiveRecord\Schema\Serial;
 use ICanBoogie\ActiveRecord\Schema\Text;
 use ICanBoogie\Binding\Routing\Prototype\UrlTrait;
@@ -17,10 +19,31 @@ use function strip_tags;
  * @property-read string $month
  * @property-read string $safe_title
  */
+#[Index('visibility')]
 class Article extends ActiveRecord
 {
 	use UrlTrait;
 	use ActiveRecord\Property\DateProperty;
+
+	/**
+	 * The article is discarded and not visible.
+	 */
+	public const VISIBILITY_NONE = 0;
+
+	/**
+	 * The article is only visible for local development.
+	 */
+	public const VISIBILITY_PRIVATE = 1;
+
+	/**
+	 * The article is only visible with a direct link.
+	 */
+	public const VISIBILITY_PROTECTED = 2;
+
+	/**
+	 * The article is public.
+	 */
+	public const VISIBILITY_PUBLIC = 3;
 
 	#[Id, Serial]
 	public int $article_id;
@@ -32,18 +55,24 @@ class Article extends ActiveRecord
 	public string $body;
 	#[Text]
 	public string $excerpt;
-	#[Character]
+	#[Character(size: 64, fixed: true)]
 	public string $hash;
 	#[Date]
 	private $date;
 
-	static public function assignable(): array
+	/**
+	 * @var self::VISIBILITY_*
+	 */
+	#[Integer(size: Integer::SIZE_TINY)]
+	public int $visibility = self::VISIBILITY_NONE;
+
+	public static function assignable(): array
 	{
-		return [ 'title', 'slug', 'body', 'excerpt', 'hash' ];
+		return [ 'title', 'slug', 'body', 'excerpt', 'hash', 'visibility' ];
 	}
 
 	/**
-	 * Returns a four digits year.
+	 * Returns a four-digit year.
 	 */
 	protected function get_year(): int
 	{
@@ -51,7 +80,7 @@ class Article extends ActiveRecord
 	}
 
 	/**
-	 * Returns a two digits month.
+	 * Returns a two-digit month.
 	 */
 	protected function get_month(): string
 	{
@@ -75,6 +104,7 @@ class Article extends ActiveRecord
 			'body' => 'required',
 			'excerpt' => 'required',
 			'hash' => 'required',
+			'visibility' => 'min:0;max:3',
 
 		];
 	}

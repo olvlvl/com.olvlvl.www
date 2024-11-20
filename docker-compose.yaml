@@ -3,13 +3,21 @@ services:
   app:
     build: .
     environment:
-      PHP_IDE_CONFIG: 'serverName=olvlvl-com'
+      PHP_IDE_CONFIG: 'serverName=com-olvlvl-www'
       XDEBUG_MODE: develop
       ICANBOOGIE_INSTANCE: dev
-      APP_MORE_METRICS: true
-    ports:
+      APP_APPEND_STATS: true
+    ports: &ports
       - '8010:80'
-    volumes:
-    - .:/app:delegated
-    - ~/.composer:/root/.composer:delegated
+    volumes: &vols
+      - .:/app:delegated
+      - ~/.composer:/root/.composer:delegated
+    working_dir: /app
+  app-staging:
+    build: .
+    environment:
+      XDEBUG_MODE: profile
+      ICANBOOGIE_INSTANCE: staging
+    ports: *ports
+    volumes: *vols
     working_dir: /app

@@ -1,8 +1,6 @@
 /*
-
-Layout
-
-*/
+ * Layout
+ */
 
 html {
 	font-size: 20px;
@@ -22,7 +20,7 @@ body {
 
 @media (max-width: 600px) {
 	html {
-		font-size: 16.25px; // 26
+		font-size: 16.25px; /* 26 */
 	}
 
 	body {

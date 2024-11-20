@@ -3,7 +3,7 @@
 namespace App\Presentation\Listener;
 
 use Exception;
-use ICanBoogie\Event\Listen;
+use ICanBoogie\Event\Listener;
 use ICanBoogie\HTTP\RecoverEvent;
 use ICanBoogie\HTTP\Response;
 use ICanBoogie\HTTP\ResponseStatus;
@@ -18,7 +18,7 @@ final readonly class RecoverThrowableListener
 	) {
 	}
 
-	#[Listen]
+	#[Listener]
 	public function __invoke(RecoverEvent $event, Exception $sender): void
 	{
 		try {

@@ -1,5 +1,9 @@
 FROM php:8.3-apache-bookworm
 
+#
+# Debug
+#
+
 RUN <<-EOF
 	apt-get update
 	apt-get install -y autoconf pkg-config
@@ -13,6 +17,7 @@ RUN <<-EOF
 	xdebug.client_host=host.docker.internal
 	xdebug.mode=develop
 	xdebug.start_with_request=yes
+	xdebug.output_dir=/app/build/xdebug
 	SHELL
 
 	cat <<-SHELL >> /usr/local/etc/php/conf.d/php.ini
@@ -21,6 +26,10 @@ RUN <<-EOF
 	date.timezone=UTC
 	SHELL
 EOF
+
+#
+# Composer
+#
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
@@ -34,11 +43,14 @@ RUN <<-EOF
 	SHELL
 EOF
 
+#
 # Web server
-
-RUN a2enmod rewrite
+#
 
 ENV APACHE_DOCUMENT_ROOT /app/web
 
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
-RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+RUN <<-EOF
+	a2enmod rewrite
+	sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+	sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+EOF

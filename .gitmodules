@@ -1,3 +1,3 @@
 [submodule "content"]
 	path = content
-	url = git@github.com:olvlvl/com.olvlvl.www.wiki.git
+	url = git@github.com:olvlvl/com.olvlvl.www-content.git

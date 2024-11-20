@@ -11,9 +11,11 @@ use function str_replace;
 
 readonly class Markdown
 {
+    private Parsedown $inner;
+
 	public function __construct(
-		private Parsedown $inner
 	) {
+        $this->inner = new Parsedown();
 	}
 
 	public function text(string $markdown): string

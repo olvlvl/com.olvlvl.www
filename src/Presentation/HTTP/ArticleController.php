@@ -3,6 +3,8 @@
 namespace App\Presentation\HTTP;
 
 use App\Modules\Articles\Article;
+use ICanBoogie\ActiveRecord\Model;
+use ICanBoogie\Binding\ActiveRecord\Record;
 use ICanBoogie\Binding\Routing\Attribute\Get;
 use ICanBoogie\HTTP\NotFound;
 use ICanBoogie\HTTP\RedirectResponse;
@@ -11,6 +13,7 @@ use ICanBoogie\Routing\Controller\ActionTrait;
 use ICanBoogie\Routing\ControllerAbstract;
 use ICanBoogie\View\RenderTrait;
 use ICanBoogie\View\ViewProvider;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 use function array_merge;
 use function count;
@@ -31,15 +34,26 @@ final class ArticleController extends ControllerAbstract
 	use ActionTrait;
 	use RenderTrait;
 
+	/**
+	 * @param Model<Article> $model
+	 */
 	public function __construct(
 		private readonly ViewProvider $view_provider,
+		#[Record(Article::class)]
+		private readonly Model $model,
+		#[Autowire(param: 'articles.minimum_visibility.show')]
+		private readonly int $min_visibility_show,
+		#[Autowire(param: 'articles.minimum_visibility.list')]
+		private readonly int $min_visibility_list,
 	) {
 	}
 
 	#[Get('/')]
 	private function list(): void
 	{
-		$articles = Article::query()->order('-date')->all;
+		$articles = $this->model
+			->where('visibility >= ?', $this->min_visibility_list)
+			->order('-date');
 
 		$this->response->headers->cache_control = 'public';
 		$this->response->expires = '+3 hour';
@@ -71,8 +85,10 @@ final class ArticleController extends ControllerAbstract
 	 */
 	private function find_one(string $year, string $month, string $slug): Article
 	{
-		return Article::where('strftime("%Y", `date`) = ? AND strftime("%m", `date`) = ? AND slug = ?', $year, $month, $slug)
-			->one ?: throw new NotFound;
+		return $this->model
+			->where('visibility >= ?', $this->min_visibility_show)
+			->and('strftime("%Y", `date`) = ? AND strftime("%m", `date`) = ? AND slug = ?', $year, $month, $slug)
+			->one ?: throw new NotFound();
 	}
 
 	/**
@@ -80,7 +96,9 @@ final class ArticleController extends ControllerAbstract
 	 */
 	private function find_continue_reading(Article $record): iterable
 	{
-		$articles = Article::where('{primary} != ? AND date < ?', $record->article_id, $record->date)
+		$articles = $this->model
+			->where('visibility >= ?', $this->min_visibility_list)
+			->and('{primary} != ? AND date < ?', $record->article_id, $record->date)
 			->order('-date')
 			->take(self::CONTINUE_READING_COUNT)
 			->all;
@@ -90,7 +108,11 @@ final class ArticleController extends ControllerAbstract
 		if ($more) {
 			$articles = array_merge(
 				$articles,
-				Article::query()->order('-date')->take($more)->all
+				$this->model
+					->where('visibility >= ?', $this->min_visibility_list)
+					->order('-date')
+					->take($more)
+					->all,
 			);
 		}
 
@@ -111,7 +133,12 @@ final class ArticleController extends ControllerAbstract
 	#[Get("/index.atom")]
 	private function feed(): void
 	{
-		$articles = Article::query()->take(20)->order('-date')->all;
+		$articles = $this->model
+			->where('visibility >= ?', $this->min_visibility_list)
+			->take(20)
+			->order('-date')
+			->all;
+
 		/* @var Article $first_article */
 		$first_article = reset($articles);
 
@@ -121,7 +148,7 @@ final class ArticleController extends ControllerAbstract
 		$this->response->expires = '+1 week';
 
 		$this->render($articles, layout: 'feed', locals: [
-			'updated' => $first_article->date
+			'updated' => $first_article->date,
 		]);
 	}
 

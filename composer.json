@@ -1,6 +1,4 @@
 {
-	"minimum-stability": "dev",
-	"prefer-stable": true,
 	"config": {
 		"sort-packages": true,
 		"allow-plugins": {
@@ -8,13 +6,26 @@
 			"icanboogie/autoconfig": true
 		}
 	},
+  "extra": {
+    "icanboogie": {
+      "modules-path": "modules"
+    },
+    "composer-attribute-collector": {
+      "include": [
+        "src",
+        "modules"
+      ]
+    }
+  },
 	"replace": {
 		"symfony/polyfill-ctype": "*",
 		"symfony/polyfill-mbstring": "*"
 	},
+  "minimum-stability": "dev",
+  "prefer-stable": true,
 	"require": {
 		"php": ">=8.2",
-		"erusev/parsedown": "^1.7",
+		"erusev/parsedown": "dev-master as 1.8",
 		"icanboogie/bind-activerecord": "^6.0",
 		"icanboogie/bind-view": "^6.0",
 		"icanboogie/console": "^6.0",
@@ -23,6 +34,9 @@
 		"icanboogie/render-engine-markdown": "^6.0",
 		"olvlvl/composer-attribute-collector": "^2.0"
 	},
+  "require-dev": {
+    "phpstan/phpstan": "^2.0"
+  },
 	"autoload": {
 		"psr-4": {
 			"App\\": "src",
@@ -32,16 +46,5 @@
 		"files": [
 			"vendor/attributes.php"
 		]
-	},
-	"extra": {
-		"icanboogie": {
-			"modules-path": "modules"
-		},
-		"composer-attribute-collector": {
-			"include": [
-				"src",
-				"modules"
-			]
-		}
 	}
 }

@@ -3,7 +3,7 @@ services:
     autowire: true
     public: true
 
-  App\Presentation\Listener\RespondEventListener: ~
+  App\Presentation\Listener\AppendStats: ~
   App\Presentation\Listener\AlterViewListener: ~
   App\Presentation\Listener\RecoverNotFoundListener: ~
   App\Presentation\Listener\RecoverThrowableListener: ~

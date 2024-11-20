@@ -2,8 +2,8 @@
 	function updateLinkTargets() {
 		const links = document.body.querySelectorAll('[href^="http"]')
 
-		for (let i = 0, j = links.length ; i < j ; i++) {
-			links[i].target = '_blank'
+		for (let l of links) {
+			l.target = '_blank'
 		}
 	}
 
@@ -23,11 +23,9 @@
 
 	ga()
 
-	window.addEventListener('DOMContentLoaded', ev => {
-		updateLinkTargets()
-	})
-
 	window.addEventListener('load', ev => {
 		textBalancer.initialize('h1, h2')
 	})
+
+	updateLinkTargets()
 }) ();

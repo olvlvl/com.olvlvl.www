@@ -10,23 +10,16 @@ use Throwable;
 
 final readonly class ArticleSynchronizerWithImporter implements ArticleSynchronizer
 {
-	/**
-	 * @param string[] $article_locations
-	 */
 	public function __construct(
 		private ArticleImporter $importer,
-		#[Autowire(param: 'article_locations')]
-		private array $article_locations,
+        #[Autowire(param: 'article_location')]
+		private string $article_location,
 	) {
 	}
 
 	public function synchronize(): void
 	{
-		$ids = [];
-
-		foreach ($this->article_locations as $directory) {
-			$ids = array_merge($ids, $this->import_articles($directory));
-		}
+        $ids = $this->import_articles($this->article_location);
 
 		Article::where([ '!article_id' => $ids ])->delete();
 	}

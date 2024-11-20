@@ -4,8 +4,6 @@
 # npm install uglify-js -g
 
 # server
-ICANBOOGIE_INSTANCE=dev
-ICANBOOGIE_CMD=ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) vendor/bin/icanboogie
 LOCAL_PORT=8010
 
 # deployment
@@ -22,45 +20,58 @@ all: vendor assets
 vendor:
 	@composer install
 
-.PHONY: optimize
-optimize: vendor clear-cache
-	@composer dump-autoload -oa
-#	@ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) icanboogie optimize
+#
+# App
+#
+
+.PHONY: reset
+reset:
+	@echo "Reset installation"
+	@rm -f build/xdebug/*
+	@rm -rf var/cache/*
+	@rm -f var/db.sqlite
+	@rm -f vendor/icanboogie-combined.php
+	@docker compose run --rm app ./icanboogie cache:clear
+
+.PHONY: for_dev
+for_dev: vendor reset
+	@echo "Preparing for development"
+	@docker compose run --rm app composer install
+	@docker compose run --rm app composer dump-autoload
+
+.PHONY: for_prod
+for_prod: vendor reset
+	@echo "Preparing for production"
+	@docker compose run --rm app composer install --no-dev
+	@docker compose run --rm app composer dump-autoload -oa
+#	@docker compose run --rm app ./icanboogie optimize
 #	@php vendor/icanboogie-combined.php
 
-.PHONY: unoptimize
-unoptimize: vendor
-	@composer dump-autoload
-	@rm -f vendor/icanboogie-combined.php
-	$(ICANBOOGIE_CMD) cache:clear
-
-.PHONY: clear-cache
-clear-cache:
-	$(ICANBOOGIE_CMD) cache:clear
-	rm -f repository/db.sqlite
-
 .PHONY: server
-server:
-	@rm -rf repository/cache/*
-	@rm -rf repository/var/*
-	@rm -f repository/db.sqlite
+server: for_dev
 	@echo "Open http://localhost:$(LOCAL_PORT) when ready."
-	@docker-compose up
+	@docker compose up app
 
-.PHONY: php-server
-php-server: clear-cache
-	@cd web && \
-	ICANBOOGIE_INSTANCE=$(ICANBOOGIE_INSTANCE) \
-	php -S localhost:$(LOCAL_PORT) index.php
+.PHONY: server-staging
+server-staging: for_prod
+	@echo "Open http://localhost:$(LOCAL_PORT) when ready."
+	@docker compose up app-staging
 
-.PHONY: php-server-staging
-php-server-staging: optimize
-	@cd web && \
-	ICANBOOGIE_INSTANCE=staging \
-	php -S localhost:$(LOCAL_PORT) index.php
+.PHONY: shell
+shell:
+	@docker compose exec app bash
+
+.PHONY: lint
+lint:
+	@XDEBUG_MODE=off vendor/bin/phpstan
+
+#
+# Deployment
+#
 
 .PHONY: deploy
-deploy: vendor optimize clear-cache
+deploy: for_prod
+	@docker compose run --rm app ./icanboogie articles:sync
 	# We're using GNU tar here: `brew install gnu-tar`
 	rm -f $(ARCHIVE_PATH)
 	COPYFILE_DISABLE=1 gtar -cjSf $(ARCHIVE_PATH) \
@@ -72,10 +83,7 @@ deploy: vendor optimize clear-cache
 		--exclude composer.lock \
 		--exclude content/articles-archive \
 		--exclude content/articles-backlog \
-		--exclude content/articles-dev \
 		.
-	#ll $(ARCHIVE_PATH)
-	#tar -tf $(ARCHIVE_PATH) | sort
 	scp $(ARCHIVE_PATH) $(HOST):$(ARCHIVE)
 	ssh $(HOST) "\
 		set -eux && \

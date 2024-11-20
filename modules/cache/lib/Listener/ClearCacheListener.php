@@ -4,7 +4,7 @@ namespace App\Modules\Cache\Listener;
 
 use DirectoryIterator;
 use ICanBoogie\Application\ClearCacheEvent;
-use ICanBoogie\Event\Listen;
+use ICanBoogie\Event\Listener;
 use RegexIterator;
 
 use function file_exists;
@@ -13,7 +13,7 @@ use function unlink;
 
 final class ClearCacheListener
 {
-	#[Listen]
+	#[Listener]
 	public static function on(ClearCacheEvent $event): void
 	{
 		$cwd = getcwd();

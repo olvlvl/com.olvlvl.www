@@ -3,3 +3,8 @@ imports:
 
 parameters:
   modules.cache.enabled: true
+  articles.minimum_visibility.show: !php/const \App\Modules\Articles\Article::VISIBILITY_PROTECTED
+  articles.minimum_visibility.list: !php/const \App\Modules\Articles\Article::VISIBILITY_PUBLIC
+
+services:
+  App\Application\Markdown: ~

@@ -1,6 +1,2 @@
 parameters:
-  article_locations:
-  - content/articles
-  - content/articles-dev
-
   modules.cache.enabled: false
