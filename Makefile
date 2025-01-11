@@ -31,19 +31,25 @@ reset:
 	@rm -rf var/cache/*
 	@rm -f var/db.sqlite
 	@rm -f vendor/icanboogie-combined.php
-	@docker compose run --rm app ./icanboogie cache:clear
+
+.PHONY: articles
+articles:
+	@docker compose run --rm app ./icanboogie articles:sync
 
 .PHONY: for_dev
 for_dev: vendor reset
 	@echo "Preparing for development"
 	@docker compose run --rm app composer install
 	@docker compose run --rm app composer dump-autoload
+	@docker compose run --rm app ./icanboogie cache:clear
 
 .PHONY: for_prod
 for_prod: vendor reset
 	@echo "Preparing for production"
-	@docker compose run --rm app composer install --no-dev
-	@docker compose run --rm app composer dump-autoload -oa
+	@docker compose run --rm app-production composer install --no-dev
+	@docker compose run --rm app-production composer dump-autoload -oa
+	@docker compose run --rm app-production ./icanboogie cache:clear
+	@docker compose run --rm app-production ./icanboogie articles:sync
 #	@docker compose run --rm app ./icanboogie optimize
 #	@php vendor/icanboogie-combined.php
 
@@ -71,7 +77,6 @@ lint:
 
 .PHONY: deploy
 deploy: for_prod
-	@docker compose run --rm app ./icanboogie articles:sync
 	# We're using GNU tar here: `brew install gnu-tar`
 	rm -f $(ARCHIVE_PATH)
 	COPYFILE_DISABLE=1 gtar -cjSf $(ARCHIVE_PATH) \

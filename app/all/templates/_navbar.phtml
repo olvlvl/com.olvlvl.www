@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @var \ICanBoogie\View\View $view
+ */
+
+$nav_link = $view->locals['nav_link'] ?? null;
+
+if (!$nav_link) {
+    return;
+}
+
+?>
+
+<nav class="navbar display-only">
+    <ul class="navbar-nav">
+        <li class="navbar-item <?= $nav_link == 'articles' ? 'active' : '' ?>"><a href="/" class="navbar-link">Articles</a></li>
+        <li class="navbar-item <?= $nav_link == 'highlights' ? 'active' : '' ?>"><a href="/highlights.html" class="navbar-link">Highlights</a></li>
+        <li class="navbar-item <?= $nav_link == 'resume' ? 'active' : '' ?>"><a href="/resume.html" class="navbar-link">Résumé</a></li>
+    </ul>
+</nav>

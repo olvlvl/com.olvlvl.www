@@ -12,8 +12,9 @@ use function strip_tags;
  * @var string|null $og_description
  */
 
+$view ??= null;
 $og_description ??= "Olivier Laviale, on building software for internet";
-$document_title = escape(strip_tags(empty($page_title) ? '' : $page_title . ' | ')) . 'Olivier Laviale';
+$document_title ??= escape(strip_tags(empty($page_title) ? '' : $page_title . ' | ')) . 'Olivier Laviale';
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -49,7 +50,10 @@ $document_title = escape(strip_tags(empty($page_title) ? '' : $page_title . ' | 
 	<?php if (isset($page_title)): ?>
 		<h1><?= $page_title ?></h1>
 	<?php endif ?>
+    <?= $view?->partial('navbar') ?>
+    <main class="page-content">
 	<?= $content ?>
+    </main>
 </div>
 
 <?php require '_footer.phtml' ?>

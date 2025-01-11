@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "999fcf788675b65b5344e2744443fc4d5f76cc14"
+                "reference": "c9dc49f68f7bd14e5aa107d86a08ce59203f02ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/999fcf788675b65b5344e2744443fc4d5f76cc14",
-                "reference": "999fcf788675b65b5344e2744443fc4d5f76cc14",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/c9dc49f68f7bd14e5aa107d86a08ce59203f02ee",
+                "reference": "c9dc49f68f7bd14e5aa107d86a08ce59203f02ee",
                 "shasum": ""
             },
             "require": {
@@ -55,7 +55,7 @@
                 "issues": "https://github.com/erusev/parsedown/issues",
                 "source": "https://github.com/erusev/parsedown/tree/master"
             },
-            "time": "2024-11-10T07:39:46+00:00"
+            "time": "2024-12-01T16:36:17+00:00"
         },
         {
             "name": "icanboogie/accessor",
@@ -180,12 +180,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Autoconfig.git",
-                "reference": "f736ef3a765a0debb98cbf660dad716ae7878dfe"
+                "reference": "a673faff8c7e770d538293b466ff6cd4200bd556"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Autoconfig/zipball/f736ef3a765a0debb98cbf660dad716ae7878dfe",
-                "reference": "f736ef3a765a0debb98cbf660dad716ae7878dfe",
+                "url": "https://api.github.com/repos/ICanBoogie/Autoconfig/zipball/a673faff8c7e770d538293b466ff6cd4200bd556",
+                "reference": "a673faff8c7e770d538293b466ff6cd4200bd556",
                 "shasum": ""
             },
             "require": {
@@ -195,7 +195,7 @@
             },
             "require-dev": {
                 "composer/composer": "^2.8",
-                "phpstan/phpstan": "^1.12",
+                "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^11.4"
             },
             "default-branch": true,
@@ -226,7 +226,7 @@
                 "issues": "https://github.com/ICanBoogie/Autoconfig/issues",
                 "source": "https://github.com/ICanBoogie/Autoconfig"
             },
-            "time": "2024-11-03T14:15:17+00:00"
+            "time": "2024-11-29T14:17:41+00:00"
         },
         {
             "name": "icanboogie/bind-activerecord",
@@ -292,22 +292,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-event.git",
-                "reference": "bdd9cf60b59f56cadc73ca3e880a36e6f58b092a"
+                "reference": "406a006a430b5b151fd523f5bd12892b50e3f000"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-event/zipball/bdd9cf60b59f56cadc73ca3e880a36e6f58b092a",
-                "reference": "bdd9cf60b59f56cadc73ca3e880a36e6f58b092a",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-event/zipball/406a006a430b5b151fd523f5bd12892b50e3f000",
+                "reference": "406a006a430b5b151fd523f5bd12892b50e3f000",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/event": "^6.0",
                 "icanboogie/icanboogie": "^6.0",
-                "php": ">=8.1"
+                "php": ">=8.2"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^10.0"
+                "phpstan/phpstan": "^2.0",
+                "phpunit/phpunit": "^11.4"
             },
             "default-branch": true,
             "type": "library",
@@ -321,7 +321,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "ICanBoogie\\Binding\\Event\\": "lib/"
+                    "ICanBoogie\\Binding\\Event\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -346,7 +346,7 @@
                 "issues": "https://github.com/ICanBoogie/bind-event/issues",
                 "source": "https://github.com/ICanBoogie/bind-event"
             },
-            "time": "2023-09-14T20:39:30+00:00"
+            "time": "2024-11-29T14:04:38+00:00"
         },
         {
             "name": "icanboogie/bind-http",
@@ -354,21 +354,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-http.git",
-                "reference": "b382ed39a1cf294776eaf8480fb56365ab4d4e5c"
+                "reference": "edde3cb3b78cce8911a5ba3c264414d6dfe4151f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-http/zipball/b382ed39a1cf294776eaf8480fb56365ab4d4e5c",
-                "reference": "b382ed39a1cf294776eaf8480fb56365ab4d4e5c",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-http/zipball/edde3cb3b78cce8911a5ba3c264414d6dfe4151f",
+                "reference": "edde3cb3b78cce8911a5ba3c264414d6dfe4151f",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/http": "^6.0",
                 "icanboogie/icanboogie": "^6.0",
-                "php": ">=8.1"
+                "php": ">=8.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^9.5"
+                "phpstan/phpstan": "^2.0",
+                "phpunit/phpunit": "^11.4"
             },
             "default-branch": true,
             "type": "library",
@@ -384,7 +385,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
@@ -400,7 +401,7 @@
                 "issues": "https://github.com/ICanBoogie/bind-http/issues",
                 "source": "https://github.com/ICanBoogie/bind-http"
             },
-            "time": "2022-05-13T07:06:43+00:00"
+            "time": "2024-11-29T15:03:54+00:00"
         },
         {
             "name": "icanboogie/bind-prototype",
@@ -408,24 +409,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-prototype.git",
-                "reference": "f2ffa994548d520cde69c999673278bc6bba0764"
+                "reference": "84027ffb4d8c82a987d834ef180bc7764b3b330e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-prototype/zipball/f2ffa994548d520cde69c999673278bc6bba0764",
-                "reference": "f2ffa994548d520cde69c999673278bc6bba0764",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-prototype/zipball/84027ffb4d8c82a987d834ef180bc7764b3b330e",
+                "reference": "84027ffb4d8c82a987d834ef180bc7764b3b330e",
                 "shasum": ""
             },
             "require": {
                 "icanboogie/icanboogie": "^6.0",
                 "icanboogie/prototype": "^6.0",
-                "php": ">=8.1"
+                "php": ">=8.2"
             },
             "require-dev": {
                 "icanboogie/console": "^6.0",
-                "phpstan/phpstan": "^1.9",
-                "phpunit/phpunit": "^9.5"
+                "phpstan/phpstan": "^2.0",
+                "phpunit/phpunit": "^11.4"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "icanboogie": {
@@ -442,7 +444,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
@@ -462,7 +464,7 @@
                 "issues": "https://github.com/ICanBoogie/bind-prototype/issues",
                 "source": "https://github.com/ICanBoogie/bind-prototype"
             },
-            "time": "2023-02-25T02:49:07+00:00"
+            "time": "2024-11-29T15:27:09+00:00"
         },
         {
             "name": "icanboogie/bind-render",
@@ -524,12 +526,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-routing.git",
-                "reference": "33285b16aae5b2b556d6796ec55a43ec542822b2"
+                "reference": "5d4028f6fc4b313984efaff4480768dad0550dad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-routing/zipball/33285b16aae5b2b556d6796ec55a43ec542822b2",
-                "reference": "33285b16aae5b2b556d6796ec55a43ec542822b2",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-routing/zipball/5d4028f6fc4b313984efaff4480768dad0550dad",
+                "reference": "5d4028f6fc4b313984efaff4480768dad0550dad",
                 "shasum": ""
             },
             "require": {
@@ -586,7 +588,7 @@
                 "issues": "https://github.com/ICanBoogie/bind-routing/issues",
                 "source": "https://github.com/ICanBoogie/bind-routing"
             },
-            "time": "2024-11-20T08:45:46+00:00"
+            "time": "2024-12-06T23:01:07+00:00"
         },
         {
             "name": "icanboogie/bind-symfony-dependency-injection",
@@ -594,12 +596,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/bind-symfony-dependency-injection.git",
-                "reference": "29a0a32d583d3c481fb869335db23b3dee05e429"
+                "reference": "0489a41e25fa7678ff7840238b82a20e5451f126"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/bind-symfony-dependency-injection/zipball/29a0a32d583d3c481fb869335db23b3dee05e429",
-                "reference": "29a0a32d583d3c481fb869335db23b3dee05e429",
+                "url": "https://api.github.com/repos/ICanBoogie/bind-symfony-dependency-injection/zipball/0489a41e25fa7678ff7840238b82a20e5451f126",
+                "reference": "0489a41e25fa7678ff7840238b82a20e5451f126",
                 "shasum": ""
             },
             "require": {
@@ -610,8 +612,8 @@
                 "symfony/yaml": "^7.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^10.5"
+                "phpstan/phpstan": "^2.0",
+                "phpunit/phpunit": "^11.4"
             },
             "default-branch": true,
             "type": "library",
@@ -630,7 +632,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
@@ -650,7 +652,7 @@
                 "issues": "https://github.com/ICanBoogie/bind-symfony-dependency-injection/issues",
                 "source": "https://github.com/ICanBoogie/bind-symfony-dependency-injection"
             },
-            "time": "2024-10-20T22:18:51+00:00"
+            "time": "2024-11-29T16:03:12+00:00"
         },
         {
             "name": "icanboogie/bind-view",
@@ -763,12 +765,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Config.git",
-                "reference": "1cb3b3a9ed4e21c217ab1a24a6d6e86e1a06c892"
+                "reference": "4227bfb24e04bb3c41ead4c6bd13b2b7bfefe1ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Config/zipball/1cb3b3a9ed4e21c217ab1a24a6d6e86e1a06c892",
-                "reference": "1cb3b3a9ed4e21c217ab1a24a6d6e86e1a06c892",
+                "url": "https://api.github.com/repos/ICanBoogie/Config/zipball/4227bfb24e04bb3c41ead4c6bd13b2b7bfefe1ae",
+                "reference": "4227bfb24e04bb3c41ead4c6bd13b2b7bfefe1ae",
                 "shasum": ""
             },
             "require": {
@@ -808,7 +810,7 @@
                 "issues": "https://github.com/ICanBoogie/Config/issues",
                 "source": "https://github.com/ICanBoogie/Config"
             },
-            "time": "2024-11-17T15:47:37+00:00"
+            "time": "2024-11-29T14:27:38+00:00"
         },
         {
             "name": "icanboogie/console",
@@ -816,12 +818,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Console.git",
-                "reference": "06705ccc9ddd202612b2ee2ba4c3d509bddcaf43"
+                "reference": "44748ed434879649cf02c28b9824fbb1c223115d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Console/zipball/06705ccc9ddd202612b2ee2ba4c3d509bddcaf43",
-                "reference": "06705ccc9ddd202612b2ee2ba4c3d509bddcaf43",
+                "url": "https://api.github.com/repos/ICanBoogie/Console/zipball/44748ed434879649cf02c28b9824fbb1c223115d",
+                "reference": "44748ed434879649cf02c28b9824fbb1c223115d",
                 "shasum": ""
             },
             "require": {
@@ -865,7 +867,7 @@
                 "issues": "https://github.com/ICanBoogie/Console/issues",
                 "source": "https://github.com/ICanBoogie/Console"
             },
-            "time": "2024-11-02T22:24:09+00:00"
+            "time": "2024-11-29T15:42:43+00:00"
         },
         {
             "name": "icanboogie/datetime",
@@ -1099,12 +1101,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/ICanBoogie.git",
-                "reference": "34de599ce9733c5f26eb3d554a6bb36926f05818"
+                "reference": "6897d927850169112977bc7672e51dc218f59d08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/ICanBoogie/zipball/34de599ce9733c5f26eb3d554a6bb36926f05818",
-                "reference": "34de599ce9733c5f26eb3d554a6bb36926f05818",
+                "url": "https://api.github.com/repos/ICanBoogie/ICanBoogie/zipball/6897d927850169112977bc7672e51dc218f59d08",
+                "reference": "6897d927850169112977bc7672e51dc218f59d08",
                 "shasum": ""
             },
             "require": {
@@ -1131,8 +1133,7 @@
                 "icanboogie": {
                     "config-path": "config/",
                     "config-constructor": {
-                        "ICanBoogie\\AppConfig": "ICanBoogie\\AppConfigBuilder",
-                        "ICanBoogie\\Debug\\Config": "ICanBoogie\\Debug\\ConfigBuilder"
+                        "ICanBoogie\\AppConfig": "ICanBoogie\\AppConfigBuilder"
                     }
                 }
             },
@@ -1165,7 +1166,7 @@
                 "issues": "https://github.com/ICanBoogie/ICanBoogie/issues",
                 "source": "https://github.com/ICanBoogie/ICanBoogie"
             },
-            "time": "2024-11-20T08:33:00+00:00"
+            "time": "2024-11-28T02:34:11+00:00"
         },
         {
             "name": "icanboogie/inflector",
@@ -1484,12 +1485,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Routing.git",
-                "reference": "73b90ea608f1ec76ae5bf1480a6f1bf85923fecb"
+                "reference": "a8e38f725a81fee869990c1172680295e1ec308a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Routing/zipball/73b90ea608f1ec76ae5bf1480a6f1bf85923fecb",
-                "reference": "73b90ea608f1ec76ae5bf1480a6f1bf85923fecb",
+                "url": "https://api.github.com/repos/ICanBoogie/Routing/zipball/a8e38f725a81fee869990c1172680295e1ec308a",
+                "reference": "a8e38f725a81fee869990c1172680295e1ec308a",
                 "shasum": ""
             },
             "require": {
@@ -1532,7 +1533,7 @@
                 "issues": "https://github.com/ICanBoogie/Routing/issues",
                 "source": "https://github.com/ICanBoogie/Routing"
             },
-            "time": "2024-11-17T22:53:16+00:00"
+            "time": "2024-11-29T13:33:26+00:00"
         },
         {
             "name": "icanboogie/service",
@@ -1754,16 +1755,16 @@
         },
         {
             "name": "olvlvl/composer-attribute-collector",
-            "version": "v2.0.1",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/olvlvl/composer-attribute-collector.git",
-                "reference": "a3d45a2e9bab87e31d07652c47d12a6bcc7ac2b1"
+                "reference": "990adbcc8f4f069a71be12dc980ce12689cf897a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olvlvl/composer-attribute-collector/zipball/a3d45a2e9bab87e31d07652c47d12a6bcc7ac2b1",
-                "reference": "a3d45a2e9bab87e31d07652c47d12a6bcc7ac2b1",
+                "url": "https://api.github.com/repos/olvlvl/composer-attribute-collector/zipball/990adbcc8f4f069a71be12dc980ce12689cf897a",
+                "reference": "990adbcc8f4f069a71be12dc980ce12689cf897a",
                 "shasum": ""
             },
             "require": {
@@ -1772,18 +1773,18 @@
             },
             "require-dev": {
                 "composer/composer": ">=2.4",
-                "phpstan/phpstan": "^1.9",
+                "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^9.5"
             },
             "type": "composer-plugin",
             "extra": {
                 "class": "olvlvl\\ComposerAttributeCollector\\Plugin",
                 "composer-attribute-collector": {
-                    "include": [
-                        "tests"
-                    ],
                     "exclude": [
                         "tests/Acme/PSR4/IncompatibleSignature.php"
+                    ],
+                    "include": [
+                        "tests"
                     ]
                 }
             },
@@ -1807,9 +1808,9 @@
             "description": "A convenient and near zero-cost way to retrieve targets of PHP 8 attributes",
             "support": {
                 "issues": "https://github.com/olvlvl/composer-attribute-collector/issues",
-                "source": "https://github.com/olvlvl/composer-attribute-collector/tree/v2.0.1"
+                "source": "https://github.com/olvlvl/composer-attribute-collector/tree/v2.0.2"
             },
-            "time": "2023-10-28T01:59:22+00:00"
+            "time": "2024-11-29T13:09:50+00:00"
         },
         {
             "name": "olvlvl/symfony-dependency-injection-proxy",
@@ -1971,16 +1972,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v7.1.7",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "dc373a5cbd345354696f5dfd39c5c7a8ea23f4c8"
+                "reference": "bcd3c4adf0144dee5011bb35454728c38adec055"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/dc373a5cbd345354696f5dfd39c5c7a8ea23f4c8",
-                "reference": "dc373a5cbd345354696f5dfd39c5c7a8ea23f4c8",
+                "url": "https://api.github.com/repos/symfony/config/zipball/bcd3c4adf0144dee5011bb35454728c38adec055",
+                "reference": "bcd3c4adf0144dee5011bb35454728c38adec055",
                 "shasum": ""
             },
             "require": {
@@ -2026,7 +2027,7 @@
             "description": "Helps you find, load, combine, autofill and validate configuration values of any kind",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/config/tree/v7.1.7"
+                "source": "https://github.com/symfony/config/tree/v7.2.0"
             },
             "funding": [
                 {
@@ -2042,20 +2043,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-04T11:34:07+00:00"
+            "time": "2024-11-04T11:36:24+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v7.1.8",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "ff04e5b5ba043d2badfb308197b9e6b42883fcd5"
+                "reference": "23c8aae6d764e2bae02d2a99f7532a7f6ed619cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/ff04e5b5ba043d2badfb308197b9e6b42883fcd5",
-                "reference": "ff04e5b5ba043d2badfb308197b9e6b42883fcd5",
+                "url": "https://api.github.com/repos/symfony/console/zipball/23c8aae6d764e2bae02d2a99f7532a7f6ed619cf",
+                "reference": "23c8aae6d764e2bae02d2a99f7532a7f6ed619cf",
                 "shasum": ""
             },
             "require": {
@@ -2119,7 +2120,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v7.1.8"
+                "source": "https://github.com/symfony/console/tree/v7.2.0"
             },
             "funding": [
                 {
@@ -2135,20 +2136,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-06T14:23:19+00:00"
+            "time": "2024-11-06T14:24:19+00:00"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v7.1.8",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "e4d13f0f394f4d02a041ff76acd31c5a20a5f70b"
+                "reference": "a475747af1a1c98272a5471abc35f3da81197c5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/e4d13f0f394f4d02a041ff76acd31c5a20a5f70b",
-                "reference": "e4d13f0f394f4d02a041ff76acd31c5a20a5f70b",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/a475747af1a1c98272a5471abc35f3da81197c5d",
+                "reference": "a475747af1a1c98272a5471abc35f3da81197c5d",
                 "shasum": ""
             },
             "require": {
@@ -2199,7 +2200,7 @@
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dependency-injection/tree/v7.1.8"
+                "source": "https://github.com/symfony/dependency-injection/tree/v7.2.0"
             },
             "funding": [
                 {
@@ -2215,20 +2216,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-09T09:16:45+00:00"
+            "time": "2024-11-25T15:45:00+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v3.5.0",
+            "version": "v3.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "0e0d29ce1f20deffb4ab1b016a7257c4f1e789a1"
+                "reference": "74c71c939a79f7d5bf3c1ce9f5ea37ba0114c6f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/0e0d29ce1f20deffb4ab1b016a7257c4f1e789a1",
-                "reference": "0e0d29ce1f20deffb4ab1b016a7257c4f1e789a1",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/74c71c939a79f7d5bf3c1ce9f5ea37ba0114c6f6",
+                "reference": "74c71c939a79f7d5bf3c1ce9f5ea37ba0114c6f6",
                 "shasum": ""
             },
             "require": {
@@ -2266,7 +2267,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.5.0"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.5.1"
             },
             "funding": [
                 {
@@ -2282,20 +2283,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-18T09:32:20+00:00"
+            "time": "2024-09-25T14:20:29+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v7.1.6",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "c835867b3c62bb05c7fe3d637c871c7ae52024d4"
+                "reference": "b8dce482de9d7c9fe2891155035a7248ab5c7fdb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/c835867b3c62bb05c7fe3d637c871c7ae52024d4",
-                "reference": "c835867b3c62bb05c7fe3d637c871c7ae52024d4",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/b8dce482de9d7c9fe2891155035a7248ab5c7fdb",
+                "reference": "b8dce482de9d7c9fe2891155035a7248ab5c7fdb",
                 "shasum": ""
             },
             "require": {
@@ -2332,7 +2333,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v7.1.6"
+                "source": "https://github.com/symfony/filesystem/tree/v7.2.0"
             },
             "funding": [
                 {
@@ -2348,7 +2349,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-10-25T15:11:02+00:00"
+            "time": "2024-10-25T15:15:23+00:00"
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
@@ -2373,8 +2374,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
@@ -2451,8 +2452,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
@@ -2511,16 +2512,16 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v3.5.0",
+            "version": "v3.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "bd1d9e59a81d8fa4acdcea3f617c581f7475a80f"
+                "reference": "e53260aabf78fb3d63f8d79d69ece59f80d5eda0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/bd1d9e59a81d8fa4acdcea3f617c581f7475a80f",
-                "reference": "bd1d9e59a81d8fa4acdcea3f617c581f7475a80f",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/e53260aabf78fb3d63f8d79d69ece59f80d5eda0",
+                "reference": "e53260aabf78fb3d63f8d79d69ece59f80d5eda0",
                 "shasum": ""
             },
             "require": {
@@ -2574,7 +2575,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/service-contracts/tree/v3.5.0"
+                "source": "https://github.com/symfony/service-contracts/tree/v3.5.1"
             },
             "funding": [
                 {
@@ -2590,20 +2591,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-18T09:32:20+00:00"
+            "time": "2024-09-25T14:20:29+00:00"
         },
         {
             "name": "symfony/string",
-            "version": "v7.1.8",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "591ebd41565f356fcd8b090fe64dbb5878f50281"
+                "reference": "446e0d146f991dde3e73f45f2c97a9faad773c82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/591ebd41565f356fcd8b090fe64dbb5878f50281",
-                "reference": "591ebd41565f356fcd8b090fe64dbb5878f50281",
+                "url": "https://api.github.com/repos/symfony/string/zipball/446e0d146f991dde3e73f45f2c97a9faad773c82",
+                "reference": "446e0d146f991dde3e73f45f2c97a9faad773c82",
                 "shasum": ""
             },
             "require": {
@@ -2661,7 +2662,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v7.1.8"
+                "source": "https://github.com/symfony/string/tree/v7.2.0"
             },
             "funding": [
                 {
@@ -2677,20 +2678,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-13T13:31:21+00:00"
+            "time": "2024-11-13T13:31:26+00:00"
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v7.1.6",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "90173ef89c40e7c8c616653241048705f84130ef"
+                "reference": "1a6a89f95a46af0f142874c9d650a6358d13070d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/90173ef89c40e7c8c616653241048705f84130ef",
-                "reference": "90173ef89c40e7c8c616653241048705f84130ef",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/1a6a89f95a46af0f142874c9d650a6358d13070d",
+                "reference": "1a6a89f95a46af0f142874c9d650a6358d13070d",
                 "shasum": ""
             },
             "require": {
@@ -2737,7 +2738,7 @@
                 "serialize"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-exporter/tree/v7.1.6"
+                "source": "https://github.com/symfony/var-exporter/tree/v7.2.0"
             },
             "funding": [
                 {
@@ -2753,24 +2754,25 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-25T14:20:29+00:00"
+            "time": "2024-10-18T07:58:17+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v7.1.6",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "3ced3f29e4f0d6bce2170ff26719f1fe9aacc671"
+                "reference": "099581e99f557e9f16b43c5916c26380b54abb22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/3ced3f29e4f0d6bce2170ff26719f1fe9aacc671",
-                "reference": "3ced3f29e4f0d6bce2170ff26719f1fe9aacc671",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/099581e99f557e9f16b43c5916c26380b54abb22",
+                "reference": "099581e99f557e9f16b43c5916c26380b54abb22",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2",
+                "symfony/deprecation-contracts": "^2.5|^3.0",
                 "symfony/polyfill-ctype": "^1.8"
             },
             "conflict": {
@@ -2808,7 +2810,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v7.1.6"
+                "source": "https://github.com/symfony/yaml/tree/v7.2.0"
             },
             "funding": [
                 {
@@ -2824,22 +2826,22 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-25T14:20:29+00:00"
+            "time": "2024-10-23T06:56:12+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "phpstan/phpstan",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "6c98c7600fc717b2c78c11ef60040d5b1e359c82"
+                "reference": "46b4d3529b12178112d9008337beda0cc2a1a6b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/6c98c7600fc717b2c78c11ef60040d5b1e359c82",
-                "reference": "6c98c7600fc717b2c78c11ef60040d5b1e359c82",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/46b4d3529b12178112d9008337beda0cc2a1a6b4",
+                "reference": "46b4d3529b12178112d9008337beda0cc2a1a6b4",
                 "shasum": ""
             },
             "require": {
@@ -2884,7 +2886,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-11-17T14:17:00+00:00"
+            "time": "2024-11-28T22:19:37+00:00"
         }
     ],
     "aliases": [

@@ -1,7 +1,5 @@
 <?php
 
-namespace ICanBoogie;
-
 use ICanBoogie\Binding\SymfonyDependencyInjection\ConfigBuilder;
 
 return fn(ConfigBuilder $config) => $config

@@ -3,6 +3,7 @@
 namespace App\Modules\Articles;
 
 use ICanBoogie\ActiveRecord;
+use ICanBoogie\ActiveRecord\Schema\Boolean;
 use ICanBoogie\ActiveRecord\Schema\Character;
 use ICanBoogie\ActiveRecord\Schema\Date;
 use ICanBoogie\ActiveRecord\Schema\Id;
@@ -20,6 +21,7 @@ use function strip_tags;
  * @property-read string $safe_title
  */
 #[Index('visibility')]
+#[Index('is_highlighted')]
 class Article extends ActiveRecord
 {
 	use UrlTrait;
@@ -66,9 +68,12 @@ class Article extends ActiveRecord
 	#[Integer(size: Integer::SIZE_TINY)]
 	public int $visibility = self::VISIBILITY_NONE;
 
+    #[Boolean]
+    public bool $is_highlighted = false;
+
 	public static function assignable(): array
 	{
-		return [ 'title', 'slug', 'body', 'excerpt', 'hash', 'visibility' ];
+		return [ 'title', 'slug', 'body', 'excerpt', 'hash', 'visibility', 'is_highlighted' ];
 	}
 
 	/**

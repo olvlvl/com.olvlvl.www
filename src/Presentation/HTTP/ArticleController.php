@@ -27,6 +27,7 @@ final class ArticleController extends ControllerAbstract
 
 	/**
 	 * @uses list
+	 * @uses highlights
 	 * @uses show
 	 * @uses show_redirect
 	 * @uses feed
@@ -58,7 +59,29 @@ final class ArticleController extends ControllerAbstract
 		$this->response->headers->cache_control = 'public';
 		$this->response->expires = '+3 hour';
 
-		$this->render($articles);
+		$this->render($articles, locals: [
+            'page_title' => 'Olivier Laviale',
+            'document_title' => 'Olivier Laviale, Staff Engineer',
+            'nav_link' => 'articles',
+        ]);
+	}
+
+	#[Get('/highlights.html')]
+	private function highlights(): void
+	{
+		$articles = $this->model
+			->where('visibility >= ?', $this->min_visibility_list)
+            ->and("is_highlighted = true")
+			->order('-date');
+
+		$this->response->headers->cache_control = 'public';
+		$this->response->expires = '+3 hour';
+
+		$this->render($articles, template: 'articles/list', locals: [
+            'page_title' => 'Olivier Laviale',
+            'document_title' => 'Olivier Laviale, Staff Engineer',
+            'nav_link' => 'highlights',
+        ]);
 	}
 
 	/**

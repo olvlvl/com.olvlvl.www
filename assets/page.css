@@ -37,21 +37,9 @@ h1 {
 	font-weight: normal;
 	line-height: 3.2rem;
 	/* 'auto' is for text balancing */
-	margin: 0 auto 2.4rem;
+	margin: 0 auto;
 	padding-top: 2.4rem;
-}
-
-.page-articles-show h1 {
-	margin-bottom: 0;
-}
-
-h1 small {
-	display: block;
-	font-size: .8889rem;
-	letter-spacing: .3ex;
-	margin-top: .8rem;
-	opacity: .6;
-	text-transform: uppercase;
+    padding-bottom: .8rem;
 }
 
 h2, h3, h4 {
@@ -89,19 +77,43 @@ h2 + h3, h3 + h4 {
 	}
 }
 
-@media (max-width: 400px) {
-	h1 {
-		font-size: 2rem;
-		line-height: 2.4rem;
-	}
+.navbar {
+    text-align: center;
+    font-size: .9rem;
+    font-weight: 400;
+    letter-spacing: .3ex;
+    line-height: 3.2rem;
+    margin: 0 auto 1.6rem;
+}
 
-	h1 small {
-		font-size: .6665rem;
-	}
+.navbar-nav {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
 
-	.page-body p {
-		hyphens: auto;
-	}
+.navbar-item {
+    display: inline-block;
+    margin-right: -.3ex;
+}
+
+.navbar-item + .navbar-item {
+    margin-left: 1.6rem;
+}
+
+.navbar-link {
+    color: inherit;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.navbar-item.active .navbar-link {
+
+}
+
+.navbar-item:not(.active):not(:hover) .navbar-link {
+    opacity: .6;
+    transition: opacity;
 }
 
 article, footer, header, hgroup, main, menu, nav, section, summary {
@@ -125,13 +137,13 @@ dl, ol, ul {
 }
 
 /* because Firefox is bothering me, adding .5px to LI elements */
-li::before {
+main.page-content li::before {
 	content: "•";
 	position: absolute;
 	left: -2ex;
 }
 
-li {
+main.page-content li {
 	display: block;
 	position: relative;
 }
@@ -166,17 +178,6 @@ p > code {
 	vertical-align: bottom;
 	color: inherit;
 	border-radius: 6px;
-}
-
-@media (max-width: 600px) {
-	pre,
-	pre[class*="language-"],
-	blockquote {
-		border-left: 0;
-		/* like the body */
-		margin-left: -1rem;
-		margin-right: -1rem;
-	}
 }
 
 blockquote > :first-child {
@@ -344,8 +345,8 @@ Article
 }
 
 .article-show .article-meta {
-	margin-top: .8rem;
-	margin-bottom: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 1.6rem;
 	text-align: center;
 }
 
@@ -510,6 +511,37 @@ pre.language-yaml {
 
 .table-bordered td {
 	border-top: 1px;
+}
+
+/*
+
+Smaller
+
+*/
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        padding-top: 1.6rem;
+    }
+
+    .navbar-item + .navbar-item {
+        margin-left: calc(1rem - .3ex);
+    }
+
+    .page-body p {
+        hyphens: auto;
+    }
+
+    pre,
+    pre[class*="language-"],
+    blockquote {
+        border-left: 0;
+        /* like the body */
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
 }
 
 /*

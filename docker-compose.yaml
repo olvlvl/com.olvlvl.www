@@ -21,3 +21,10 @@ services:
     ports: *ports
     volumes: *vols
     working_dir: /app
+  app-production:
+    build: .
+    environment:
+      XDEBUG_MODE: profile
+    ports: *ports
+    volumes: *vols
+    working_dir: /app

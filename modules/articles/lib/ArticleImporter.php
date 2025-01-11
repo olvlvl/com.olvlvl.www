@@ -69,9 +69,10 @@ final class ArticleImporter
 
 		$excerpt = $this->excerpt($body);
 		$visibility = $this->resolve_visibility($metadata);
+        $is_highlighted = filter_var($metadata['highlighted'] ?? 'false', FILTER_VALIDATE_BOOL);
 
 		$article
-			->assign(compact('title', 'body', 'excerpt', 'hash', 'visibility'))
+			->assign(compact('title', 'body', 'excerpt', 'hash', 'visibility', 'is_highlighted'))
 			->save();
 
 		return $article;
